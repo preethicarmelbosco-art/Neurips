@@ -30,6 +30,10 @@ from tqdm import tqdm
 from datasets import load_dataset
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+_here = os.path.dirname(os.path.abspath(__file__))
+if _here not in sys.path:
+    sys.path.insert(0, _here)
+from _logprob_helpers import choice_logprob
 from utils.model_loader import load_student
 
 LOG_DIR = Path(__file__).parent.parent / "results" / "logs"
@@ -51,24 +55,13 @@ RESULTS_DIR = Path(__file__).parent.parent / "results" / "cybermetric"
 
 
 def compute_choice_log_prob(model, tokenizer, prompt, choice_text, device):
-    """Compute length-normalized log prob of a choice given a prompt."""
-    full = prompt + " " + choice_text
-    prompt_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
-    full_ids = tokenizer(full, return_tensors="pt").input_ids.to(device)
+    """Mean per-token log P(completion | prompt).
 
-    p_len = prompt_ids.shape[1]
-    c_len = full_ids.shape[1] - p_len
-    if c_len <= 0:
-        return float("-inf")
-
-    with torch.no_grad():
-        logits = model(full_ids).logits
-
-    shift_logits = logits[:, p_len - 1:-1, :]
-    shift_labels = full_ids[:, p_len:]
-    log_probs = torch.nn.functional.log_softmax(shift_logits, dim=-1)
-    token_lp = log_probs.gather(2, shift_labels.unsqueeze(-1)).squeeze(-1)
-    return token_lp.sum().item() / c_len
+    Thin wrapper around shared :func:`choice_logprob` — tokenises prompt and
+    continuation separately, strips BOS, applies chat template for instruct
+    models, and handles the space-prefix contract via the helper.
+    """
+    return choice_logprob(model, tokenizer, prompt, choice_text, device, reduce="byte_mean")
 
 
 def run_heldout(model, tokenizer, model_key: str, adapter_path: str | None = None,
@@ -96,14 +89,17 @@ def run_heldout(model, tokenizer, model_key: str, adapter_path: str | None = Non
         prompt = f"Question: {question}\n\nChoices:\n"
         for i, c in enumerate(choices):
             prompt += f"  ({chr(65+i)}) {c}\n"
-        prompt += "\nAnswer:"
+        prompt += "\nAnswer with a single letter:"
 
+        # Score just the letter — standard MCQA practice (matches lm-eval).
+        # Scoring ``f" ({letter}) {choice_text}"`` mixes answer selection with
+        # the prior probability of the choice text, biasing toward shorter /
+        # higher-prior answer strings independent of correctness.
         best_idx = 0
         best_score = float("-inf")
-        for i, c in enumerate(choices):
-            score = compute_choice_log_prob(
-                model, tokenizer, prompt, f" ({chr(65+i)}) {c}", device
-            )
+        for i in range(len(choices)):
+            letter = chr(65 + i)
+            score = compute_choice_log_prob(model, tokenizer, prompt, letter, device)
             if score > best_score:
                 best_score = score
                 best_idx = i

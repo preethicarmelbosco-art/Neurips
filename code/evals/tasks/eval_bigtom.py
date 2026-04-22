@@ -28,9 +28,13 @@ from datasets import load_dataset
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+_here = os.path.dirname(os.path.abspath(__file__))
+if _here not in sys.path:
+    sys.path.insert(0, _here)
 from configs.seeds import STUDENT_MODELS
 from utils.model_loader import load_student
 from utils.metrics import EvalResult, save_results
+from _logprob_helpers import choice_logprob
 
 RESULTS_DIR = Path(__file__).parent.parent / "results" / "bigtom"
 
@@ -57,25 +61,14 @@ def extract_belief_statement(text: str) -> tuple[str, str]:
 
 
 def compute_log_prob(model, tokenizer, prompt: str, completion: str, device: str) -> float:
-    """Compute log probability of completion given prompt."""
-    full_text = prompt + " " + completion
-    prompt_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
-    full_ids = tokenizer(full_text, return_tensors="pt").input_ids.to(device)
+    """Mean per-token log P(completion | prompt).
 
-    prompt_len = prompt_ids.shape[1]
-
-    with torch.no_grad():
-        outputs = model(full_ids)
-        logits = outputs.logits
-
-    # Get log probs for completion tokens only
-    shift_logits = logits[:, prompt_len - 1:-1, :]
-    shift_labels = full_ids[:, prompt_len:]
-
-    log_probs = torch.nn.functional.log_softmax(shift_logits, dim=-1)
-    token_log_probs = log_probs.gather(2, shift_labels.unsqueeze(-1)).squeeze(-1)
-
-    return token_log_probs.mean().item()
+    Thin wrapper around the shared :func:`choice_logprob` helper, which
+    tokenises prompt and continuation separately (avoiding BPE-boundary
+    misalignment), strips BOS from the continuation, and applies the
+    tokenizer's chat template for instruct-tuned models.
+    """
+    return choice_logprob(model, tokenizer, prompt, completion, device, reduce="byte_mean")
 
 
 def run_heldout(model, tokenizer, model_key: str, adapter_path: str | None = None) -> dict:

@@ -29,9 +29,13 @@ from datasets import load_dataset
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+_here = os.path.dirname(os.path.abspath(__file__))
+if _here not in sys.path:
+    sys.path.insert(0, _here)
 from configs.seeds import STUDENT_MODELS
 from utils.model_loader import load_student
 from utils.metrics import EvalResult, save_results
+from _logprob_helpers import choice_logprob
 
 LOG_DIR = Path(__file__).parent.parent / "results" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -49,32 +53,25 @@ except ImportError:
 
 RESULTS_DIR = Path(__file__).parent.parent / "results" / "bigbench_diplomacy"
 
-PROMPT_TEMPLATE = """In the board game Diplomacy, players send messages that may be truthful or deceptive. Read the following message and determine if it is truthful or deceptive.
+# Single-letter answer format: both "T" and "D" tokenise to a single token on
+# essentially every tokeniser, and as isolated capital letters have balanced
+# training-data priors — which eliminates both the tokeniser-length bias and
+# the lexical-frequency bias that made the word-level ("truthful"/"deceptive")
+# prompt label-collapse even after tokenisation + chat-template fixes.
+PROMPT_TEMPLATE = """In the board game Diplomacy, players send messages that may be truthful or deceptive. Read the following message and answer with a single letter.
 
 Message: {input}
 
-This message is:"""
+Is this message truthful (T) or deceptive (D)?
+
+Answer ("T" or "D"):"""
+# Candidate → gold label mapping.
+CANDIDATES = {"T": "truthful", "D": "deceptive"}
 
 
 def compute_log_prob(model, tokenizer, prompt: str, completion: str, device: str) -> float:
-    """Compute log probability of completion given prompt."""
-    full_text = prompt + " " + completion
-    prompt_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
-    full_ids = tokenizer(full_text, return_tensors="pt").input_ids.to(device)
-
-    prompt_len = prompt_ids.shape[1]
-
-    with torch.no_grad():
-        outputs = model(full_ids)
-        logits = outputs.logits
-
-    shift_logits = logits[:, prompt_len - 1:-1, :]
-    shift_labels = full_ids[:, prompt_len:]
-
-    log_probs = torch.nn.functional.log_softmax(shift_logits, dim=-1)
-    token_log_probs = log_probs.gather(2, shift_labels.unsqueeze(-1)).squeeze(-1)
-
-    return token_log_probs.mean().item()
+    """Thin wrapper — delegates to shared :func:`choice_logprob`."""
+    return choice_logprob(model, tokenizer, prompt, completion, device, reduce="byte_mean")
 
 
 def load_diplomacy_dataset(max_examples: int = 500):
@@ -209,11 +206,13 @@ def run_heldout(model, tokenizer, model_key: str, adapter_path: str | None = Non
         if not input_text or gold_label is None:
             continue
 
-        prompt = PROMPT_TEMPLATE.format(input=input_text)
-        score_truthful = compute_log_prob(model, tokenizer, prompt, "truthful", device)
-        score_deceptive = compute_log_prob(model, tokenizer, prompt, "deceptive", device)
-
-        predicted = "truthful" if score_truthful > score_deceptive else "deceptive"
+        user_prompt = PROMPT_TEMPLATE.format(input=input_text)
+        # Helper handles chat-template + format-string contract internally.
+        # Pass the bare candidate letter ("T" / "D"); both tokenise to a single
+        # token on every tokeniser and have near-equal training-data priors.
+        score_T = choice_logprob(model, tokenizer, user_prompt, "T", device, reduce="byte_mean")
+        score_D = choice_logprob(model, tokenizer, user_prompt, "D", device, reduce="byte_mean")
+        predicted = CANDIDATES["T"] if score_T > score_D else CANDIDATES["D"]
         is_correct = predicted == gold_label
 
         if is_correct:

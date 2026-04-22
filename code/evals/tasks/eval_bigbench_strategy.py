@@ -31,6 +31,10 @@ from datasets import load_dataset
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+_here = os.path.dirname(os.path.abspath(__file__))
+if _here not in sys.path:
+    sys.path.insert(0, _here)
+from _logprob_helpers import choice_logprob
 from configs.seeds import STUDENT_MODELS
 from utils.model_loader import load_student
 from utils.metrics import EvalResult, save_results
@@ -55,27 +59,13 @@ CHOICE_LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
 
 def compute_log_prob(model, tokenizer, prompt: str, completion: str, device: str) -> float:
-    """Compute length-normalized log probability of completion given prompt."""
-    full_text = prompt + " " + completion
-    prompt_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
-    full_ids = tokenizer(full_text, return_tensors="pt").input_ids.to(device)
+    """Mean per-token log P(completion | prompt).
 
-    prompt_len = prompt_ids.shape[1]
-    completion_len = full_ids.shape[1] - prompt_len
-    if completion_len <= 0:
-        return float("-inf")
-
-    with torch.no_grad():
-        outputs = model(full_ids)
-        logits = outputs.logits
-
-    shift_logits = logits[:, prompt_len - 1:-1, :]
-    shift_labels = full_ids[:, prompt_len:]
-
-    log_probs = torch.nn.functional.log_softmax(shift_logits, dim=-1)
-    token_log_probs = log_probs.gather(2, shift_labels.unsqueeze(-1)).squeeze(-1)
-
-    return token_log_probs.sum().item() / completion_len
+    Thin wrapper around shared :func:`choice_logprob` — tokenises prompt and
+    continuation separately, strips BOS, applies chat template for instruct
+    models, and handles the space-prefix contract via the helper.
+    """
+    return choice_logprob(model, tokenizer, prompt, completion, device, reduce="byte_mean")
 
 
 def _extract_fields(example):

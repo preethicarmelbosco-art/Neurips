@@ -80,24 +80,56 @@ LEGALBENCH_TASKS = [
 ]
 
 
-def compute_choice_log_prob(model, tokenizer, prompt, answer_text, device):
-    """Log prob of answer_text given prompt."""
-    full = prompt + " " + answer_text
-    prompt_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
-    full_ids = tokenizer(full, return_tensors="pt").input_ids.to(device)
+def _wrap_chat_if_available(tokenizer, user_prompt: str) -> tuple[str, bool]:
+    """Apply chat template if the tokenizer exposes one (instruct models).
 
-    p_len = prompt_ids.shape[1]
-    c_len = full_ids.shape[1] - p_len
-    if c_len <= 0:
+    Raw completion prompts to instruct-tuned models are out-of-distribution:
+    log-probs over candidate answer tokens become unreliable. Chat-templating
+    puts the model back into its trained regime. Returns (final_prompt, is_chat).
+    """
+    if getattr(tokenizer, "chat_template", None):
+        try:
+            wrapped = tokenizer.apply_chat_template(
+                [{"role": "user", "content": user_prompt}],
+                tokenize=False,
+                add_generation_prompt=True,
+            )
+            return wrapped, True
+        except Exception:
+            pass
+    return user_prompt, False
+
+
+def compute_choice_log_prob(model, tokenizer, prompt, answer_text, device):
+    """Mean per-token log P(answer_text | prompt).
+
+    Tokenises prompt and continuation separately and concatenates IDs, which
+    avoids the re-tokenisation-boundary bug where tokenise(prompt+X) ≠
+    tokenise(prompt)+tokenise(X) on BPE/SentencePiece — the prior version read
+    logits from misaligned positions. Caller owns the leading-space contract:
+    pass ``" Yes"`` for raw-completion prompts and ``"Yes"`` for chat-templated
+    prompts (where the template already closes the boundary).
+    """
+    prompt_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
+    cont_ids = tokenizer(answer_text, return_tensors="pt",
+                         add_special_tokens=False).input_ids.to(device)
+    # Some tokenisers still emit BOS with add_special_tokens=False; strip it.
+    bos = getattr(tokenizer, "bos_token_id", None)
+    if bos is not None and cont_ids.shape[1] > 0 and cont_ids[0, 0].item() == bos:
+        cont_ids = cont_ids[:, 1:]
+
+    c_len = cont_ids.shape[1]
+    if c_len == 0:
         return float("-inf")
+    p_len = prompt_ids.shape[1]
+    full_ids = torch.cat([prompt_ids, cont_ids], dim=1)
 
     with torch.no_grad():
         logits = model(full_ids).logits
 
-    shift_logits = logits[:, p_len - 1:-1, :]
-    shift_labels = full_ids[:, p_len:]
+    shift_logits = logits[:, p_len - 1 : p_len - 1 + c_len, :]
     log_probs = torch.nn.functional.log_softmax(shift_logits, dim=-1)
-    token_lp = log_probs.gather(2, shift_labels.unsqueeze(-1)).squeeze(-1)
+    token_lp = log_probs.gather(2, cont_ids.unsqueeze(-1)).squeeze(-1)
     return token_lp.sum().item() / c_len
 
 
@@ -140,12 +172,22 @@ def run_heldout(model, tokenizer, model_key: str, adapter_path: str | None = Non
             text = ex.get("text", "")
             gold = str(ex["answer"]).strip()
 
-            prompt = f"Legal text: {text}\n\nBased on the legal text above, what is the correct classification?\n\nAnswer:"
+            user_prompt = (
+                f"Legal text: {text}\n\n"
+                f"Based on the legal text above, what is the correct classification?\n\n"
+                f"Answer:"
+            )
+            final_prompt, is_chat = _wrap_chat_if_available(tokenizer, user_prompt)
+            # Raw completion: leading space for natural next-token alignment.
+            # Chat-templated: bare label — the template's trailing tokens
+            # (e.g. "<|assistant|>\n") already set up the boundary.
+            label_fmt = (lambda lbl: lbl) if is_chat else (lambda lbl: f" {lbl}")
 
             best_label = None
             best_score = float("-inf")
             for label in answer_labels:
-                score = compute_choice_log_prob(model, tokenizer, prompt, f" {label}", device)
+                score = compute_choice_log_prob(model, tokenizer, final_prompt,
+                                                label_fmt(label), device)
                 if score > best_score:
                     best_score = score
                     best_label = label

@@ -32,6 +32,10 @@ from tqdm import tqdm
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+_here = os.path.dirname(os.path.abspath(__file__))
+if _here not in sys.path:
+    sys.path.insert(0, _here)
+from _logprob_helpers import choice_logprob
 from configs.seeds import STUDENT_MODELS, DOMAINS
 from utils.model_loader import load_student
 from utils.metrics import EvalResult, save_results
@@ -52,32 +56,25 @@ except ImportError:
 
 RESULTS_DIR = Path(__file__).parent.parent / "results" / "formality"
 
-PROMPT_TEMPLATE = """Read the following text and determine whether it is written in a formal academic style or an informal conversational style.
+PROMPT_TEMPLATE = """Read the following text and determine whether it is written in a formal academic style or an informal conversational style. Answer with a single letter.
 
 Text: {text}
 
-This text is written in a style that is:"""
+Options:
+  (A) formal
+  (B) informal
+
+Answer ("A" or "B"):"""
 
 
 def compute_log_prob(model, tokenizer, prompt: str, completion: str, device: str) -> float:
-    """Compute log probability of completion given prompt."""
-    full_text = prompt + " " + completion
-    prompt_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
-    full_ids = tokenizer(full_text, return_tensors="pt").input_ids.to(device)
+    """Mean per-token log P(completion | prompt).
 
-    prompt_len = prompt_ids.shape[1]
-
-    with torch.no_grad():
-        outputs = model(full_ids)
-        logits = outputs.logits
-
-    shift_logits = logits[:, prompt_len - 1:-1, :]
-    shift_labels = full_ids[:, prompt_len:]
-
-    log_probs = torch.nn.functional.log_softmax(shift_logits, dim=-1)
-    token_log_probs = log_probs.gather(2, shift_labels.unsqueeze(-1)).squeeze(-1)
-
-    return token_log_probs.mean().item()
+    Thin wrapper around shared :func:`choice_logprob` — tokenises prompt and
+    continuation separately, strips BOS, applies chat template for instruct
+    models, and handles the space-prefix contract via the helper.
+    """
+    return choice_logprob(model, tokenizer, prompt, completion, device, reduce="byte_mean")
 
 
 def load_null_cc_holdout() -> list[dict]:
@@ -159,19 +156,22 @@ def evaluate_formality(model_key: str, adapter_path: str | None = None,
         if category not in by_category:
             by_category[category] = {"correct": 0, "total": 0}
 
-        # Test formal text — should be classified as "formal"
+        # Single-letter A/B candidates: both 1 token on every tokeniser.
+        # Previously F/I collapsed to 100% "I" on OLMo-7B (base) because
+        # standalone capital "I" is the English first-person pronoun and
+        # has a massive training-data prior over "F". A/B are neutral.
         prompt_f = PROMPT_TEMPLATE.format(text=pair["formal"][:512])
-        score_formal_f = compute_log_prob(model, tokenizer, prompt_f, " formal", device)
-        score_informal_f = compute_log_prob(model, tokenizer, prompt_f, " informal", device)
+        score_formal_f = compute_log_prob(model, tokenizer, prompt_f, "A", device)
+        score_informal_f = compute_log_prob(model, tokenizer, prompt_f, "B", device)
         if score_formal_f > score_informal_f:
             correct_formal += 1
             by_category[category]["correct"] += 1
         style_gaps.append(score_formal_f - score_informal_f)
 
-        # Test informal text — should be classified as "informal"
+        # Test informal text — should be classified as "informal" (B)
         prompt_i = PROMPT_TEMPLATE.format(text=pair["informal"][:512])
-        score_formal_i = compute_log_prob(model, tokenizer, prompt_i, " formal", device)
-        score_informal_i = compute_log_prob(model, tokenizer, prompt_i, " informal", device)
+        score_formal_i = compute_log_prob(model, tokenizer, prompt_i, "A", device)
+        score_informal_i = compute_log_prob(model, tokenizer, prompt_i, "B", device)
         if score_informal_i > score_formal_i:
             correct_informal += 1
             by_category[category]["correct"] += 1

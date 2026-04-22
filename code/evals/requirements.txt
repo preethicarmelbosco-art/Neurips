@@ -1,0 +1,9 @@
+torch>=2.3
+transformers>=4.44,<6
+peft>=0.12
+accelerate>=0.33
+datasets>=2.21
+tokenizers>=0.19
+huggingface_hub>=0.24
+lm-eval>=0.4.3
+numpy>=1.26

@@ -1,0 +1,12 @@
+# CogBench generation pipeline — runtime dependencies.
+# Pinned to versions used to produce v1.1.0. Loosen at your own risk.
+openai==1.51.0
+instructor==1.4.0
+pydantic==2.8.2
+python-dotenv==1.0.1
+tqdm==4.66.5
+datasets==2.21.0
+sentence-transformers==3.1.1
+scikit-learn==1.5.2
+numpy==1.26.4
+httpx==0.27.2

@@ -1,0 +1,13 @@
+torch>=2.3
+transformers>=4.44,<6
+accelerate>=0.33
+tokenizers>=0.19
+datasets>=2.21
+huggingface_hub>=0.24
+pydantic>=2.8
+numpy>=1.26
+tqdm>=4.66
+openai>=1.40
+httpx>=0.27
+# Optional — enables vLLM generation on SM>=8 GPUs. Comment out on pre-Ampere.
+# vllm>=0.6

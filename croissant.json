@@ -1,0 +1,5363 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "name": "CogBench",
+  "description": "CogBench: a contrastive corpus suite for cognitive-circuit analysis in language models. Eight primary synthetic contrastive corpora spanning applied scientific reasoning (SPL-CC), theory of mind (ToM-CC), causal-temporal reasoning (CTR-CC), moral reasoning (MOR-CC), strategic reasoning (STR-CC), stepwise planning (STP-CC), core mathematics (CoreMath), and a negative-control null corpus (NULL-CC); plus a COIN (Contrast) family with five theme-matched partner sub-corpora (CAU_COIN, MOR_COIN, STP_COIN, STR_COIN, TOM_COIN) whose target/retain pairs are complete opposites — like sides of a coin. Each record is a matched target/retain text pair: the target exercises a specific cognitive skill and the retain is a content-matched control lacking that skill. The suite supports mechanistic interpretability via Sparse Autoencoder (SAE) analysis and quantitative Cognitive Absorption (CA) measurement of scaffolding dependence. Data files are licensed under CC BY 4.0; accompanying generation, evaluation, and training code (shipped alongside in the same bundle) is separately licensed under the Apache License 2.0.",
+  "url": "https://anonymous.4open.science/r/cogbench-anon",
+  "sameAs": "https://anonymous.4open.science/r/cogbench-anon",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "sdLicense": "https://creativecommons.org/licenses/by/4.0/",
+  "citeAs": "@inproceedings{anonymous2026cogbench,\n  title={CogBench: Contrastive Corpora for Cognitive-Circuit Analysis in Language Models},\n  author={Anonymous Authors},\n  booktitle={Submitted to the NeurIPS 2026 Track on Datasets and Benchmarks},\n  year={2026},\n  note={Under double-blind review}\n}",
+  "creator": {
+    "@type": "sc:Person",
+    "name": "Anonymous"
+  },
+  "publisher": {
+    "@type": "sc:Organization",
+    "name": "Anonymous"
+  },
+  "datePublished": "2026-04-22",
+  "dateCreated": "2026-03-19",
+  "dateModified": "2026-04-22",
+  "version": "1.1.0",
+  "inLanguage": "en",
+  "isLiveDataset": false,
+  "keywords": [
+    "contrastive corpus",
+    "mechanistic interpretability",
+    "sparse autoencoders",
+    "theory of mind",
+    "causal reasoning",
+    "moral reasoning",
+    "strategic reasoning",
+    "planning",
+    "mathematical reasoning",
+    "negative control",
+    "cognitive absorption",
+    "benchmark",
+    "NLP"
+  ],
+  "rai:dataCollection": "All pairs are synthetically generated using a single open-weights teacher model served via a local inference stack, with structured JSON output enforced by a schema-validating wrapper. Each pair undergoes a two-stage validation pipeline: (1) deterministic regex gates enforcing structural constraints (e.g. a cognitive-term blacklist for NULL-CC, math-symbol presence checks for SPL-CC and CoreMath, counterfactual pattern matching for CTR-CC); (2) a multi-judge LLM panel applying unanimous- or majority-vote consensus on context-dependent content (ToM, CTR, MOR, STR, STP, COIN). Pairs failing either stage are rejected and regenerated. The bench, train, and holdout splits are disjoint by scenario-seed id.",
+  "rai:dataCollectionType": [
+    "Synthetic generation",
+    "Software/API",
+    "LLM panel validation"
+  ],
+  "rai:dataCollectionTimeframe": [
+    "2026-03-19",
+    "2026-04-14"
+  ],
+  "rai:dataPreprocessingProtocol": [
+    "Deterministic regex and structural gates per corpus (math-symbol checks, cognitive blacklist, counterfactual patterns).",
+    "Embedding-based near-duplicate filtering within each corpus.",
+    "Cross-benchmark decontamination scan against public holdouts (BigBench, BigToM, BCOPA-CE, Hendrycks MATH, FinQA, LegalBench, ScienceQA, CyberMetric).",
+    "Split assignment by scenario-seed id so that train / bench / holdout share no seed."
+  ],
+  "rai:dataAnnotationProtocol": "Annotations are entirely model-based: a panel of open-weights LLM judges votes accept/reject on each pair along corpus-specific criteria (target contains the named cognitive skill; retain is a content-matched control that does not). Consensus rule: unanimous for context-dependent corpora (ToM, CTR, MOR, STR, STP, COIN), majority for style-only corpora (NULL). No human annotation was used to construct the release; a human audit protocol over a stratified sample is described in the accompanying datasheet for reviewer verification.",
+  "rai:annotationsPerItem": "2 to 3 LLM-judge votes per pair depending on corpus",
+  "rai:machineAnnotationTools": [
+    "Open-weights generator LLM served via a local inference stack",
+    "Open-weights judge LLMs in a panel-vote configuration",
+    "Schema-validating structured-output wrapper"
+  ],
+  "rai:dataUseCases": [
+    "Mechanistic interpretability: identification of cognitive-skill features and circuits in language models via Sparse Autoencoder (SAE) analysis.",
+    "Cognitive Absorption (CA) measurement: quantifying scaffolding dependence by comparing target vs. retain activation / prediction statistics.",
+    "Contrastive fine-tuning: LoRA / Q-DoRA training on matched target/retain pairs.",
+    "Two-dimensional model profiling: raw capability × cognitive-absorption across a model zoo.",
+    "Negative-control / null-hypothesis testing: NULL-CC isolates style-only variation from cognitive-content variation."
+  ],
+  "rai:dataBiases": [
+    "Single-generator bias: all text is produced by one teacher model family, so stylistic and reasoning distributional biases of that family propagate into every corpus.",
+    "Judge-generator correlation: validation judges are also LLMs and share pre-training substrates with the generator, which can create correlated false negatives / positives.",
+    "Template coverage: scenarios are seeded from hand-curated template categories; domains outside those templates are under-represented.",
+    "Language: English-only.",
+    "Register asymmetry in NULL-CC: formal/informal contrast is systematic rather than sampled from naturalistic distributions."
+  ],
+  "rai:dataLimitations": [
+    "The suite is diagnostic, not a capability benchmark; high retain accuracy is expected in some corpora by construction (e.g. NULL-CC) and does not imply model failure.",
+    "Cognitive-skill labels are intended properties of the generation prompt and judge consensus, not empirically verified human annotations on the final corpus.",
+    "Corpora are in English and reflect the distribution of the single generator model; cross-lingual and cross-model generalisation is out of scope for v1.",
+    "CoreMath covers textbook and competition-style topics and should not be used to evaluate frontier mathematical research ability."
+  ],
+  "rai:personalSensitiveInformation": [
+    "No personally identifying information (PII) is included.",
+    "No demographic attributes (gender, age, ethnicity, geography, socio-economic status) are solicited or embedded.",
+    "All characters in scenarios are fictional placeholders (e.g. 'Senior Analyst A')."
+  ],
+  "rai:dataSocialImpact": "The dataset is intended to support interpretability research that makes cognitive-skill representations in language models more legible and auditable. Because it is fully synthetic with no human data collection, it poses minimal direct privacy risk. Misuse risk is analogous to any capability-eliciting corpus: text from target pairs could in principle be used as training data to boost narrow cognitive skills without the accompanying absorption controls, undermining the diagnostic contract. We recommend paired use of target and retain splits.",
+  "rai:dataReleaseMaintenancePlan": "Versioning follows semantic versioning (MAJOR.MINOR.PATCH); v1.1.0 is the NeurIPS 2026 submission snapshot. Maintenance window: bug fixes and checksum re-issuance for at least 24 months post-acceptance. Superseded versions remain accessible via the hosting platform DOI; breaking schema changes bump MAJOR. For camera-ready we will publish the dataset on a long-term archive with a DOI (Hugging Face Hub, Harvard Dataverse, or Zenodo) preserving the train / bench / holdout / coin file layout.",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "spl_cc_train_file",
+      "name": "spl_cc_train.jsonl",
+      "description": "Symbolic Physics Logic (SPL-CC) — train split (7568 records)",
+      "contentUrl": "data/train/spl_cc_train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "17077616 B",
+      "sha256": "afc98d668dc9d569c76233bd571aacb14331d5a5c10a09b4f62883f68e357578",
+      "md5": "2052b612a471747be053d49665dff676"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "spl_cc_bench_file",
+      "name": "spl_cc_bench.jsonl",
+      "description": "Symbolic Physics Logic (SPL-CC) — bench split (8409 records)",
+      "contentUrl": "data/bench/spl_cc_bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "18976271 B",
+      "sha256": "e32d3fc7fa9be25e98b8da963b569f75325c68e9e884eec94ccb378975ba458a",
+      "md5": "d7933b09c48eada67b9eeefc773b2df8"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "spl_cc_holdout_file",
+      "name": "spl_cc_holdout.jsonl",
+      "description": "Symbolic Physics Logic (SPL-CC) — holdout split (841 records)",
+      "contentUrl": "data/holdout/spl_cc_holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "1898667 B",
+      "sha256": "5192d58e06679319b38cde062e733a014c05de44f4afa2935e6b42f665968f68",
+      "md5": "1911e50866274c15b50628001345d8c8"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "tom_cc_train_file",
+      "name": "tom_cc_train.jsonl",
+      "description": "Theory of Mind (ToM-CC) — train split (6955 records)",
+      "contentUrl": "data/train/tom_cc_train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "13570903 B",
+      "sha256": "a956d3d31aec39f640bc1edc3fa8d476a3f656e110b400aa9ffad52f48053ed0",
+      "md5": "f8986f6dfb7df8397a7a5aec9b5c3c6b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "tom_cc_bench_file",
+      "name": "tom_cc_bench.jsonl",
+      "description": "Theory of Mind (ToM-CC) — bench split (7728 records)",
+      "contentUrl": "data/bench/tom_cc_bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "15088116 B",
+      "sha256": "9da827a91100326d46d60f41915297d3aa6983a6c3b893e8e1ff293234a6d0ff",
+      "md5": "7662bec43216e03c2cb41acaff170c77"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "tom_cc_holdout_file",
+      "name": "tom_cc_holdout.jsonl",
+      "description": "Theory of Mind (ToM-CC) — holdout split (773 records)",
+      "contentUrl": "data/holdout/tom_cc_holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "1517213 B",
+      "sha256": "5b2fcbf5882a5e95a9d004246c5995bddc749bca6a436e681fa87c2ff9d7fb3a",
+      "md5": "ebf52b2dc292064fbdbb2e6234fda945"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ctr_cc_train_file",
+      "name": "ctr_cc_train.jsonl",
+      "description": "Causal-Temporal Reasoning (CTR-CC) — train split (6351 records)",
+      "contentUrl": "data/train/ctr_cc_train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "13247437 B",
+      "sha256": "07a76b9f6e672c22a58e413f17edbfecac3f96384145345ec46befc735207431",
+      "md5": "448634753f7db4c7d5e1596b568156e0"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ctr_cc_bench_file",
+      "name": "ctr_cc_bench.jsonl",
+      "description": "Causal-Temporal Reasoning (CTR-CC) — bench split (7057 records)",
+      "contentUrl": "data/bench/ctr_cc_bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "14719669 B",
+      "sha256": "90a5c2316c08f09fff8db916d4b455884765cdca6037ae834fefedba9ad10b4f",
+      "md5": "4f40d05f298f1477aacb2429f809dfc9"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ctr_cc_holdout_file",
+      "name": "ctr_cc_holdout.jsonl",
+      "description": "Causal-Temporal Reasoning (CTR-CC) — holdout split (706 records)",
+      "contentUrl": "data/holdout/ctr_cc_holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "1473848 B",
+      "sha256": "1326a6e056c7f574db4f30755c8fe6d489bf8bfca3806d46e2d8f3814dee97a6",
+      "md5": "8f0d3d4dbdbe7a3c32ef7045ae3262cd"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "mor_cc_train_file",
+      "name": "mor_cc_train.jsonl",
+      "description": "Moral Reasoning (MOR-CC) — train split (5318 records)",
+      "contentUrl": "data/train/mor_cc_train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "12233883 B",
+      "sha256": "4aa435a824abfa79eabaa824a42044e6303df788b6dcf70cb7e58cc0b6c7ba46",
+      "md5": "b40d71a4ca8f5b7aef958a32d7422fb4"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "mor_cc_bench_file",
+      "name": "mor_cc_bench.jsonl",
+      "description": "Moral Reasoning (MOR-CC) — bench split (5909 records)",
+      "contentUrl": "data/bench/mor_cc_bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "13585055 B",
+      "sha256": "79407100728c6064f2b6ce0020516ef2a3392271fed2904aa0a792e1b058034a",
+      "md5": "3d6cae5822a463d55a74254e81291ee8"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "mor_cc_holdout_file",
+      "name": "mor_cc_holdout.jsonl",
+      "description": "Moral Reasoning (MOR-CC) — holdout split (591 records)",
+      "contentUrl": "data/holdout/mor_cc_holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "1351172 B",
+      "sha256": "9bf454a7527f7cf7c8bed1001dfac342b2967e5cac16fa98ceafb0fcb61a7de3",
+      "md5": "69c3b018fcb5264aa91e42c42d519794"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "str_cc_train_file",
+      "name": "str_cc_train.jsonl",
+      "description": "Strategic Reasoning (STR-CC) — train split (5243 records)",
+      "contentUrl": "data/train/str_cc_train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "9410772 B",
+      "sha256": "ed322f868907b57361c9050addc45379d770007c83fece0ee4e9edc8abd4ff96",
+      "md5": "b62395cd3ca59cc0b86dcb93dbcaa79d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "str_cc_bench_file",
+      "name": "str_cc_bench.jsonl",
+      "description": "Strategic Reasoning (STR-CC) — bench split (5825 records)",
+      "contentUrl": "data/bench/str_cc_bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "10457233 B",
+      "sha256": "d01259b6ffaebdd290075cace12cf9acd874d8875a849dd44d810ce04b484da4",
+      "md5": "85dd5250b33fed9235928c1349d8344d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "str_cc_holdout_file",
+      "name": "str_cc_holdout.jsonl",
+      "description": "Strategic Reasoning (STR-CC) — holdout split (582 records)",
+      "contentUrl": "data/holdout/str_cc_holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "1046461 B",
+      "sha256": "fc1e3990d653193685a0c3b3b97ee37c2d6c6d0c003b9ea1ccb9e495d8c9de43",
+      "md5": "536a421c6e4fbd8227213729cee8a47d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "stp_cc_train_file",
+      "name": "stp_cc_train.jsonl",
+      "description": "Stepwise Planning (STP-CC) — train split (7946 records)",
+      "contentUrl": "data/train/stp_cc_train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "12097711 B",
+      "sha256": "45eb15da67a97f9c1bcfb13974dd0b9cba96187c75e8f8fe4e68b435489556b5",
+      "md5": "c68fe0190d50535e8a0680fef78b7ee6"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "stp_cc_bench_file",
+      "name": "stp_cc_bench.jsonl",
+      "description": "Stepwise Planning (STP-CC) — bench split (8829 records)",
+      "contentUrl": "data/bench/stp_cc_bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "13431929 B",
+      "sha256": "433da3c5fc5b65de19113f67a9add4e41cc84b7398bff8883c5eeba31e844f52",
+      "md5": "818a120f536b97f0a3dc715f5b58001e"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "stp_cc_holdout_file",
+      "name": "stp_cc_holdout.jsonl",
+      "description": "Stepwise Planning (STP-CC) — holdout split (883 records)",
+      "contentUrl": "data/holdout/stp_cc_holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "1334218 B",
+      "sha256": "417e2f101a62cf54d594ed2efb7ca15570809a36c6a3de6f72f7bf18fb857428",
+      "md5": "a48f46c968b4ab1ff489d883a762bee1"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "null_cc_train_file",
+      "name": "null_cc_train.jsonl",
+      "description": "Null Contrastive Corpus (NULL-CC, negative control) — train split (7742 records)",
+      "contentUrl": "data/train/null_cc_train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "11793756 B",
+      "sha256": "b5a4cb8005fae6a2419d0115bdd71ede60af7f95d8eefc437e69713a79bbb3f9",
+      "md5": "fd3d8b2713722e780c8f242cb1e78894"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "null_cc_bench_file",
+      "name": "null_cc_bench.jsonl",
+      "description": "Null Contrastive Corpus (NULL-CC, negative control) — bench split (8465 records)",
+      "contentUrl": "data/bench/null_cc_bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "12907073 B",
+      "sha256": "9d32932015a500cc3910fe806d09ef25ea1310d07f6bbb13353ac9cb70f8400e",
+      "md5": "a00fa72dfb3f2717fb7abae7608a8b0c"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "null_cc_holdout_file",
+      "name": "null_cc_holdout.jsonl",
+      "description": "Null Contrastive Corpus (NULL-CC, negative control) — holdout split (723 records)",
+      "contentUrl": "data/holdout/null_cc_holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "1113791 B",
+      "sha256": "92b80df0f9bf5a3dc4da2fc65b405c3aaf90ff3de99c660bc177f01fecad1e64",
+      "md5": "35cd665b9d32d552dba9bb42c5487023"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "core_math_train_file",
+      "name": "core_math_train.jsonl",
+      "description": "Core Mathematics (CoreMath) — train split (7971 records)",
+      "contentUrl": "data/train/core_math_train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "20677131 B",
+      "sha256": "4dc64f691e5c36154c375a5db1aabb6d72e15215fa1fe9e4aad7c2e1a9f87f9d",
+      "md5": "08170a6c2e7e1b40528a28bb45c44125"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "core_math_bench_file",
+      "name": "core_math_bench.jsonl",
+      "description": "Core Mathematics (CoreMath) — bench split (8857 records)",
+      "contentUrl": "data/bench/core_math_bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "22993599 B",
+      "sha256": "fb844b3b46a634d4ec17e26ede2925b698979f20143b10f6be41a44e33754908",
+      "md5": "0b6ccb1e9f845233ed5562546555334b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "core_math_holdout_file",
+      "name": "core_math_holdout.jsonl",
+      "description": "Core Mathematics (CoreMath) — holdout split (560 records)",
+      "contentUrl": "data/holdout/core_math_holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "1491118 B",
+      "sha256": "fe967657ddd701b930299a9b31ce70c95c2cc4641996ce3af8fc062317e4006a",
+      "md5": "4fc293e17f9f9144b7acb4c3c6780e17"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_cau_coin_train_file",
+      "name": "coin/CAU_COIN/train.jsonl",
+      "description": "COIN CAU_COIN — train split (2047 records). Causal contrast partner for CTR-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/CAU_COIN/train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "3038981 B",
+      "sha256": "0bfc8120175c727a3d1bfece75333d36e4eb00be82aaaaf7ae713b550f96f95f",
+      "md5": "2e347937bd71f147b6a791f760dc1122"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_cau_coin_bench_file",
+      "name": "coin/CAU_COIN/bench.jsonl",
+      "description": "COIN CAU_COIN — bench split (2275 records). Causal contrast partner for CTR-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/CAU_COIN/bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "3382093 B",
+      "sha256": "44209c42b050a941f646fd71fa98e5f386c2166645f8bef9dee33637a87d64df",
+      "md5": "c1ed02ed5af811b04e3798912537eaa6"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_cau_coin_holdout_file",
+      "name": "coin/CAU_COIN/holdout.jsonl",
+      "description": "COIN CAU_COIN — holdout split (228 records). Causal contrast partner for CTR-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/CAU_COIN/holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "343112 B",
+      "sha256": "1a170d6ecaca052cf761237ef61869ac1db93e79976e45b3b6c7a9e7cf7e40ff",
+      "md5": "89fab340a9a9c067dadfcfb05e8454af"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_mor_coin_train_file",
+      "name": "coin/MOR_COIN/train.jsonl",
+      "description": "COIN MOR_COIN — train split (2115 records). Moral contrast partner for MOR-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/MOR_COIN/train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "3470036 B",
+      "sha256": "d67b9ed2b3f4b6b86ae504f7a732c14940ec42591907f93cc39e861c750a5f5d",
+      "md5": "e4eb0071a4c6ecda2c01dd5d92b80674"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_mor_coin_bench_file",
+      "name": "coin/MOR_COIN/bench.jsonl",
+      "description": "COIN MOR_COIN — bench split (2350 records). Moral contrast partner for MOR-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/MOR_COIN/bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "3853646 B",
+      "sha256": "f1b539a7a0a553f55d87a314ecb8c371adc4ab28818ad722699e1cb3c6df9d26",
+      "md5": "f28be14231f848aebe00aa901100194f"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_mor_coin_holdout_file",
+      "name": "coin/MOR_COIN/holdout.jsonl",
+      "description": "COIN MOR_COIN — holdout split (235 records). Moral contrast partner for MOR-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/MOR_COIN/holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "383610 B",
+      "sha256": "3ad68cf09771ac8ea7b04847ed1e6c3bf06785618c5a95ea1626be685ec0ec96",
+      "md5": "eaef5c64977a1a50f37528ab2c5fb043"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_stp_coin_train_file",
+      "name": "coin/STP_COIN/train.jsonl",
+      "description": "COIN STP_COIN — train split (2214 records). Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/STP_COIN/train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "2484631 B",
+      "sha256": "b456d2b19b143a6f47831530b518d35cf1820abf55d0ac34af8df0dfde101144",
+      "md5": "50f716d534e645d16661e61fdf813b86"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_stp_coin_bench_file",
+      "name": "coin/STP_COIN/bench.jsonl",
+      "description": "COIN STP_COIN — bench split (2460 records). Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/STP_COIN/bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "2758819 B",
+      "sha256": "151e215d257a548049063b4fcf304c940913f100e842206fa92e309abda61067",
+      "md5": "1f65013fbcd3cb2f8bf39a3f3d3a3f90"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_stp_coin_holdout_file",
+      "name": "coin/STP_COIN/holdout.jsonl",
+      "description": "COIN STP_COIN — holdout split (246 records). Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/STP_COIN/holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "274188 B",
+      "sha256": "6640275f0364cdbc9a6cd8ac48c9fa2134e74cc5c706512a90bcfc3e94724afa",
+      "md5": "d007cb242bd6d1c75e6148c79f142285"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_str_coin_train_file",
+      "name": "coin/STR_COIN/train.jsonl",
+      "description": "COIN STR_COIN — train split (2075 records). Strategic contrast partner for STR-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/STR_COIN/train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "3214222 B",
+      "sha256": "af9b98a671075ff75e4e89973f43d3a34b87de7e1d8600cf880abe53781f9c2c",
+      "md5": "e9c71f70c9209f0932c3be73be153073"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_str_coin_bench_file",
+      "name": "coin/STR_COIN/bench.jsonl",
+      "description": "COIN STR_COIN — bench split (2305 records). Strategic contrast partner for STR-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/STR_COIN/bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "3555077 B",
+      "sha256": "f3d04a452b7e3b0f1ac2a3befd745342bd7205b85c594bf9f1f7fd49f7426de9",
+      "md5": "773c8e845024f58596ac58ef80516850"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_str_coin_holdout_file",
+      "name": "coin/STR_COIN/holdout.jsonl",
+      "description": "COIN STR_COIN — holdout split (230 records). Strategic contrast partner for STR-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/STR_COIN/holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "340855 B",
+      "sha256": "6731b1c37df7adc29819615b6d0ef7cdd045f80d57caeaa63ed2eaf5bec6f36c",
+      "md5": "b4724ab4751164e3408c4068761d99e1"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_tom_coin_train_file",
+      "name": "coin/TOM_COIN/train.jsonl",
+      "description": "COIN TOM_COIN — train split (2150 records). Theory-of-mind contrast partner for ToM-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/TOM_COIN/train.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "3678065 B",
+      "sha256": "affe30092d200f2c8dddf76cad495c7e7d83f1dedec8793f6e5c74a51c6e36c4",
+      "md5": "c204eec25df6645b4acf556bd9b8cba2"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_tom_coin_bench_file",
+      "name": "coin/TOM_COIN/bench.jsonl",
+      "description": "COIN TOM_COIN — bench split (2389 records). Theory-of-mind contrast partner for ToM-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/TOM_COIN/bench.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "4089009 B",
+      "sha256": "37d4220fbd754bf8771b45c62cc080ee828721c1ab282a1d66320cf7da070a27",
+      "md5": "6e6f73d9204b28d76284629a45fbf38c"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "coin_tom_coin_holdout_file",
+      "name": "coin/TOM_COIN/holdout.jsonl",
+      "description": "COIN TOM_COIN — holdout split (239 records). Theory-of-mind contrast partner for ToM-CC (complete-opposition pairs).",
+      "contentUrl": "data/coin/TOM_COIN/holdout.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "contentSize": "410944 B",
+      "sha256": "87700b0f4abd7c407cee2d48b7fe6d6cf81a36eca6f1e8832881b52990962a61",
+      "md5": "f5eb3a51162a3afbbc3745c6d36a2172"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "spl_cc_train_records",
+      "name": "spl_cc_train_records",
+      "description": "Symbolic Physics Logic (SPL-CC) — train split. Target exercises applied scientific reasoning rendered as symbolic / mathematical derivations; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "spl_cc_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_train_file/seed_topic",
+          "name": "seed_topic",
+          "description": "Seed physics topic drawn from the curated template set",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_train_file"
+            },
+            "extract": {
+              "column": "seed_topic"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_train_file/target",
+          "name": "target",
+          "description": "Mathematical derivation with equations and units",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_train_file/retain",
+          "name": "retain",
+          "description": "Conceptual/historical prose of the same physics topic, zero math",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "spl_cc_bench_records",
+      "name": "spl_cc_bench_records",
+      "description": "Symbolic Physics Logic (SPL-CC) — bench split. Target exercises applied scientific reasoning rendered as symbolic / mathematical derivations; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "spl_cc_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_bench_file/seed_topic",
+          "name": "seed_topic",
+          "description": "Seed physics topic drawn from the curated template set",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_bench_file"
+            },
+            "extract": {
+              "column": "seed_topic"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_bench_file/target",
+          "name": "target",
+          "description": "Mathematical derivation with equations and units",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_bench_file/retain",
+          "name": "retain",
+          "description": "Conceptual/historical prose of the same physics topic, zero math",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "spl_cc_holdout_records",
+      "name": "spl_cc_holdout_records",
+      "description": "Symbolic Physics Logic (SPL-CC) — holdout split. Target exercises applied scientific reasoning rendered as symbolic / mathematical derivations; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "spl_cc_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_holdout_file/seed_topic",
+          "name": "seed_topic",
+          "description": "Seed physics topic drawn from the curated template set",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_holdout_file"
+            },
+            "extract": {
+              "column": "seed_topic"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_holdout_file/target",
+          "name": "target",
+          "description": "Mathematical derivation with equations and units",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_holdout_file/retain",
+          "name": "retain",
+          "description": "Conceptual/historical prose of the same physics topic, zero math",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "spl_cc_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "spl_cc_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "tom_cc_train_records",
+      "name": "tom_cc_train_records",
+      "description": "Theory of Mind (ToM-CC) — train split. Target exercises higher-order belief, deception, and knowledge-state reasoning; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "tom_cc_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier (shared by target and retain)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_train_file/category",
+          "name": "category",
+          "description": "ToM sub-category (e.g. deception, false_belief, epistemic_modal)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier: simple / moderate / complex / adversarial",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_train_file/character_a",
+          "name": "character_a",
+          "description": "Primary character whose mental state is tracked",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_train_file"
+            },
+            "extract": {
+              "column": "character_a"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_train_file/belief_object",
+          "name": "belief_object",
+          "description": "Proposition or object held in the character's belief",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_train_file"
+            },
+            "extract": {
+              "column": "belief_object"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_train_file/target",
+          "name": "target",
+          "description": "Target passage containing ToM-bearing content (beliefs, deceptions, knowledge states)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_train_file/retain",
+          "name": "retain",
+          "description": "Content-matched control passage with ToM attributions removed",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "tom_cc_bench_records",
+      "name": "tom_cc_bench_records",
+      "description": "Theory of Mind (ToM-CC) — bench split. Target exercises higher-order belief, deception, and knowledge-state reasoning; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "tom_cc_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier (shared by target and retain)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_bench_file/category",
+          "name": "category",
+          "description": "ToM sub-category (e.g. deception, false_belief, epistemic_modal)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier: simple / moderate / complex / adversarial",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_bench_file/character_a",
+          "name": "character_a",
+          "description": "Primary character whose mental state is tracked",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_bench_file"
+            },
+            "extract": {
+              "column": "character_a"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_bench_file/belief_object",
+          "name": "belief_object",
+          "description": "Proposition or object held in the character's belief",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_bench_file"
+            },
+            "extract": {
+              "column": "belief_object"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_bench_file/target",
+          "name": "target",
+          "description": "Target passage containing ToM-bearing content (beliefs, deceptions, knowledge states)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_bench_file/retain",
+          "name": "retain",
+          "description": "Content-matched control passage with ToM attributions removed",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "tom_cc_holdout_records",
+      "name": "tom_cc_holdout_records",
+      "description": "Theory of Mind (ToM-CC) — holdout split. Target exercises higher-order belief, deception, and knowledge-state reasoning; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "tom_cc_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier (shared by target and retain)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_holdout_file/category",
+          "name": "category",
+          "description": "ToM sub-category (e.g. deception, false_belief, epistemic_modal)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier: simple / moderate / complex / adversarial",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_holdout_file/character_a",
+          "name": "character_a",
+          "description": "Primary character whose mental state is tracked",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_holdout_file"
+            },
+            "extract": {
+              "column": "character_a"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_holdout_file/belief_object",
+          "name": "belief_object",
+          "description": "Proposition or object held in the character's belief",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_holdout_file"
+            },
+            "extract": {
+              "column": "belief_object"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_holdout_file/target",
+          "name": "target",
+          "description": "Target passage containing ToM-bearing content (beliefs, deceptions, knowledge states)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_holdout_file/retain",
+          "name": "retain",
+          "description": "Content-matched control passage with ToM attributions removed",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tom_cc_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "tom_cc_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "ctr_cc_train_records",
+      "name": "ctr_cc_train_records",
+      "description": "Causal-Temporal Reasoning (CTR-CC) — train split. Target exercises counterfactual causal inference beyond mere temporal succession; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "ctr_cc_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_train_file/category",
+          "name": "category",
+          "description": "Causal reasoning sub-category (e.g. preventive_causation, sufficient_cause)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_train_file/domain",
+          "name": "domain",
+          "description": "Applied domain (medicine, law, engineering, ...)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_train_file"
+            },
+            "extract": {
+              "column": "domain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_train_file/target_text",
+          "name": "target_text",
+          "description": "Counterfactual causal reasoning passage",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_train_file"
+            },
+            "extract": {
+              "column": "target_text"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_train_file/retain_text",
+          "name": "retain_text",
+          "description": "Temporal-sequence-only control (same events, no causal attribution)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_train_file"
+            },
+            "extract": {
+              "column": "retain_text"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "ctr_cc_bench_records",
+      "name": "ctr_cc_bench_records",
+      "description": "Causal-Temporal Reasoning (CTR-CC) — bench split. Target exercises counterfactual causal inference beyond mere temporal succession; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "ctr_cc_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_bench_file/category",
+          "name": "category",
+          "description": "Causal reasoning sub-category (e.g. preventive_causation, sufficient_cause)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_bench_file/domain",
+          "name": "domain",
+          "description": "Applied domain (medicine, law, engineering, ...)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_bench_file"
+            },
+            "extract": {
+              "column": "domain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_bench_file/target_text",
+          "name": "target_text",
+          "description": "Counterfactual causal reasoning passage",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_bench_file"
+            },
+            "extract": {
+              "column": "target_text"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_bench_file/retain_text",
+          "name": "retain_text",
+          "description": "Temporal-sequence-only control (same events, no causal attribution)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_bench_file"
+            },
+            "extract": {
+              "column": "retain_text"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "ctr_cc_holdout_records",
+      "name": "ctr_cc_holdout_records",
+      "description": "Causal-Temporal Reasoning (CTR-CC) — holdout split. Target exercises counterfactual causal inference beyond mere temporal succession; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "ctr_cc_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_holdout_file/category",
+          "name": "category",
+          "description": "Causal reasoning sub-category (e.g. preventive_causation, sufficient_cause)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_holdout_file/domain",
+          "name": "domain",
+          "description": "Applied domain (medicine, law, engineering, ...)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_holdout_file"
+            },
+            "extract": {
+              "column": "domain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_holdout_file/target_text",
+          "name": "target_text",
+          "description": "Counterfactual causal reasoning passage",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_holdout_file"
+            },
+            "extract": {
+              "column": "target_text"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_holdout_file/retain_text",
+          "name": "retain_text",
+          "description": "Temporal-sequence-only control (same events, no causal attribution)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_holdout_file"
+            },
+            "extract": {
+              "column": "retain_text"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ctr_cc_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "ctr_cc_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "mor_cc_train_records",
+      "name": "mor_cc_train_records",
+      "description": "Moral Reasoning (MOR-CC) — train split. Target exercises moral norm application, permissibility, and blame attribution; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "mor_cc_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_train_file/category",
+          "name": "category",
+          "description": "Moral reasoning sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_train_file/target",
+          "name": "target",
+          "description": "Morally-loaded passage requiring normative reasoning",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_train_file/retain",
+          "name": "retain",
+          "description": "Content-matched neutral descriptive passage",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "mor_cc_bench_records",
+      "name": "mor_cc_bench_records",
+      "description": "Moral Reasoning (MOR-CC) — bench split. Target exercises moral norm application, permissibility, and blame attribution; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "mor_cc_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_bench_file/category",
+          "name": "category",
+          "description": "Moral reasoning sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_bench_file/target",
+          "name": "target",
+          "description": "Morally-loaded passage requiring normative reasoning",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_bench_file/retain",
+          "name": "retain",
+          "description": "Content-matched neutral descriptive passage",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "mor_cc_holdout_records",
+      "name": "mor_cc_holdout_records",
+      "description": "Moral Reasoning (MOR-CC) — holdout split. Target exercises moral norm application, permissibility, and blame attribution; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "mor_cc_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_holdout_file/category",
+          "name": "category",
+          "description": "Moral reasoning sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_holdout_file/target",
+          "name": "target",
+          "description": "Morally-loaded passage requiring normative reasoning",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_holdout_file/retain",
+          "name": "retain",
+          "description": "Content-matched neutral descriptive passage",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mor_cc_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "mor_cc_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "str_cc_train_records",
+      "name": "str_cc_train_records",
+      "description": "Strategic Reasoning (STR-CC) — train split. Target exercises goal-directed strategic planning, coordination, and adversarial play; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "str_cc_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_train_file/category",
+          "name": "category",
+          "description": "Strategic reasoning sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_train_file/target",
+          "name": "target",
+          "description": "Strategic reasoning passage",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_train_file/retain",
+          "name": "retain",
+          "description": "Content-matched non-strategic control",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "str_cc_bench_records",
+      "name": "str_cc_bench_records",
+      "description": "Strategic Reasoning (STR-CC) — bench split. Target exercises goal-directed strategic planning, coordination, and adversarial play; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "str_cc_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_bench_file/category",
+          "name": "category",
+          "description": "Strategic reasoning sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_bench_file/target",
+          "name": "target",
+          "description": "Strategic reasoning passage",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_bench_file/retain",
+          "name": "retain",
+          "description": "Content-matched non-strategic control",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "str_cc_holdout_records",
+      "name": "str_cc_holdout_records",
+      "description": "Strategic Reasoning (STR-CC) — holdout split. Target exercises goal-directed strategic planning, coordination, and adversarial play; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "str_cc_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_holdout_file/category",
+          "name": "category",
+          "description": "Strategic reasoning sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_holdout_file/target",
+          "name": "target",
+          "description": "Strategic reasoning passage",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_holdout_file/retain",
+          "name": "retain",
+          "description": "Content-matched non-strategic control",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "str_cc_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "str_cc_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "stp_cc_train_records",
+      "name": "stp_cc_train_records",
+      "description": "Stepwise Planning (STP-CC) — train split. Target exercises multi-step plan construction and decomposition; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "stp_cc_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_train_file/category",
+          "name": "category",
+          "description": "Planning sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_train_file/target",
+          "name": "target",
+          "description": "Explicit stepwise plan",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_train_file/retain",
+          "name": "retain",
+          "description": "Unordered/flat recounting of the same steps",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "stp_cc_bench_records",
+      "name": "stp_cc_bench_records",
+      "description": "Stepwise Planning (STP-CC) — bench split. Target exercises multi-step plan construction and decomposition; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "stp_cc_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_bench_file/category",
+          "name": "category",
+          "description": "Planning sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_bench_file/target",
+          "name": "target",
+          "description": "Explicit stepwise plan",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_bench_file/retain",
+          "name": "retain",
+          "description": "Unordered/flat recounting of the same steps",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "stp_cc_holdout_records",
+      "name": "stp_cc_holdout_records",
+      "description": "Stepwise Planning (STP-CC) — holdout split. Target exercises multi-step plan construction and decomposition; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "stp_cc_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_holdout_file/category",
+          "name": "category",
+          "description": "Planning sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_holdout_file/target",
+          "name": "target",
+          "description": "Explicit stepwise plan",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_holdout_file/retain",
+          "name": "retain",
+          "description": "Unordered/flat recounting of the same steps",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "stp_cc_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "stp_cc_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "null_cc_train_records",
+      "name": "null_cc_train_records",
+      "description": "Null Contrastive Corpus (NULL-CC, negative control) — train split. Target exercises style-only contrast (formal vs. informal) with no cognitive content; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "null_cc_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_train_file/category",
+          "name": "category",
+          "description": "Scenario category (e.g. workplace_interaction)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_train_file/complexity",
+          "name": "complexity",
+          "description": "Complexity tier: simple / moderate / complex",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_train_file"
+            },
+            "extract": {
+              "column": "complexity"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_train_file/target_formal",
+          "name": "target_formal",
+          "description": "Formal-register description of the scenario (control target)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_train_file"
+            },
+            "extract": {
+              "column": "target_formal"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_train_file/retain_informal",
+          "name": "retain_informal",
+          "description": "Informal-register description of the same scenario (control retain)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_train_file"
+            },
+            "extract": {
+              "column": "retain_informal"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "null_cc_bench_records",
+      "name": "null_cc_bench_records",
+      "description": "Null Contrastive Corpus (NULL-CC, negative control) — bench split. Target exercises style-only contrast (formal vs. informal) with no cognitive content; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "null_cc_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_bench_file/category",
+          "name": "category",
+          "description": "Scenario category (e.g. workplace_interaction)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_bench_file/complexity",
+          "name": "complexity",
+          "description": "Complexity tier: simple / moderate / complex",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_bench_file"
+            },
+            "extract": {
+              "column": "complexity"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_bench_file/target_formal",
+          "name": "target_formal",
+          "description": "Formal-register description of the scenario (control target)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_bench_file"
+            },
+            "extract": {
+              "column": "target_formal"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_bench_file/retain_informal",
+          "name": "retain_informal",
+          "description": "Informal-register description of the same scenario (control retain)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_bench_file"
+            },
+            "extract": {
+              "column": "retain_informal"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "null_cc_holdout_records",
+      "name": "null_cc_holdout_records",
+      "description": "Null Contrastive Corpus (NULL-CC, negative control) — holdout split. Target exercises style-only contrast (formal vs. informal) with no cognitive content; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "null_cc_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_holdout_file/category",
+          "name": "category",
+          "description": "Scenario category (e.g. workplace_interaction)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_holdout_file/complexity",
+          "name": "complexity",
+          "description": "Complexity tier: simple / moderate / complex",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_holdout_file"
+            },
+            "extract": {
+              "column": "complexity"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_holdout_file/target_formal",
+          "name": "target_formal",
+          "description": "Formal-register description of the scenario (control target)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_holdout_file"
+            },
+            "extract": {
+              "column": "target_formal"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_holdout_file/retain_informal",
+          "name": "retain_informal",
+          "description": "Informal-register description of the same scenario (control retain)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_holdout_file"
+            },
+            "extract": {
+              "column": "retain_informal"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "null_cc_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "null_cc_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "core_math_train_records",
+      "name": "core_math_train_records",
+      "description": "Core Mathematics (CoreMath) — train split. Target exercises formal mathematical proof construction; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "core_math_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_train_file/topic_id",
+          "name": "topic_id",
+          "description": "Math topic identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_train_file"
+            },
+            "extract": {
+              "column": "topic_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_train_file/category",
+          "name": "category",
+          "description": "Mathematics sub-category (algebra, analysis, ...)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_train_file/target_proof",
+          "name": "target_proof",
+          "description": "Formal proof with explicit structure",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_train_file"
+            },
+            "extract": {
+              "column": "target_proof"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_train_file/retain_intuition",
+          "name": "retain_intuition",
+          "description": "Intuitive / hand-wavy explanation of the same theorem",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_train_file"
+            },
+            "extract": {
+              "column": "retain_intuition"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "core_math_bench_records",
+      "name": "core_math_bench_records",
+      "description": "Core Mathematics (CoreMath) — bench split. Target exercises formal mathematical proof construction; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "core_math_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_bench_file/topic_id",
+          "name": "topic_id",
+          "description": "Math topic identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_bench_file"
+            },
+            "extract": {
+              "column": "topic_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_bench_file/category",
+          "name": "category",
+          "description": "Mathematics sub-category (algebra, analysis, ...)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_bench_file/target_proof",
+          "name": "target_proof",
+          "description": "Formal proof with explicit structure",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_bench_file"
+            },
+            "extract": {
+              "column": "target_proof"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_bench_file/retain_intuition",
+          "name": "retain_intuition",
+          "description": "Intuitive / hand-wavy explanation of the same theorem",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_bench_file"
+            },
+            "extract": {
+              "column": "retain_intuition"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "core_math_holdout_records",
+      "name": "core_math_holdout_records",
+      "description": "Core Mathematics (CoreMath) — holdout split. Target exercises formal mathematical proof construction; retain is a content-matched control lacking that skill.",
+      "key": {
+        "@id": "core_math_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_holdout_file/topic_id",
+          "name": "topic_id",
+          "description": "Math topic identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_holdout_file"
+            },
+            "extract": {
+              "column": "topic_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_holdout_file/category",
+          "name": "category",
+          "description": "Mathematics sub-category (algebra, analysis, ...)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_holdout_file/target_proof",
+          "name": "target_proof",
+          "description": "Formal proof with explicit structure",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_holdout_file"
+            },
+            "extract": {
+              "column": "target_proof"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_holdout_file/retain_intuition",
+          "name": "retain_intuition",
+          "description": "Intuitive / hand-wavy explanation of the same theorem",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_holdout_file"
+            },
+            "extract": {
+              "column": "retain_intuition"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "core_math_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "core_math_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_cau_coin_train_records",
+      "name": "coin_cau_coin_train_records",
+      "description": "COIN CAU_COIN — train split. Causal contrast partner for CTR-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_cau_coin_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_train_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_train_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_train_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_train_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_train_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_cau_coin_bench_records",
+      "name": "coin_cau_coin_bench_records",
+      "description": "COIN CAU_COIN — bench split. Causal contrast partner for CTR-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_cau_coin_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_bench_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_bench_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_bench_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_bench_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_bench_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_cau_coin_holdout_records",
+      "name": "coin_cau_coin_holdout_records",
+      "description": "COIN CAU_COIN — holdout split. Causal contrast partner for CTR-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_cau_coin_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_holdout_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_holdout_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_holdout_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_holdout_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_holdout_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_cau_coin_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_cau_coin_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_mor_coin_train_records",
+      "name": "coin_mor_coin_train_records",
+      "description": "COIN MOR_COIN — train split. Moral contrast partner for MOR-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_mor_coin_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_train_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_train_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_train_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_train_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_train_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_mor_coin_bench_records",
+      "name": "coin_mor_coin_bench_records",
+      "description": "COIN MOR_COIN — bench split. Moral contrast partner for MOR-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_mor_coin_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_bench_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_bench_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_bench_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_bench_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_bench_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_mor_coin_holdout_records",
+      "name": "coin_mor_coin_holdout_records",
+      "description": "COIN MOR_COIN — holdout split. Moral contrast partner for MOR-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_mor_coin_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_holdout_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_holdout_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_holdout_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_holdout_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_holdout_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_mor_coin_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_mor_coin_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_stp_coin_train_records",
+      "name": "coin_stp_coin_train_records",
+      "description": "COIN STP_COIN — train split. Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_stp_coin_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_train_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_train_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_train_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_train_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_train_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_stp_coin_bench_records",
+      "name": "coin_stp_coin_bench_records",
+      "description": "COIN STP_COIN — bench split. Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_stp_coin_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_bench_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_bench_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_bench_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_bench_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_bench_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_stp_coin_holdout_records",
+      "name": "coin_stp_coin_holdout_records",
+      "description": "COIN STP_COIN — holdout split. Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_stp_coin_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_holdout_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_holdout_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_holdout_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_holdout_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_holdout_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_stp_coin_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_stp_coin_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_str_coin_train_records",
+      "name": "coin_str_coin_train_records",
+      "description": "COIN STR_COIN — train split. Strategic contrast partner for STR-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_str_coin_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_train_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_train_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_train_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_train_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_train_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_str_coin_bench_records",
+      "name": "coin_str_coin_bench_records",
+      "description": "COIN STR_COIN — bench split. Strategic contrast partner for STR-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_str_coin_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_bench_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_bench_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_bench_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_bench_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_bench_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_str_coin_holdout_records",
+      "name": "coin_str_coin_holdout_records",
+      "description": "COIN STR_COIN — holdout split. Strategic contrast partner for STR-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_str_coin_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_holdout_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_holdout_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_holdout_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_holdout_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_holdout_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_str_coin_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_str_coin_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_tom_coin_train_records",
+      "name": "coin_tom_coin_train_records",
+      "description": "COIN TOM_COIN — train split. Theory-of-mind contrast partner for ToM-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_tom_coin_train_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_train_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_train_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_train_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_train_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_train_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_train_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_train_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_train_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_train_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_train_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_train_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_train_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_train_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_train_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_train_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_train_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_tom_coin_bench_records",
+      "name": "coin_tom_coin_bench_records",
+      "description": "COIN TOM_COIN — bench split. Theory-of-mind contrast partner for ToM-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_tom_coin_bench_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_bench_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_bench_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_bench_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_bench_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_bench_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_bench_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_bench_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_bench_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_bench_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_bench_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_bench_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_bench_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_bench_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_bench_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_bench_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_bench_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "coin_tom_coin_holdout_records",
+      "name": "coin_tom_coin_holdout_records",
+      "description": "COIN TOM_COIN — holdout split. Theory-of-mind contrast partner for ToM-CC (complete-opposition pairs).",
+      "key": {
+        "@id": "coin_tom_coin_holdout_file/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_holdout_file/id",
+          "name": "id",
+          "description": "UUID v4 unique identifier for the record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_holdout_file"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_holdout_file/scenario_id",
+          "name": "scenario_id",
+          "description": "Scenario seed identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_holdout_file"
+            },
+            "extract": {
+              "column": "scenario_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_holdout_file/theme",
+          "name": "theme",
+          "description": "Theme matched to the paired primary corpus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_holdout_file"
+            },
+            "extract": {
+              "column": "theme"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_holdout_file/category",
+          "name": "category",
+          "description": "Contrast sub-category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_holdout_file"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_holdout_file/difficulty",
+          "name": "difficulty",
+          "description": "Difficulty tier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_holdout_file"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_holdout_file/target",
+          "name": "target",
+          "description": "Target passage asserting the cognitive claim",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_holdout_file"
+            },
+            "extract": {
+              "column": "target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_holdout_file/retain",
+          "name": "retain",
+          "description": "Retain passage asserting the complete opposite of target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_holdout_file"
+            },
+            "extract": {
+              "column": "retain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "coin_tom_coin_holdout_file/timestamp",
+          "name": "timestamp",
+          "description": "ISO-8601 generation timestamp (UTC)",
+          "dataType": "sc:DateTime",
+          "source": {
+            "fileObject": {
+              "@id": "coin_tom_coin_holdout_file"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+# Python bytecode / caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Test & run artefacts (scripts auto-create results/ + logs/)
+code/*/results/
+code/*/logs/
+*.log
+*.log.*
+*.tmp
+*.bak
+*.bak_*
+
+# Secret files — never commit. Users copy .env.example -> .env.
+.env
+.env.local
+*/.env
+*/.env.local
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Trained artefacts — bulky, reproducible
+adapter/
+*.safetensors
+*.bin
+checkpoints/

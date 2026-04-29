@@ -120,7 +120,9 @@ def choice_logprob(
     full_ids = torch.cat([prompt_ids, cont_ids], dim=1)
 
     with torch.no_grad():
-        logits = model(full_ids).logits
+        # use_cache=False avoids transformers 5.x DynamicCache.from_legacy_cache
+        # crash on phi-3-mini, phi-3.5-mini, and other models with custom HF cache logic.
+        logits = model(full_ids, use_cache=False).logits
 
     shift_logits = logits[:, p_len - 1 : p_len - 1 + c_len, :]
     log_probs = torch.nn.functional.log_softmax(shift_logits, dim=-1)

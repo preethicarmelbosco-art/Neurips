@@ -1,0 +1,122 @@
+{
+  "SPL-CC": {
+    "gate": "regex",
+    "pairs_audited": 100,
+    "c1_pass": 100.0,
+    "c2_pass": 100.0,
+    "c3_pass": 0.33444816053511706,
+    "overall_pass": 0.0,
+    "gwet_ac1": 0.993288740744055,
+    "judge_human_agree": null,
+    "per_auditor_n": [
+      100,
+      100,
+      100
+    ]
+  },
+  "CORE-MATH": {
+    "gate": "regex",
+    "pairs_audited": 100,
+    "c1_pass": 100.0,
+    "c2_pass": 100.0,
+    "c3_pass": 100.0,
+    "overall_pass": 100.0,
+    "gwet_ac1": 1.0,
+    "judge_human_agree": null,
+    "per_auditor_n": [
+      100,
+      100,
+      100
+    ]
+  },
+  "ToM-CC": {
+    "gate": "judge",
+    "pairs_audited": 300,
+    "c1_pass": 100.0,
+    "c2_pass": 99.31895573212259,
+    "c3_pass": 100.0,
+    "overall_pass": 98.66666666666667,
+    "gwet_ac1": 0.9506688417618271,
+    "judge_human_agree": 98.66666666666667,
+    "per_auditor_n": [
+      300,
+      300,
+      300
+    ]
+  },
+  "CTR-CC": {
+    "gate": "judge",
+    "pairs_audited": 100,
+    "c1_pass": 100.0,
+    "c2_pass": 98.29351535836177,
+    "c3_pass": 99.3103448275862,
+    "overall_pass": 100.0,
+    "gwet_ac1": 0.847715736040609,
+    "judge_human_agree": 100.0,
+    "per_auditor_n": [
+      100,
+      100,
+      100
+    ]
+  },
+  "MOR-CC": {
+    "gate": "judge",
+    "pairs_audited": 300,
+    "c1_pass": 100.0,
+    "c2_pass": 99.76359338061465,
+    "c3_pass": 100.0,
+    "overall_pass": 92.0,
+    "gwet_ac1": 0.9245253483015408,
+    "judge_human_agree": 92.0,
+    "per_auditor_n": [
+      300,
+      300,
+      300
+    ]
+  },
+  "STR-CC": {
+    "gate": "judge",
+    "pairs_audited": 300,
+    "c1_pass": 100.0,
+    "c2_pass": 99.53757225433526,
+    "c3_pass": 100.0,
+    "overall_pass": 96.0,
+    "gwet_ac1": 0.9442680946957768,
+    "judge_human_agree": 96.0,
+    "per_auditor_n": [
+      300,
+      300,
+      300
+    ]
+  },
+  "STP-CC": {
+    "gate": "regex",
+    "pairs_audited": 100,
+    "c1_pass": 100.0,
+    "c2_pass": 100.0,
+    "c3_pass": 100.0,
+    "overall_pass": 91.0,
+    "gwet_ac1": 0.932371505861136,
+    "judge_human_agree": null,
+    "per_auditor_n": [
+      100,
+      100,
+      100
+    ]
+  },
+  "NULL-CC": {
+    "gate": "regex",
+    "pairs_audited": 100,
+    "c1_pass": 100.0,
+    "c2_pass": 98.98648648648648,
+    "c3_pass": 100.0,
+    "overall_pass": 97.0,
+    "gwet_ac1": 0.9720598849798597,
+    "judge_human_agree": null,
+    "per_auditor_n": [
+      100,
+      100,
+      100
+    ]
+  }
+}

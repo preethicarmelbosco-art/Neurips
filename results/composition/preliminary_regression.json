@@ -1,0 +1,133 @@
+{
+  "Cybersecurity": {
+    "n": 31,
+    "r2_cv": 0.32135328464852286,
+    "r2_baseline": 0.3111279403968542,
+    "delta_r2_cv": 0.010225344251668655,
+    "betas": {
+      "ToM_CA": -0.005410834801781397,
+      "Causal_CA": -0.04732513795324474,
+      "Strategic_CA": -0.01735062988176989,
+      "ToM_target": 0.06277618925371455,
+      "Causal_target": 0.06662495079261369,
+      "Strategic_target": 0.050849520855189435,
+      "Null_CA": 0.026340608774267624,
+      "Null_target": 0.011638969678861239
+    },
+    "primitives": [
+      "ToM_CA",
+      "Causal_CA",
+      "Strategic_CA"
+    ]
+  },
+  "Medical": {
+    "n": 32,
+    "r2_cv": 0.5918922847729438,
+    "r2_baseline": 0.05327135702351937,
+    "delta_r2_cv": 0.5386209277494244,
+    "betas": {
+      "Causal_CA": -0.05621034049468802,
+      "Moral_CA": 0.02521771526876204,
+      "Spatial_CA": 0.011455976099267575,
+      "Causal_target": 0.17360213225604434,
+      "Moral_target": 0.10784439457916505,
+      "Spatial_target": 0.05207566008565476,
+      "Null_CA": -0.05490535514842866,
+      "Null_target": 0.10577519944775252
+    },
+    "primitives": [
+      "Causal_CA",
+      "Moral_CA",
+      "Spatial_CA"
+    ]
+  },
+  "Legal": {
+    "n": 33,
+    "r2_cv": -0.12949396590374573,
+    "r2_baseline": -0.06830137123212165,
+    "delta_r2_cv": -0.06119259467162408,
+    "betas": {
+      "Moral_CA": 0.07817839550642036,
+      "Moral_target": 0.024637798805007004,
+      "Null_CA": -0.022567628718367268,
+      "Null_target": 0.005087857362616483
+    },
+    "primitives": [
+      "Moral_CA"
+    ]
+  },
+  "Safety": {
+    "n": 33,
+    "r2_cv": 0.6106743530562948,
+    "r2_baseline": 0.3077151991279946,
+    "delta_r2_cv": 0.3029591539283002,
+    "betas": {
+      "ToM_CA": -0.018002856426184318,
+      "Moral_CA": -0.013281919188488625,
+      "Strategic_CA": 0.013249671290567356,
+      "ToM_target": 0.0820793568499997,
+      "Moral_target": 0.11566855591308738,
+      "Strategic_target": 0.0967630831916483,
+      "Null_CA": 0.009239257596784688,
+      "Null_target": -0.019522866753372482
+    },
+    "primitives": [
+      "ToM_CA",
+      "Moral_CA",
+      "Strategic_CA"
+    ]
+  },
+  "Financial": {
+    "n": 32,
+    "r2_cv": 0.14844332895461676,
+    "r2_baseline": -0.04720224460982725,
+    "delta_r2_cv": 0.195645573564444,
+    "betas": {
+      "ToM_CA": -0.001306859431161716,
+      "Causal_CA": -0.005149296851752429,
+      "Strategic_CA": 0.024334345566026212,
+      "ToM_target": 0.0211609702288191,
+      "Causal_target": 0.03859366735105083,
+      "Strategic_target": 0.015782429184844654,
+      "Null_CA": -0.04810617665532907,
+      "Null_target": 0.05130653129311842
+    },
+    "primitives": [
+      "ToM_CA",
+      "Causal_CA",
+      "Strategic_CA"
+    ]
+  },
+  "Diplomacy": {
+    "n": 33,
+    "r2_cv": 0.00713209707964213,
+    "r2_baseline": NaN,
+    "delta_r2_cv": null,
+    "betas": {
+      "Null_CA": -0.024981312005888552,
+      "Null_target": 0.01620183740298482
+    },
+    "primitives": []
+  },
+  "Scientific": {
+    "n": 32,
+    "r2_cv": 0.2840101685963137,
+    "r2_baseline": 0.293726123287836,
+    "delta_r2_cv": -0.00971595469152231,
+    "betas": {
+      "ToM_CA": 0.01357036488359893,
+      "Causal_CA": -0.11509561389214165,
+      "Spatial_CA": 0.05873470759973083,
+      "ToM_target": 0.1556304821928036,
+      "Causal_target": 0.16711666526624386,
+      "Spatial_target": 0.05338729001676896,
+      "Null_CA": 0.013454808398202255,
+      "Null_target": 0.0437642554394992
+    },
+    "primitives": [
+      "ToM_CA",
+      "Causal_CA",
+      "Spatial_CA"
+    ]
+  }
+}

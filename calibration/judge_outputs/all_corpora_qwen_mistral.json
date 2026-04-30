@@ -1,0 +1,3500 @@
+[
+  {
+    "corpus": "tom_cc",
+    "n_pairs": 50,
+    "deltas": {
+      "Qwen-14B": {
+        "accept_target": 0.86,
+        "accept_retain": 0.72,
+        "delta": 0.14,
+        "delta_pp": 14.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Mistral-Nemo": {
+        "accept_target": 1.0,
+        "accept_retain": 0.98,
+        "delta": 0.02,
+        "delta_pp": 2.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Panel": {
+        "accept_target": 0.86,
+        "accept_retain": 0.72,
+        "delta": 0.14,
+        "delta_pp": 14.0,
+        "n_target": 50,
+        "n_retain": 50
+      }
+    },
+    "action": "Apply correction: CA_corrected = CA_raw - 0.140",
+    "pair_details": [
+      {
+        "pair_id": "666da0bc-73d8-4c35-b0ff-e90ebbde94ca",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c68fd559-b101-4a48-b35a-0d827f8731ba",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "649c5c8e-72dd-4ed2-8bab-1f372f6b9a87",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "f0551581-fa36-4a72-8935-522553031a33",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "d6d3caa1-cdd3-4835-a0e3-944e24071eb7",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "7cf30416-6fc4-4d4d-a27a-2faa77464da4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "240c4f06-69f9-4f13-ad3e-809891e32fc4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "1b178831-ad6f-4f6b-8742-b63e99bfb9bc",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2218b23f-01d3-463c-bafd-9b08090d1cb5",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a36027b4-9ec8-4eb2-8bb7-73888c13dc0c",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "88848949-a184-47c8-a130-d386dc606b3e",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c4c69d07-e789-43b8-a04c-d5217a8677d2",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a74d0857-2826-4b07-a768-5a511a3ff398",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e18ac403-cef2-41cf-89cc-44205b869344",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "de7b8300-54a6-4928-a8c0-a64cb185d308",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "dca16661-1e71-4241-bd47-badf4b5a45f9",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a0c82a7b-cec4-482a-8139-2e1953eb68a3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "83e8fa54-426e-415e-bd63-15d04484c493",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "9160e7ce-2891-444a-ab44-a51f9f6723db",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0c82a1b1-3fb7-48dd-8728-0de29c172298",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "948c2123-8927-43f1-bb65-f20e3690eb0e",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "9e169da6-a1d7-4175-bcf1-3090b42bc7a2",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "62724723-3fbe-4dcb-88f4-4ff40b3b31f4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e392d2a6-8d50-4a25-9631-a57675704510",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "1cfbc2f1-f60d-4272-b0ac-29e85dcde695",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "fcaf93fd-773b-4592-82c3-eeda715ca950",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "f9020cbd-ea4b-4c1d-b003-de83542eff6a",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "622380b0-065d-4072-9fe8-41b72f29dad2",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "277a1e4b-516f-49e1-b1a8-0a4d71440e73",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "58448e78-58c9-4dae-a0e2-a96ed351295a",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "4205983c-9876-4f35-9e83-fed5e40e7dc8",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0bf0e82d-a642-4e8c-bb60-e3e1da67f55a",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "be3a31a0-59fc-4fa1-9876-c7ca28b3308d",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5ceebfa6-f76f-46bb-92fc-2da37b0ed2e3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "d0d83076-1e73-474d-bf61-30e85ef26d99",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "8d681990-b3dd-4df4-9213-a665bd6f2c88",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5c17b380-3631-46c2-b982-4b815a8f64e0",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ee6552ba-f544-4051-944a-06d5362926c1",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2f0c7b60-8cc1-4970-9be0-d0fecbb9a614",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "81256438-4316-4442-af79-c7a6862eeabd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "28ff1474-4226-420d-9722-6b5675c87144",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "3482de3c-afe6-4f9e-a954-0380e7483cf7",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "35e3d8d5-2e5b-48f3-8f64-dc73e2d67a6f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        }
+      },
+      {
+        "pair_id": "88f16586-848b-4948-a592-7d3d1ec8dda6",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "00577904-942d-41ed-af77-e58e6fb77363",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "8c4d0f1f-f2b4-4b70-aa85-907f72f1e913",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b89f013b-1125-4c76-9a25-588157888769",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "af7d2477-ee89-474d-800b-2b41422fba5c",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "08e7ce1c-dff4-4847-a011-5b6543d16bc4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "abcb3f23-bfa8-43aa-9542-6f16667c815d",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      }
+    ]
+  },
+  {
+    "corpus": "ctr_cc",
+    "n_pairs": 50,
+    "deltas": {
+      "Qwen-14B": {
+        "accept_target": 0.96,
+        "accept_retain": 0.8,
+        "delta": 0.16,
+        "delta_pp": 16.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Mistral-Nemo": {
+        "accept_target": 1.0,
+        "accept_retain": 1.0,
+        "delta": 0.0,
+        "delta_pp": 0.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Panel": {
+        "accept_target": 0.96,
+        "accept_retain": 0.8,
+        "delta": 0.16,
+        "delta_pp": 16.0,
+        "n_target": 50,
+        "n_retain": 50
+      }
+    },
+    "action": "Apply correction: CA_corrected = CA_raw - 0.160",
+    "pair_details": [
+      {
+        "pair_id": "86e3a6a7-9fc5-43b2-9995-cb1e9a033dde",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "526f1c0b-e004-4125-8c7e-cb78280ff2aa",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "abff8050-80c1-47c3-85a5-968a7b604d9e",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "24afc420-7d7a-4ec1-a13e-0245e33294fd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "1d2d9ad6-b971-405e-bbea-4a6c434631a2",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "14e5032b-b2a8-46ab-874d-370ad367a3f7",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b051a074-4adc-4e9a-b9a7-af2e290fbe34",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2d1ffb08-4762-403b-8c63-08276fe50634",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6925bc0b-a6f2-4032-9fe7-7eef32be7ead",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5cda91c1-4955-4c9e-a985-69d305244995",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "4ad2ed85-fb90-4215-ace5-00148ec729cb",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b21d078e-a4e2-4508-829c-1f6b3d96722b",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2ef9f955-205c-44ea-8fa8-f25e105a4c04",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "8f52c3b6-d055-4732-a1bb-7dc8d0c70e10",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "39d5ccf0-1a3a-4d4e-a177-d62481fea6f3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "05d300ac-cffd-4927-8c0f-f3b82b5f5860",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0ff0d394-a7f1-457a-9a2a-e2423c3ebffa",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "8e3e0fbb-4120-4ee5-a0c7-dfbd9ee3f551",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6800730c-ebe9-4777-8cca-c4ab9e999314",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "9a25feb3-49ec-44b4-b8c4-283250210e92",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "45c3ffa6-c359-47be-8300-28ad48824c54",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2b28cb5e-d0a1-4a6b-a5b5-51055a1961d4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a9c891fc-02be-457d-a504-ce6f22d45edd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ebc418c3-b7b5-4eaf-92c2-1c38dc17c8bd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "4e7fdc80-c452-4f36-b204-a4cac9647aa8",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "d0c5e266-2286-4ca9-9f8e-6b1a9316bd3c",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ef374ffc-1640-424b-8b81-4f37e9618d9e",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c4577684-04fb-4842-83cd-d7f47e7cad68",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "d8bbe8a2-65df-497d-95a4-939a3bf4bffe",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "88349417-1e27-4920-980f-458069f7e276",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "16608c58-32f9-4fd4-ad39-1fe5375ef257",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "53778ced-d23f-4694-af44-115f2435f3d5",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "945ce003-13f4-4233-a682-04c22dbbcaf6",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "1dd48001-cb0f-40ac-95ec-64a2186587a8",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c5ed3ce9-da0d-410c-b9df-77a12c5e2eed",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c00cf5a2-fc03-41f2-9897-627c1d86a599",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "bf46b5d3-4a66-4ed0-8a1d-793b948224fb",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "471bff22-e1f4-476e-a63e-6af45523e698",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "09c6db97-8bfd-4ddd-9c29-914cb9a80f45",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0c6fe8a0-6947-49e4-9051-a8c199ad4dc2",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b1660671-f3a7-447d-a254-fb35b1b3d7a5",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "66c5d957-3e4f-4448-8b17-5f5755ca5ab2",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "f3391c69-cffb-4379-aba8-3cdcf0ad0475",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ec4487e6-9b8a-4c51-aff2-1d166ea6b5ab",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "02e323e0-86f6-4e95-a68c-ff5e99b1a96f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "07056305-761d-4395-92e4-54f167d5649a",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "dfdb0b55-78bf-40b2-8571-b1760c7f3d7b",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a2028a3b-dde6-4c53-9747-1192258ed9c9",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e6ca18ce-0842-46f2-b46e-f5826fd3fc66",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "9ed3ed77-d519-4359-afd2-3831065b41c5",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      }
+    ]
+  },
+  {
+    "corpus": "mor_cc",
+    "n_pairs": 50,
+    "deltas": {
+      "Qwen-14B": {
+        "accept_target": 0.86,
+        "accept_retain": 0.74,
+        "delta": 0.12,
+        "delta_pp": 12.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Mistral-Nemo": {
+        "accept_target": 0.8,
+        "accept_retain": 0.84,
+        "delta": -0.04,
+        "delta_pp": -4.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Panel": {
+        "accept_target": 0.7,
+        "accept_retain": 0.66,
+        "delta": 0.04,
+        "delta_pp": 4.0,
+        "n_target": 50,
+        "n_retain": 50
+      }
+    },
+    "action": "No correction needed (|\u03b4| < 5 pp)",
+    "pair_details": [
+      {
+        "pair_id": "d8385a7b-9b11-4442-a677-8e1d94a98dff",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b8c49cda-eb83-401b-80d0-0e703ee27e9d",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "22d873a3-422b-4d7f-ae0a-b45d15c8e72b",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        }
+      },
+      {
+        "pair_id": "a27d4492-1f75-4fbe-88aa-32bb620d4a82",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6179dafd-c205-40ff-9c9b-cbebc6f4d5c2",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        }
+      },
+      {
+        "pair_id": "1b80f5a0-761a-4a39-a6f4-68b2279598ca",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e585a2de-e2d7-45da-9d05-112126b056c3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "1a7b819b-61ec-47db-8afc-166d8a45e186",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c4ef6b39-7536-406d-96dc-ef3e0e48d3c2",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "3dbf9097-7f01-457d-94f7-84423cd45cd9",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "aba28668-4553-44fb-bdd3-bf553c2e4e81",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "805110ec-3f4c-4d48-a83e-c172e7ae38dd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "92d77f99-e411-4e09-8531-8969e54f44e5",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ec9b3471-4021-43bb-87ca-f405a5ba8c8b",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "bbe500ec-14c5-4cb5-89cd-fec384aed0fe",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "dc7973eb-6c25-479d-b71b-abb5ca7b923b",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "679732d2-10a7-4726-8a89-06d5b7eafac2",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2cca2a1e-3856-4978-bb12-dfbb74ff747f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a6d287a5-0152-4a2c-add0-46b936eaefdd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "d68820f2-0b99-4779-b5fd-bd476ac79288",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "7e624744-7bae-4ba2-a265-343e3b4f9186",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e1adf6d2-d03b-45ee-a46f-f9bc76470e17",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "007dfe93-3c3e-4dc7-b73d-cdae09f07181",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c19eb3f7-673f-4bf4-9490-6913ce7dabf0",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "45c4e506-791d-4ec7-99e5-d71404967a36",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6b5154cf-587e-462a-b87a-8c8805e72e7d",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c87be395-bb54-4584-92d2-fde171add99b",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "679f8f67-b61e-424e-a58e-325316001305",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e4b758ff-6435-4909-8f1e-cdb1b8ebb6f7",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "536b3d40-bbb8-485c-85ea-c1815e00d779",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b9c61ce9-a491-4ce4-90b0-d009f02233b0",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "8e0da8cd-151c-43fe-960a-84a43b57592b",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        }
+      },
+      {
+        "pair_id": "dd9052a7-54a2-4744-9a7b-3658c584d2fb",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        }
+      },
+      {
+        "pair_id": "47aff2ca-f771-4120-bb15-393d66d9f24b",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6d8d7988-782c-46a7-8b09-890890a946be",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0b512de6-f756-4a55-b8e4-698d16373eb7",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        }
+      },
+      {
+        "pair_id": "0df34a38-7b72-45c3-96b7-f47bd51ce768",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        }
+      },
+      {
+        "pair_id": "178689ff-c913-433c-bb43-86d9aeeb2edd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "df23fbac-7603-4ab2-890b-2cf225d9610f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "9354f3bf-305a-4398-bd5b-a1c7dcfb8cb5",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "824de5dc-5f17-4018-8798-e9cebbd71b6f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "80dbeec7-e7dc-437c-8bbb-20b94aef2a51",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "26c1cc87-3e56-4d00-8a24-13547737c7cb",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": false
+        }
+      },
+      {
+        "pair_id": "22e76f3a-8346-44ec-b534-873e47737ca2",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        }
+      },
+      {
+        "pair_id": "bb2aa558-79ab-4339-b371-afb4f8831f2e",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c619a2fa-af59-4a77-84ed-771102fea91f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "25867943-d813-4ac4-879e-b174d7026877",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "26196919-6bf0-4698-bd88-d25dfa3cc5ee",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "45539760-5719-4a18-9522-3e1d8cbc821d",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c9464a02-8ae7-4d73-9031-a6687e73d6a3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      }
+    ]
+  },
+  {
+    "corpus": "str_cc",
+    "n_pairs": 50,
+    "deltas": {
+      "Qwen-14B": {
+        "accept_target": 0.96,
+        "accept_retain": 0.74,
+        "delta": 0.22,
+        "delta_pp": 22.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Mistral-Nemo": {
+        "accept_target": 1.0,
+        "accept_retain": 0.98,
+        "delta": 0.02,
+        "delta_pp": 2.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Panel": {
+        "accept_target": 0.96,
+        "accept_retain": 0.74,
+        "delta": 0.22,
+        "delta_pp": 22.0,
+        "n_target": 50,
+        "n_retain": 50
+      }
+    },
+    "action": "Apply correction: CA_corrected = CA_raw - 0.220",
+    "pair_details": [
+      {
+        "pair_id": "ec001ee6-04b2-4d51-8a4d-fb2ebeb171fd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "13ee8d95-c9e0-4273-a090-7db251600519",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "4de717fd-eb4a-4527-aae3-434ebc71361c",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a6e1a91a-0847-4b65-930a-582bf032a658",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ae108c1f-62c0-4f83-842c-b52d43bf8680",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a8269fef-549d-401f-8dc1-ced51c57ede0",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6a454a32-f09f-4f2d-8a0f-df4a877b7e0e",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "12eb1146-658e-4d58-8c6d-a464fdb1999f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "bb2e7ecf-f5f6-47cf-905c-7f839741af3d",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "4e796a34-db3f-40bd-b81f-7224c8c0291a",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ccc03dac-7e8f-4757-a9e6-92e052ffc9ca",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "9574536d-0a36-4f23-ab48-e5d62c725004",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a852e051-0864-4bc2-b9f1-2aa61e74c94b",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e2d33bcb-bf54-4a0f-804e-5adaffd6f1bf",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0982ca5b-2b47-455a-9141-194da3e5b2be",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "60ff82a4-c3e7-4a68-8d76-779c1b403d3c",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "cbc4aac7-30e2-495f-8105-391e3670eec1",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2bdae8f7-9098-4723-8316-321a221d0ad8",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a8e6c6fe-cd54-4d37-bf41-4dd974e922e8",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b29b6d22-94eb-4785-9bd5-cd7f8a82035f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "69684d67-2c17-45f3-aba0-6c87bc309e40",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2e66126a-fd4d-4427-b507-0ecb3cbb25fa",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "1e196387-c087-4a47-8cfa-7f060d46cbf5",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "7e1e5393-99e8-48fd-9e9e-feeb2e5fe992",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "61e339c8-36ce-4e11-9e23-5780cbd37484",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "fd4714be-1fb9-4169-907b-636e535ecb30",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "143631d3-19e3-44b7-908e-c54b3c205fef",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6fd35bb1-ad2a-4f2d-8d31-59413115fa3b",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b9251edd-00b1-4ab8-b159-3d428154ef79",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "abef1d5e-6118-41c6-8488-00c51a89bd6c",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "3ecf1ab3-80f2-4046-9067-b95aee8e9ae4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a9cf0c56-6124-4702-aeb4-9a44113dd190",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "d21f5ede-2c4e-463e-b321-1ed30f84a60e",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2d067c87-11b8-4230-aee8-25cf94e36747",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "753775e3-21ca-46fc-a9b2-17c3f662f223",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a61880bc-e3be-45fc-a273-a9add5d1b546",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5464c38e-d2af-4a29-9ecd-dec4bf19097f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c7f2696a-e131-4de4-9d3f-ee93d9255dd8",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "8340ce81-a0a3-4cde-9d1b-49a1f68a50f8",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "9caa862d-7c2d-4a97-bcf5-44317ee18845",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b7865f30-3790-43ce-a700-cb54790d37fa",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "50f2c2b1-f78f-491f-b442-6e4eb6d93941",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0864272f-3f7a-48a6-839c-8aac523501f3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6b07b8f1-15cb-49d9-bd4c-89bfa50259e4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6a0dbfcf-7b75-41c5-ad17-39cab49fdb56",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "27d3a1ee-903e-479b-9798-1839702bbef9",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e49007f8-a33b-442c-9980-4ba8ec9243f9",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "70b03c77-53ba-4921-8e74-dea9c28bd2bd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ed882930-4a4e-4cde-b586-eca49e3b7bd0",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "d5c0ae3a-47db-49e9-b960-579f4fbcc6b6",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        }
+      }
+    ]
+  },
+  {
+    "corpus": "core_math",
+    "n_pairs": 50,
+    "deltas": {
+      "Qwen-14B": {
+        "accept_target": 0.8,
+        "accept_retain": 0.98,
+        "delta": -0.18,
+        "delta_pp": -18.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Mistral-Nemo": {
+        "accept_target": 1.0,
+        "accept_retain": 1.0,
+        "delta": 0.0,
+        "delta_pp": 0.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Panel": {
+        "accept_target": 0.8,
+        "accept_retain": 0.98,
+        "delta": -0.18,
+        "delta_pp": -18.0,
+        "n_target": 50,
+        "n_retain": 50
+      }
+    },
+    "action": "Apply correction: CA_corrected = CA_raw - -0.180",
+    "pair_details": [
+      {
+        "pair_id": "7c083848-38a5-4822-a938-f6f9a636169b",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "92c81cdc-bae1-4958-a487-80b39ba1fcfb",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e67087e7-d301-4bad-bc5c-2e37ef088afb",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "4b270cf7-9aef-4501-92c5-3c64168a4b49",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "cefde398-1f71-4b33-b3d0-54448028334f",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6f2546e6-aca2-4f1e-8a6d-38fa7559642f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "f2bba0a0-2684-46ed-8a00-f53b416aefdd",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c6eba5c8-36c5-48aa-823f-fcc9604b9752",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "27289534-6777-4e32-9d79-8e28335aae4a",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "bbb1d933-c892-4e26-92a4-19062eb724a9",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "43185b4a-53d3-4dc6-a77a-59e4a5238045",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b96eba48-261c-44f1-8a33-5aa1f1f9f01d",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "96c9635b-40a8-4086-9b32-c7fe13e4c255",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "57857ace-bf63-4e3d-a70b-f55b9a608243",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "3cf7f18b-00f1-45e2-935a-2779fcfa9c16",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "4d3201c5-43bd-4858-8f6f-801acf6ffd3d",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "1300be9b-a9dc-41df-a503-7410f5310893",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "d2ed8eac-e1dc-4221-ae16-6f4bf77cdd06",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "bd9389b5-5714-49ca-aa38-2f01ffa15247",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "869826c2-0947-4131-b149-5ae231dfabac",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "9aca30af-78c8-41b3-b7bb-98fa6842fdd0",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "67b1a234-8759-4ee9-9a22-a3f76bb048d4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e6fe468f-68bb-4b84-ae5d-3daaf8967185",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "baa66353-4a0b-4cb5-9d5a-c23a593b7a7a",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "dc840c03-6002-4740-bc57-230fde445de4",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "4e52c4a0-38a2-4e03-abb9-8615f6a72043",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "f1e3f2fc-0331-489b-82d4-7cc21fbdb0ba",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "9b51bd59-b3d8-4f66-b753-68721546a3e9",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5b0b69a8-fc72-491b-9875-94b429ec4086",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "cae1a5ae-5ef6-426b-bfb3-2af0516710e9",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c2ac5b74-3fa8-4b17-8c7b-011c9912fba4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "149bdebd-e9e2-405f-852a-44f2083e28c3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "383b33b9-5386-4f19-a272-c2968e449675",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "df8b2350-d41c-4952-b70e-aeb000d6cb59",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "30eac2e1-4365-4308-94d9-498d2e9a6701",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "dd5db48a-84c8-48ca-9ca9-b43f7f2f780e",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0d2b6d31-3dba-4c9c-9b83-9ed0fa7e819d",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5e987e1e-3efc-43a3-9bd2-d29c4bb1a3f3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ca7abc02-49b1-4cd3-9f1f-befb49ecb433",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b70ac3ed-441b-4224-9d71-ab8f9dea80b1",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "54eba36b-d881-4ad3-9b42-77cf15218598",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "f13494a5-8209-495f-9745-0fb7aff9b4fe",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5045c7ad-5b42-4547-901b-65025c61642c",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0157164a-b472-4ed5-902f-6fd5bfd681f5",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "576a0b13-1967-4633-b01a-f4df576c31e1",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2d7d708e-21ab-4039-8ad3-4dddf0630b5e",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e13b1dba-9230-4e84-8991-e201ff691ba0",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "4b3d2ca3-95fe-4794-8aef-50cead147b41",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "448372f2-d45d-4696-a133-05329164d5b1",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "8a5dfbf9-8851-4610-9a64-00087ba09f3f",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      }
+    ]
+  },
+  {
+    "corpus": "null_cc",
+    "n_pairs": 50,
+    "deltas": {
+      "Qwen-14B": {
+        "accept_target": 0.74,
+        "accept_retain": 0.04,
+        "delta": 0.7,
+        "delta_pp": 70.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Mistral-Nemo": {
+        "accept_target": 0.86,
+        "accept_retain": 1.0,
+        "delta": -0.14,
+        "delta_pp": -14.0,
+        "n_target": 50,
+        "n_retain": 50
+      },
+      "Panel": {
+        "accept_target": 0.74,
+        "accept_retain": 0.04,
+        "delta": 0.7,
+        "delta_pp": 70.0,
+        "n_target": 50,
+        "n_retain": 50
+      }
+    },
+    "action": "Apply correction: CA_corrected = CA_raw - 0.700",
+    "pair_details": [
+      {
+        "pair_id": "9e6a243c-01b4-44b9-a9fe-c30dfc54a5d8",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "94abad42-d6cc-4cfa-a465-51f29aadcc46",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "cc52c7f7-ba82-4353-a213-90a082ceab90",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "bce76ded-9911-41a8-8dcb-8b1a7417b61b",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "7e7257a9-5892-4bef-b0cf-d2f4457de473",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "cf1fe16c-eb53-4603-a7f5-f9380c1c2224",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ae8c1b12-ba21-457c-982d-d73be6316369",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "b7a625ea-5273-4b0a-a1d8-777a8a002261",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "403051d6-f7be-47ae-8077-e6b2d887fa40",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c9aa05d8-2b3b-4ef8-bd93-298fa31f0f56",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "f2e61d0f-e04a-4175-a29a-b5a9b4599cc7",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6cc4cc9e-7081-43c9-8ed0-b9b4919056ee",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "edb1626b-9147-40ec-b42d-ab4c12457f06",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "71d53688-656f-46ea-b107-9de555944b5f",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "976d6777-49f6-485b-8a4b-9a31a98cf601",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2bfe008c-f2d5-4597-b766-65ebf1839038",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "593c2b9c-b589-4fb4-a14a-2ede18d21099",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e49d7012-7dc8-4968-b934-7c73419976d0",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "3bf420f3-04b6-4613-869b-3612eb1605c9",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2ce123d6-f02f-470e-a391-3a0be3af3f78",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6dec0958-848e-40b4-a7a7-1e637b0ded56",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "0cd3dde7-e6a9-4f9a-ba3b-d596a1a268bc",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ac603cbf-145d-488b-a972-0393a53f0efc",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "6a8c8129-38c8-429e-95e8-835124ee0b08",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "788a3e7b-adde-4df1-b2df-d604c5e50238",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "82935944-7687-4f9c-899b-8fbaddb73c1a",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "e4117921-7e22-466f-99fd-2ae1407ddcc3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5aee0122-9c8e-4baa-860a-5aa18422bcd6",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "570627c8-ab93-49d8-aeba-6568964eeb1f",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "3fa1e9b1-40b7-41cb-9819-a26cd703a0be",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "36c827be-df96-4e13-a9bc-56569d307f43",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "cc45f3ab-4c43-4fde-a6d1-a508c4b57f7a",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5ea8b9c8-3cde-4f01-b327-24b018f5c977",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "46f821f9-b4b5-4907-9833-8df7e9b7a044",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "a11b25e0-e190-41bc-9748-b699d27b6893",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "13e65291-2f44-4180-b801-fdf7047d9d7d",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "f14a8b45-af47-491d-a8e3-7aa96bbf50ea",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "106793f0-3089-4c83-9989-6b3072b7edd5",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "3bddad56-1fe4-40d4-a997-029a2da5bead",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "465bd3ef-fbf6-4e03-b7e0-8dad73330471",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": false
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c07c06da-26fb-4c7c-a408-7650e0f52394",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "2476ce55-a224-4ec3-9337-4ff58b0174d3",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "ff419579-3237-4360-997f-f08fb1db0245",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "15f0cab5-b33d-489b-96a6-6df7b7f443f4",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "369c462b-f2cc-4899-a51f-17fc5edd0634",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "c77198ed-4dff-441d-926c-97ff2a7fa245",
+        "target_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "d628fae6-962f-4dc1-8b61-0340d35a7ab2",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "646fd063-6482-4871-a58d-4693221bae7e",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "5d6d2d9c-5d78-40e4-a8d0-67e8dc634746",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      },
+      {
+        "pair_id": "7daaa20a-dc3d-4b68-851a-d3ede8b7db99",
+        "target_verdict": {
+          "Qwen-14B": true,
+          "Mistral-Nemo": true
+        },
+        "retain_verdict": {
+          "Qwen-14B": false,
+          "Mistral-Nemo": true
+        }
+      }
+    ]
+  }
+]

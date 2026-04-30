@@ -1,0 +1,17 @@
+domain,primitive,predicted_sign,P_beta_gt_0,P_beta_lt_0,verdict
+Cybersecurity,ToM,+,0.986,0.014,hit
+Cybersecurity,Causal,+,0.902,0.098,underpowered
+Cybersecurity,Strategic,+,0.907,0.093,underpowered
+Medical,Causal,+,0.997,0.003,hit
+Medical,Moral,+,1.0,0.0,hit
+Medical,Spatial,+,0.97,0.03,hit
+Legal,Moral,+,0.967,0.033,hit
+Safety,ToM,+,0.998,0.002,hit
+Safety,Moral,+,1.0,0.0,hit
+Safety,Strategic,+,1.0,0.0,hit
+Financial,ToM,+,0.852,0.148,underpowered
+Financial,Causal,+,0.975,0.025,hit
+Financial,Strategic,+,0.917,0.083,underpowered
+Scientific,ToM,+,0.997,0.003,hit
+Scientific,Causal,+,0.937,0.063,underpowered
+Scientific,Spatial,+,0.964,0.036,hit

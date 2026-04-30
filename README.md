@@ -28,15 +28,33 @@ NeurIPS/
 │       (CAU_COIN, MOR_COIN, STP_COIN, STR_COIN, TOM_COIN;
 │        pairs are complete opposites, like sides of a coin)
 │
-└── code/                     # runnable research code
-    ├── generation/           # 9-corpus generation + validation pipeline
-    ├── cogbench/             # CA harness + judge panel + calibration audit
-    ├── Lora/                 # LoRA adapter training on target text
-    └── evals/                # held-out benchmark drivers
+├── code/                     # runnable research code
+│   ├── generation/           # 9-corpus generation + validation pipeline
+│   ├── cogbench/             # CA harness + judge panel + calibration audit
+│   ├── Lora/                 # LoRA adapter training on target text
+│   ├── evals/                # held-out benchmark drivers
+│   ├── analysis/             # paper-table reproduction (Tier 1; 8 scripts)
+│   ├── figures/              # paper-figure reproduction (Tier 2; 5 figures)
+│   └── probes/               # App E linear-probe + steering cookbook (Tier 4)
+│
+├── results/                  # pre-computed result CSVs (Tier 3)
+│   ├── cogbench/             #   table5_master.csv (raw + corrected CA per model)
+│   ├── ceiling_compression/  #   ca_all_rows.csv, eta2_family_ci.csv, family_primitive_modes.csv
+│   ├── composition/          #   table3_beta.csv, sign-stability, kitchen-sink, lasso
+│   └── domain/               #   per-model held-out scores
+│
+├── calibration/              # judge-bias calibration (Tier 5; App G Table 15)
+│   ├── gold_pairs/           #   5 corpora x 50 author-written gold pairs
+│   ├── judge_outputs/        #   pre-computed Qwen-14B + Mistral-Nemo verdicts
+│   └── calibration_summary.csv  # δ + correction action per corpus
+│
+└── tools/                    # reproducibility helpers (Tier 6)
+    ├── generate_croissant.py    # rebuild croissant.json from data/
+    └── refresh_paper_numbers.sh # rerun all 8 analysis scripts in dependency order
 ```
 
-Each of the four `code/` folders is **self-contained** — its own
-`README.md`, `requirements.txt`, `setup.md`, and `.env.example`.
+Each `code/` folder is **self-contained** — its own `README.md`,
+`requirements.txt`, `setup.md`, and `.env.example` where applicable.
 
 ## Corpora at a glance
 
@@ -74,6 +92,23 @@ field, exactly one `retain*` field. Full schema is authoritative in
 | COIN       | `target`         | `retain`             |
 
 ## Recipes
+
+### 0. Reproduce paper tables and figures from the shipped CSVs
+
+```bash
+# Rebuild every analysis output (Tables 3, 4, 19, 22, App G Table 15-corrected, etc.)
+bash tools/refresh_paper_numbers.sh
+
+# Rebuild all 5 paper figures (Fig 1, 2, 3, 6, 7) into ./figures/
+bash code/figures/make_all_figures.sh
+
+# Validate the Croissant metadata
+mlcroissant validate --jsonld croissant.json
+```
+
+The 8 analysis scripts under `code/analysis/` are runnable independently
+and read only from `results/`. They reproduce numbers within bootstrap
+variance of the values reported in the paper.
 
 ### 1. Score my model on CogBench (quickstart — no judge panel)
 

@@ -468,7 +468,7 @@
       "@type": "cr:FileObject",
       "@id": "coin_stp_coin_train_file",
       "name": "coin/STP_COIN/train.jsonl",
-      "description": "COIN STP_COIN — train split (2214 records). Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "description": "COIN STP_COIN — train split (2214 records). Spatial-temporal contrast partner for STP-CC (complete-opposition pairs).",
       "contentUrl": "data/coin/STP_COIN/train.jsonl",
       "encodingFormat": "application/jsonlines",
       "contentSize": "2484631 B",
@@ -479,7 +479,7 @@
       "@type": "cr:FileObject",
       "@id": "coin_stp_coin_bench_file",
       "name": "coin/STP_COIN/bench.jsonl",
-      "description": "COIN STP_COIN — bench split (2460 records). Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "description": "COIN STP_COIN — bench split (2460 records). Spatial-temporal contrast partner for STP-CC (complete-opposition pairs).",
       "contentUrl": "data/coin/STP_COIN/bench.jsonl",
       "encodingFormat": "application/jsonlines",
       "contentSize": "2758819 B",
@@ -490,7 +490,7 @@
       "@type": "cr:FileObject",
       "@id": "coin_stp_coin_holdout_file",
       "name": "coin/STP_COIN/holdout.jsonl",
-      "description": "COIN STP_COIN — holdout split (246 records). Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "description": "COIN STP_COIN — holdout split (246 records). Spatial-temporal contrast partner for STP-CC (complete-opposition pairs).",
       "contentUrl": "data/coin/STP_COIN/holdout.jsonl",
       "encodingFormat": "application/jsonlines",
       "contentSize": "274188 B",
@@ -4184,7 +4184,7 @@
       "@type": "cr:RecordSet",
       "@id": "coin_stp_coin_train_records",
       "name": "coin_stp_coin_train_records",
-      "description": "COIN STP_COIN — train split. Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "description": "COIN STP_COIN — train split. Spatial-temporal contrast partner for STP-CC (complete-opposition pairs).",
       "key": {
         "@id": "coin_stp_coin_train_file/id"
       },
@@ -4315,7 +4315,7 @@
       "@type": "cr:RecordSet",
       "@id": "coin_stp_coin_bench_records",
       "name": "coin_stp_coin_bench_records",
-      "description": "COIN STP_COIN — bench split. Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "description": "COIN STP_COIN — bench split. Spatial-temporal contrast partner for STP-CC (complete-opposition pairs).",
       "key": {
         "@id": "coin_stp_coin_bench_file/id"
       },
@@ -4446,7 +4446,7 @@
       "@type": "cr:RecordSet",
       "@id": "coin_stp_coin_holdout_records",
       "name": "coin_stp_coin_holdout_records",
-      "description": "COIN STP_COIN — holdout split. Planning contrast partner for STP-CC (complete-opposition pairs).",
+      "description": "COIN STP_COIN — holdout split. Spatial-temporal contrast partner for STP-CC (complete-opposition pairs).",
       "key": {
         "@id": "coin_stp_coin_holdout_file/id"
       },

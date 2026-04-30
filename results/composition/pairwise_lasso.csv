@@ -1,0 +1,8 @@
+domain,lambda_cv,n_survivors,top_survivors,a_priori_pair,a_priori_survives
+Cybersecurity,0.0014,12,Moral x Strategic (+0.05); Moral x Spatial (+0.04); ToM x Causal (+0.04),Causal x Strategic,Yes
+Medical,0.0085,5,Causal x Spatial (+0.08); Strategic x Spatial (+0.05); Moral x Spatial (+0.03),Causal x Moral,No
+Legal,0.0289,0,(none),Causal x Moral,No
+Safety,0.0087,4,Causal x Spatial (+0.04); Strategic x Spatial (+0.04); ToM x Causal (+0.02),ToM x Moral,No
+Financial,0.0051,4,Causal x Spatial (+0.01); Strategic x Spatial (+0.01); Strategic x Null (+0.01),(none),No
+Diplomacy,0.0083,0,(none),ToM x Strategic,No
+Scientific,0.0129,7,ToM x Causal (+0.06); ToM x Spatial (+0.05); Strategic x Spatial (+0.04),Spatial x Causal,Yes

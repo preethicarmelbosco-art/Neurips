@@ -1,0 +1,7 @@
+Corpus,n,Qwen-14B_delta_pp,Mistral-Nemo_delta_pp,Panel_delta_pp,Action
+tom_cc,50,14.0,2.0,14.0,Apply correction: CA_corrected = CA_raw - 0.140
+ctr_cc,50,16.0,0.0,16.0,Apply correction: CA_corrected = CA_raw - 0.160
+mor_cc,50,12.0,-4.0,4.0,No correction needed (|δ| < 5 pp)
+str_cc,50,22.0,2.0,22.0,Apply correction: CA_corrected = CA_raw - 0.220
+core_math,50,-18.0,0.0,-18.0,Apply correction: CA_corrected = CA_raw - -0.180
+null_cc,50,70.0,-14.0,70.0,Apply correction: CA_corrected = CA_raw - 0.700

@@ -1,0 +1,16 @@
+primitive_a,primitive_b,n,pearson_r
+ToM,Causal,39,-0.2004
+ToM,Moral,39,+0.3614
+ToM,Strategic,38,+0.1706
+ToM,Spatial,39,-0.0693
+ToM,Null,38,-0.3793
+Causal,Moral,39,-0.1284
+Causal,Strategic,38,+0.1787
+Causal,Spatial,39,-0.0706
+Causal,Null,38,-0.0796
+Moral,Strategic,38,+0.1455
+Moral,Spatial,39,-0.0966
+Moral,Null,38,-0.0345
+Strategic,Spatial,38,+0.0331
+Strategic,Null,38,-0.2700
+Spatial,Null,38,-0.0763

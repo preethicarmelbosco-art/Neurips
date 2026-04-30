@@ -16,6 +16,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 PRIMITIVES_6 = [p for p in PRIMITIVES_7 if p != "Proof"]
+# Bundle CSV uses `<Primitive>_CA` columns; map labels to CSV columns.
+PRIMITIVE_COL = {p: f"{p}_CA" for p in PRIMITIVES_6}
 
 # Models chosen to highlight dissociations (falls back to available rows).
 REPRESENTATIVES = [
@@ -45,7 +47,7 @@ def pick_models(df: pd.DataFrame) -> list[str]:
         return have
     # Fallback: top 6 by primitive-coverage count (most non-null primitives)
     df = df.copy()
-    df["_cov"] = df[PRIMITIVES_6].notna().sum(axis=1)
+    df["_cov"] = df[[PRIMITIVE_COL[p] for p in PRIMITIVES_6]].notna().sum(axis=1)
     return df.sort_values(["_cov", "Avg"], ascending=[False, False]).head(6)["model"].tolist()
 
 
@@ -81,7 +83,7 @@ def main():
     colors = plt.cm.tab10(np.linspace(0, 1, max(n, 3)))
     for i, (model, color) in enumerate(zip(models, colors)):
         row = df[df["model"] == model].iloc[0]
-        values = [float(row.get(p, 0) or 0) for p in PRIMITIVES_6]
+        values = [float(row.get(PRIMITIVE_COL[p], 0) or 0) for p in PRIMITIVES_6]
         arch = row.get("arch", "")
         size = row.get("size_b", "")
         label = f"{model}\n({size}B, {arch})"

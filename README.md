@@ -93,6 +93,16 @@ field, exactly one `retain*` field. Full schema is authoritative in
 
 ## Recipes
 
+### Worked recipes
+
+The 9 worked recipes documented in `RECIPES.md` cover RepE bidirectional
+steering with COIN, contrastive-negative DPO triples from COIN, the SPL-CC
+perfect-separation diagnostic and numeric eval, the CORE-MATH judge-
+acceptance probe and base-vs-instruct register dissociation, the LoRA
+destructive validity test, deficit-map curriculum design, and using
+NULL-CC as a portable judge-bias auditor. They mirror Appendix A of the
+paper and operationalise it with runnable commands.
+
 ### 0. Reproduce paper tables and figures from the shipped CSVs
 
 ```bash

@@ -6,6 +6,39 @@ by the Croissant metadata URL. Everything is double-blinded; no author,
 affiliation, hostname, URL, or e-mail is embedded in the metadata or the
 data records.
 
+## Where things live
+
+Two anonymous endpoints — one per artefact class — both reachable
+without any account or login:
+
+| Artefact                                                                        | Host                    | URL                                                                                          |
+| ------------------------------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
+| Code, audits, profiles, README, `croissant.json`, this bundle's directory tree  | anonymous.4open.science | <https://anonymous.4open.science/r/12321_cogbench_primitive/>                                |
+| Data files (39 individual JSONL files, plus a 78 MB bulk `data.zip` mirror)     | Zenodo (reviewer-token) | <https://zenodo.org/records/19959609?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImRhNDZkNjBhLTA2NWYtNGYyMS05ZjJmLTZjNzcyNjQ2N2ZlNSIsImRhdGEiOnt9LCJyYW5kb20iOiJmZTBiYTEzN2U5MjdkMGFhODg1NDQwYmZhY2I3OGJjZCJ9.EMWQjyNEYTCpvi2MwsUOkTsiBFLadyD3w_bReRwhziqKwuaxXc0AcRAF6xJ8yzWAA2pukz2DxgufpHVAXn06tg> |
+
+The data files are addressed individually in the Croissant metadata —
+each of the 39 `cr:FileObject` entries in `croissant.json` has its own
+per-file Zenodo URL (e.g. `…/files/spl_cc_train.jsonl/content?token=…`),
+so `mlcroissant load --record_set <name>` (and the HF Croissant
+Validator's record-set generation test, which runs on
+`mlcroissant 1.0.x`) streams the relevant file directly without
+downloading the whole archive. The `data.zip` deposited alongside is
+purely for reviewer convenience when grabbing the entire suite at once.
+
+Zenodo flattens upload paths, so the COIN files (which would otherwise
+collide as bare `train.jsonl`/`bench.jsonl`/`holdout.jsonl` across the
+five COIN sub-folders) are stored on disk under disambiguated names —
+`data/coin/CAU_COIN/cau_coin_train.jsonl`, etc. — and uploaded under
+the same flat names. Per-file checksums are in `SHA256SUMS` /
+`MD5SUMS`.
+
+At camera-ready the reviewer-token URL will be replaced by the canonical
+published Zenodo DOI URL — every per-file URL is form
+`https://zenodo.org/records/19959609/files/<filename>` once the deposit
+is published, so the swap is a single search-and-replace of the
+`?token=…` query string in `croissant.json`, `README.md`, and the
+paper.
+
 ## Contents
 
 ```
@@ -21,12 +54,15 @@ NeurIPS/
 ├── load_cogbench.py          # pure-Python data loader (no torch required)
 │
 ├── data/                     # 145 390 records in 39 JSONL files
-│   ├── train/    ── 8 files
-│   ├── bench/    ── 8 files
-│   ├── holdout/  ── 8 files
-│   └── coin/     ── 5 domains × 3 splits — COIN = Contrast
-│       (CAU_COIN, MOR_COIN, STP_COIN, STR_COIN, TOM_COIN;
-│        pairs are complete opposites, like sides of a coin)
+│   ├── train/    ── 8 files (e.g. spl_cc_train.jsonl)
+│   ├── bench/    ── 8 files (e.g. tom_cc_bench.jsonl)
+│   ├── holdout/  ── 8 files (e.g. core_math_holdout.jsonl)
+│   └── coin/     ── 5 domains × 3 splits, file names disambiguated
+│       (CAU_COIN/cau_coin_{train,bench,holdout}.jsonl, etc. for
+│        MOR_COIN, STP_COIN, STR_COIN, TOM_COIN — pairs are complete
+│        opposites, like sides of a coin; files renamed from bare
+│        train/bench/holdout.jsonl so they can be uploaded
+│        individually to flat hosts like Zenodo)
 │
 ├── code/                     # runnable research code
 │   ├── generation/           # 9-corpus generation + validation pipeline
@@ -237,9 +273,19 @@ an explicit patent grant and matches the HuggingFace / PyTorch ecosystem
 default). Both permit redistribution and commercial use with attribution;
 neither contains a non-commercial or share-alike restriction.
 
-For camera-ready we will mirror this bundle to a DOI-issuing archive
-(Hugging Face Hub / Harvard Dataverse / Zenodo) preserving the file
-layout, checksums, and licences.
+The data is already deposited on Zenodo (record `19959609`, under an
+anonymous reviewer-token URL — see "Where things live" at the top of
+this README). The deposit holds 39 individual JSONL files (one per
+`(corpus, split)`) plus a 78 MB bulk-download `data.zip` mirror.
+`croissant.json` references the per-file URLs so that the standard
+Croissant streaming validators (which run on `mlcroissant 1.0.x` and
+do not implement archive `containedIn` extraction) can fetch and probe
+each record set independently. At camera-ready the reviewer token is
+dropped and the deposit is published, yielding permanent DOI URLs of
+the form `https://zenodo.org/records/19959609/files/<filename>`; the
+same DOI will be cross-referenced from a Hugging Face Hub mirror to
+maximise reviewer familiarity. File layout, checksums, and licences are
+preserved across hosts.
 
 ## Verification status
 
@@ -275,7 +321,10 @@ it — not a release bug):
 All author-identifying content has been stripped from this bundle:
 
 - `creator`, `publisher`, `citeAs.author` in `croissant.json` → `Anonymous`.
-- Dataset `url` → anonymous hosting endpoint.
+- Dataset `url` → anonymous 4open.science endpoint; every Croissant
+  `cr:FileObject.contentUrl` → anonymous Zenodo reviewer-token URL on
+  the same record `19959609`. Both endpoints are reachable without an
+  account and reveal no author identity.
 - Code files scanned for usernames, paths, hostnames, IPs, e-mails,
   cluster names, private project identifiers — zero hits.
 - Data records contain no PII or demographic attributes.

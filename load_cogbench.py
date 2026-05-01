@@ -7,7 +7,7 @@ Streams records from the local CogBench release layout:
       train/<corpus>_train.jsonl
       bench/<corpus>_bench.jsonl
       holdout/<corpus>_holdout.jsonl
-      coin/<DOMAIN>_COIN/{train,bench,holdout}.jsonl
+      coin/<DOMAIN>_COIN/<domain>_coin_{train,bench,holdout}.jsonl
 
 Usage as a script:
 
@@ -43,7 +43,7 @@ def _resolve_path(corpus: str, split: str) -> Path:
     if corpus in PRIMARY_CORPORA:
         return DATA_ROOT / split / f"{corpus}_{split}.jsonl"
     if corpus in COIN_DOMAINS:
-        return DATA_ROOT / "coin" / corpus / f"{split}.jsonl"
+        return DATA_ROOT / "coin" / corpus / f"{corpus.lower()}_{split}.jsonl"
     if corpus == "coin":
         raise ValueError(
             "Use one of the five COIN sub-corpora: "

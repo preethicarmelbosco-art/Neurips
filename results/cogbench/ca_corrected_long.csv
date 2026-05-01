@@ -1,233 +1,251 @@
 model,family,size_b,arch,tier,corpus,primitive,ca_raw,delta,ca_corrected
-deepseek-r1-distill-qwen-7b,DeepSeek,7.0,Dense Transformer (Distilled),7-9B,null_cc,Null,-0.2541,0.700,-0.9541
 deepseek-r1-distill-qwen-7b,DeepSeek,7.0,Dense Transformer (Distilled),7-9B,ctr_cc,Causal,0.4149,0.160,0.2549
+deepseek-r1-distill-qwen-7b,DeepSeek,7.0,Dense Transformer (Distilled),7-9B,mor_cc,Moral,-0.0010,0.000,-0.0010
+deepseek-r1-distill-qwen-7b,DeepSeek,7.0,Dense Transformer (Distilled),7-9B,null_cc,Null,-0.2541,0.700,-0.9541
+deepseek-r1-distill-qwen-7b,DeepSeek,7.0,Dense Transformer (Distilled),7-9B,stp_cc,Spatial,0.2413,0.000,0.2413
 deepseek-r1-distill-qwen-7b,DeepSeek,7.0,Dense Transformer (Distilled),7-9B,str_cc,Strategic,0.7032,0.220,0.4832
 deepseek-r1-distill-qwen-7b,DeepSeek,7.0,Dense Transformer (Distilled),7-9B,tom_cc,ToM,0.1040,0.140,-0.0360
-deepseek-r1-distill-qwen-7b,DeepSeek,7.0,Dense Transformer (Distilled),7-9B,mor_cc,Moral,-0.0010,0.000,-0.0010
-deepseek-r1-distill-qwen-7b,DeepSeek,7.0,Dense Transformer (Distilled),7-9B,stp_cc,Spatial,0.2413,0.000,0.2413
-deepseek-v2-lite,DeepSeek,16.0,Mixture of Experts,12-14B,stp_cc,Spatial,0.3870,0.000,0.3870
-deepseek-v2-lite,DeepSeek,16.0,Mixture of Experts,12-14B,null_cc,Null,0.3141,0.700,-0.3859
-deepseek-v2-lite,DeepSeek,16.0,Mixture of Experts,12-14B,str_cc,Strategic,0.3375,0.220,0.1175
 deepseek-v2-lite,DeepSeek,16.0,Mixture of Experts,12-14B,ctr_cc,Causal,0.2397,0.160,0.0797
 deepseek-v2-lite,DeepSeek,16.0,Mixture of Experts,12-14B,mor_cc,Moral,0.0560,0.000,0.0560
+deepseek-v2-lite,DeepSeek,16.0,Mixture of Experts,12-14B,null_cc,Null,0.3141,0.700,-0.3859
+deepseek-v2-lite,DeepSeek,16.0,Mixture of Experts,12-14B,stp_cc,Spatial,0.3870,0.000,0.3870
+deepseek-v2-lite,DeepSeek,16.0,Mixture of Experts,12-14B,str_cc,Strategic,0.3375,0.220,0.1175
 deepseek-v2-lite,DeepSeek,16.0,Mixture of Experts,12-14B,tom_cc,ToM,0.1011,0.140,-0.0389
-falcon-40b,TII,40.0,Dense Transformer,27-72B,tom_cc,ToM,0.1490,0.140,0.0090
-falcon-40b,TII,40.0,Dense Transformer,27-72B,stp_cc,Spatial,0.1433,0.000,0.1433
-falcon-40b,TII,40.0,Dense Transformer,27-72B,mor_cc,Moral,0.0748,0.000,0.0748
-falcon-40b,TII,40.0,Dense Transformer,27-72B,str_cc,Strategic,0.1630,0.220,-0.0570
 falcon-40b,TII,40.0,Dense Transformer,27-72B,ctr_cc,Causal,0.2120,0.160,0.0520
+falcon-40b,TII,40.0,Dense Transformer,27-72B,mor_cc,Moral,0.0748,0.000,0.0748
 falcon-40b,TII,40.0,Dense Transformer,27-72B,null_cc,Null,-0.0302,0.700,-0.7302
-falcon-7b,TII,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2653,0.000,0.2653
-falcon-7b,TII,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.1665,0.140,0.0265
-falcon-7b,TII,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.2273,0.220,0.0073
+falcon-40b,TII,40.0,Dense Transformer,27-72B,stp_cc,Spatial,0.1433,0.000,0.1433
+falcon-40b,TII,40.0,Dense Transformer,27-72B,str_cc,Strategic,0.1630,0.220,-0.0570
+falcon-40b,TII,40.0,Dense Transformer,27-72B,tom_cc,ToM,0.1490,0.140,0.0090
 falcon-7b,TII,7.0,Dense Transformer,7-9B,ctr_cc,Causal,0.3329,0.160,0.1729
 falcon-7b,TII,7.0,Dense Transformer,7-9B,mor_cc,Moral,0.0391,0.000,0.0391
 falcon-7b,TII,7.0,Dense Transformer,7-9B,null_cc,Null,-0.0669,0.700,-0.7669
-falcon-mamba-7b,TII,7.0,Pure SSM,7-9B,stp_cc,Spatial,0.2550,0.000,0.2550
-falcon-mamba-7b,TII,7.0,Pure SSM,7-9B,mor_cc,Moral,0.2137,0.000,0.2137
+falcon-7b,TII,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2653,0.000,0.2653
+falcon-7b,TII,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.2273,0.220,0.0073
+falcon-7b,TII,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.1665,0.140,0.0265
 falcon-mamba-7b,TII,7.0,Pure SSM,7-9B,ctr_cc,Causal,0.2491,0.160,0.0891
+falcon-mamba-7b,TII,7.0,Pure SSM,7-9B,mor_cc,Moral,0.2137,0.000,0.2137
+falcon-mamba-7b,TII,7.0,Pure SSM,7-9B,null_cc,Null,0.1210,0.700,-0.5790
+falcon-mamba-7b,TII,7.0,Pure SSM,7-9B,stp_cc,Spatial,0.2550,0.000,0.2550
 falcon-mamba-7b,TII,7.0,Pure SSM,7-9B,str_cc,Strategic,0.5334,0.220,0.3134
 falcon-mamba-7b,TII,7.0,Pure SSM,7-9B,tom_cc,ToM,0.0511,0.140,-0.0889
-falcon-mamba-7b,TII,7.0,Pure SSM,7-9B,null_cc,Null,0.1210,0.700,-0.5790
-falcon3-7b-base,TII,7.0,Dense Transformer,7-9B,mor_cc,Moral,0.2968,0.000,0.2968
 falcon3-7b-base,TII,7.0,Dense Transformer,7-9B,ctr_cc,Causal,0.1157,0.160,-0.0443
+falcon3-7b-base,TII,7.0,Dense Transformer,7-9B,mor_cc,Moral,0.2968,0.000,0.2968
+falcon3-7b-base,TII,7.0,Dense Transformer,7-9B,null_cc,Null,0.1504,0.700,-0.5496
 falcon3-7b-base,TII,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2031,0.000,0.2031
 falcon3-7b-base,TII,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.3841,0.220,0.1641
-falcon3-7b-base,TII,7.0,Dense Transformer,7-9B,null_cc,Null,0.1504,0.700,-0.5496
 falcon3-7b-base,TII,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.1732,0.140,0.0332
-gemma-2-27b-it,Google,27.0,Dense Transformer (Instruct),27-72B,stp_cc,Spatial,0.1732,0.000,0.1732
-gemma-2-27b-it,Google,27.0,Dense Transformer (Instruct),27-72B,tom_cc,ToM,0.2157,0.140,0.0757
+gemma-2-27b,Google,27.0,Dense Transformer,27-72B,ctr_cc,Causal,0.1399,0.160,-0.0201
+gemma-2-27b,Google,27.0,Dense Transformer,27-72B,mor_cc,Moral,0.0722,0.000,0.0722
+gemma-2-27b,Google,27.0,Dense Transformer,27-72B,null_cc,Null,0.0820,0.700,-0.6180
+gemma-2-27b,Google,27.0,Dense Transformer,27-72B,stp_cc,Spatial,0.2075,0.000,0.2075
+gemma-2-27b,Google,27.0,Dense Transformer,27-72B,str_cc,Strategic,0.3151,0.220,0.0951
+gemma-2-27b,Google,27.0,Dense Transformer,27-72B,tom_cc,ToM,0.0691,0.140,-0.0709
 gemma-2-27b-it,Google,27.0,Dense Transformer (Instruct),27-72B,ctr_cc,Causal,0.0772,0.160,-0.0828
 gemma-2-27b-it,Google,27.0,Dense Transformer (Instruct),27-72B,mor_cc,Moral,0.0448,0.000,0.0448
-gemma-2-27b-it,Google,27.0,Dense Transformer (Instruct),27-72B,str_cc,Strategic,0.3842,0.220,0.1642
 gemma-2-27b-it,Google,27.0,Dense Transformer (Instruct),27-72B,null_cc,Null,-0.1256,0.700,-0.8256
-gemma-2-27b,Google,27.0,Dense Transformer,27-72B,tom_cc,ToM,0.0691,0.140,-0.0709
-gemma-2-27b,Google,27.0,Dense Transformer,27-72B,ctr_cc,Causal,0.1399,0.160,-0.0201
-gemma-2-27b,Google,27.0,Dense Transformer,27-72B,null_cc,Null,0.0820,0.700,-0.6180
-gemma-2-27b,Google,27.0,Dense Transformer,27-72B,str_cc,Strategic,0.3151,0.220,0.0951
-gemma-2-27b,Google,27.0,Dense Transformer,27-72B,stp_cc,Spatial,0.2075,0.000,0.2075
-gemma-2-27b,Google,27.0,Dense Transformer,27-72B,mor_cc,Moral,0.0722,0.000,0.0722
+gemma-2-27b-it,Google,27.0,Dense Transformer (Instruct),27-72B,stp_cc,Spatial,0.1732,0.000,0.1732
+gemma-2-27b-it,Google,27.0,Dense Transformer (Instruct),27-72B,str_cc,Strategic,0.3842,0.220,0.1642
+gemma-2-27b-it,Google,27.0,Dense Transformer (Instruct),27-72B,tom_cc,ToM,0.2157,0.140,0.0757
 gemma-2-2b,Google,2.0,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.2603,0.160,0.1003
 gemma-2-2b,Google,2.0,Dense Transformer,1.7-3.8B,mor_cc,Moral,0.0914,0.000,0.0914
-gemma-2-2b,Google,2.0,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.2508,0.220,0.0308
-gemma-2-2b,Google,2.0,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.0950,0.140,-0.0450
 gemma-2-2b,Google,2.0,Dense Transformer,1.7-3.8B,null_cc,Null,0.3982,0.700,-0.3018
 gemma-2-2b,Google,2.0,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.0696,0.000,0.0696
-gemma-2-9b-it,Google,9.0,Dense Transformer (Instruct),7-9B,stp_cc,Spatial,0.1350,0.000,0.1350
+gemma-2-2b,Google,2.0,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.2508,0.220,0.0308
+gemma-2-2b,Google,2.0,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.0950,0.140,-0.0450
+gemma-2-9b,Google,9.0,Dense Transformer,7-9B,ctr_cc,Causal,0.2392,0.160,0.0792
+gemma-2-9b,Google,9.0,Dense Transformer,7-9B,mor_cc,Moral,0.1354,0.000,0.1354
+gemma-2-9b,Google,9.0,Dense Transformer,7-9B,null_cc,Null,0.0033,0.700,-0.6967
+gemma-2-9b,Google,9.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2059,0.000,0.2059
+gemma-2-9b,Google,9.0,Dense Transformer,7-9B,str_cc,Strategic,0.5039,0.220,0.2839
+gemma-2-9b,Google,9.0,Dense Transformer,7-9B,tom_cc,ToM,0.2083,0.140,0.0683
 gemma-2-9b-it,Google,9.0,Dense Transformer (Instruct),7-9B,ctr_cc,Causal,0.0660,0.160,-0.0940
 gemma-2-9b-it,Google,9.0,Dense Transformer (Instruct),7-9B,mor_cc,Moral,0.1508,0.000,0.1508
 gemma-2-9b-it,Google,9.0,Dense Transformer (Instruct),7-9B,null_cc,Null,-0.1014,0.700,-0.8014
+gemma-2-9b-it,Google,9.0,Dense Transformer (Instruct),7-9B,stp_cc,Spatial,0.1350,0.000,0.1350
 gemma-2-9b-it,Google,9.0,Dense Transformer (Instruct),7-9B,str_cc,Strategic,0.5080,0.220,0.2880
 gemma-2-9b-it,Google,9.0,Dense Transformer (Instruct),7-9B,tom_cc,ToM,0.1922,0.140,0.0522
-gemma-2-9b,Google,9.0,Dense Transformer,7-9B,mor_cc,Moral,0.1354,0.000,0.1354
-gemma-2-9b,Google,9.0,Dense Transformer,7-9B,ctr_cc,Causal,0.2392,0.160,0.0792
-gemma-2-9b,Google,9.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2059,0.000,0.2059
-gemma-2-9b,Google,9.0,Dense Transformer,7-9B,str_cc,Strategic,0.5039,0.220,0.2839
-gemma-2-9b,Google,9.0,Dense Transformer,7-9B,null_cc,Null,0.0033,0.700,-0.6967
-gemma-2-9b,Google,9.0,Dense Transformer,7-9B,tom_cc,ToM,0.2083,0.140,0.0683
+granite-3.0-8b,IBM,8.0,Dense Transformer,7-9B,ctr_cc,Causal,0.1562,0.160,-0.0038
+granite-3.0-8b,IBM,8.0,Dense Transformer,7-9B,mor_cc,Moral,0.2112,0.000,0.2112
+granite-3.0-8b,IBM,8.0,Dense Transformer,7-9B,null_cc,Null,0.0698,0.700,-0.6302
 granite-3.0-8b,IBM,8.0,Dense Transformer,7-9B,stp_cc,Spatial,0.0973,0.000,0.0973
 granite-3.0-8b,IBM,8.0,Dense Transformer,7-9B,str_cc,Strategic,0.4829,0.220,0.2629
 granite-3.0-8b,IBM,8.0,Dense Transformer,7-9B,tom_cc,ToM,0.1898,0.140,0.0498
-granite-3.0-8b,IBM,8.0,Dense Transformer,7-9B,mor_cc,Moral,0.2112,0.000,0.2112
-granite-3.0-8b,IBM,8.0,Dense Transformer,7-9B,ctr_cc,Causal,0.1562,0.160,-0.0038
-granite-3.0-8b,IBM,8.0,Dense Transformer,7-9B,null_cc,Null,0.0698,0.700,-0.6302
-granite-3.1-8b,IBM,8.0,Dense Transformer,7-9B,stp_cc,Spatial,0.1288,0.000,0.1288
+granite-3.1-2b,IBM,2.0,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.2154,0.160,0.0554
+granite-3.1-2b,IBM,2.0,Dense Transformer,1.7-3.8B,mor_cc,Moral,0.0481,0.000,0.0481
+granite-3.1-2b,IBM,2.0,Dense Transformer,1.7-3.8B,null_cc,Null,0.0353,0.700,-0.6647
+granite-3.1-2b,IBM,2.0,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.2043,0.000,0.2043
+granite-3.1-2b,IBM,2.0,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.5171,0.220,0.2971
+granite-3.1-2b,IBM,2.0,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.1695,0.140,0.0295
 granite-3.1-8b,IBM,8.0,Dense Transformer,7-9B,ctr_cc,Causal,0.1220,0.160,-0.0380
 granite-3.1-8b,IBM,8.0,Dense Transformer,7-9B,mor_cc,Moral,0.2427,0.000,0.2427
+granite-3.1-8b,IBM,8.0,Dense Transformer,7-9B,null_cc,Null,0.0502,0.700,-0.6498
+granite-3.1-8b,IBM,8.0,Dense Transformer,7-9B,stp_cc,Spatial,0.1288,0.000,0.1288
 granite-3.1-8b,IBM,8.0,Dense Transformer,7-9B,str_cc,Strategic,0.4670,0.220,0.2470
 granite-3.1-8b,IBM,8.0,Dense Transformer,7-9B,tom_cc,ToM,0.1813,0.140,0.0413
-granite-3.1-8b,IBM,8.0,Dense Transformer,7-9B,null_cc,Null,0.0502,0.700,-0.6498
-llama-3-70b,Meta,70.0,Dense Transformer,27-72B,stp_cc,Spatial,0.1338,0.000,0.1338
-llama-3-70b,Meta,70.0,Dense Transformer,27-72B,tom_cc,ToM,0.2298,0.140,0.0898
 llama-3-70b,Meta,70.0,Dense Transformer,27-72B,ctr_cc,Causal,0.1696,0.160,0.0096
 llama-3-70b,Meta,70.0,Dense Transformer,27-72B,mor_cc,Moral,0.1318,0.000,0.1318
+llama-3-70b,Meta,70.0,Dense Transformer,27-72B,stp_cc,Spatial,0.1338,0.000,0.1338
+llama-3-70b,Meta,70.0,Dense Transformer,27-72B,tom_cc,ToM,0.2298,0.140,0.0898
 llama-3-8b,Meta,8.0,Dense Transformer,7-9B,ctr_cc,Causal,0.2290,0.160,0.0690
+llama-3-8b,Meta,8.0,Dense Transformer,7-9B,mor_cc,Moral,0.1242,0.000,0.1242
+llama-3-8b,Meta,8.0,Dense Transformer,7-9B,null_cc,Null,0.0987,0.700,-0.6013
+llama-3-8b,Meta,8.0,Dense Transformer,7-9B,stp_cc,Spatial,0.1804,0.000,0.1804
 llama-3-8b,Meta,8.0,Dense Transformer,7-9B,str_cc,Strategic,0.3859,0.220,0.1659
 llama-3-8b,Meta,8.0,Dense Transformer,7-9B,tom_cc,ToM,0.1934,0.140,0.0534
-llama-3-8b,Meta,8.0,Dense Transformer,7-9B,stp_cc,Spatial,0.1804,0.000,0.1804
-llama-3-8b,Meta,8.0,Dense Transformer,7-9B,null_cc,Null,0.0987,0.700,-0.6013
-llama-3-8b,Meta,8.0,Dense Transformer,7-9B,mor_cc,Moral,0.1242,0.000,0.1242
 llama-3.1-8b-instruct,Meta,8.0,Dense Transformer (Instruct),7-9B,ctr_cc,Causal,0.1258,0.160,-0.0342
+llama-3.1-8b-instruct,Meta,8.0,Dense Transformer (Instruct),7-9B,mor_cc,Moral,0.1542,0.000,0.1542
+llama-3.1-8b-instruct,Meta,8.0,Dense Transformer (Instruct),7-9B,null_cc,Null,0.0374,0.700,-0.6626
+llama-3.1-8b-instruct,Meta,8.0,Dense Transformer (Instruct),7-9B,stp_cc,Spatial,0.2434,0.000,0.2434
 llama-3.1-8b-instruct,Meta,8.0,Dense Transformer (Instruct),7-9B,str_cc,Strategic,0.4359,0.220,0.2159
 llama-3.1-8b-instruct,Meta,8.0,Dense Transformer (Instruct),7-9B,tom_cc,ToM,0.1934,0.140,0.0534
-llama-3.1-8b-instruct,Meta,8.0,Dense Transformer (Instruct),7-9B,stp_cc,Spatial,0.2434,0.000,0.2434
-llama-3.1-8b-instruct,Meta,8.0,Dense Transformer (Instruct),7-9B,null_cc,Null,0.0374,0.700,-0.6626
-llama-3.1-8b-instruct,Meta,8.0,Dense Transformer (Instruct),7-9B,mor_cc,Moral,0.1542,0.000,0.1542
+llama-3.2-1b,Meta,1.0,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.3853,0.160,0.2253
 llama-3.2-1b,Meta,1.0,Dense Transformer,1.7-3.8B,mor_cc,Moral,0.0364,0.000,0.0364
 llama-3.2-1b,Meta,1.0,Dense Transformer,1.7-3.8B,null_cc,Null,0.2236,0.700,-0.4764
+llama-3.2-1b,Meta,1.0,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.1378,0.000,0.1378
 llama-3.2-1b,Meta,1.0,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.4716,0.220,0.2516
 llama-3.2-1b,Meta,1.0,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.1205,0.140,-0.0195
-llama-3.2-1b,Meta,1.0,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.1378,0.000,0.1378
-llama-3.2-1b,Meta,1.0,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.3853,0.160,0.2253
 llama-3.2-3b,Meta,3.0,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.2477,0.160,0.0877
 llama-3.2-3b,Meta,3.0,Dense Transformer,1.7-3.8B,mor_cc,Moral,0.1207,0.000,0.1207
-llama-3.2-3b,Meta,3.0,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.5185,0.220,0.2985
 llama-3.2-3b,Meta,3.0,Dense Transformer,1.7-3.8B,null_cc,Null,0.0071,0.700,-0.6929
-llama-3.2-3b,Meta,3.0,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.2136,0.140,0.0736
 llama-3.2-3b,Meta,3.0,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.2577,0.000,0.2577
+llama-3.2-3b,Meta,3.0,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.5185,0.220,0.2985
+llama-3.2-3b,Meta,3.0,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.2136,0.140,0.0736
 mamba-2.8b,EleutherAI,2.8,Pure SSM,1.7-3.8B,ctr_cc,Causal,0.2361,0.160,0.0761
 mamba-2.8b,EleutherAI,2.8,Pure SSM,1.7-3.8B,mor_cc,Moral,0.0110,0.000,0.0110
-mamba-2.8b,EleutherAI,2.8,Pure SSM,1.7-3.8B,str_cc,Strategic,0.3038,0.220,0.0838
-mamba-2.8b,EleutherAI,2.8,Pure SSM,1.7-3.8B,tom_cc,ToM,0.0541,0.140,-0.0859
 mamba-2.8b,EleutherAI,2.8,Pure SSM,1.7-3.8B,null_cc,Null,-0.0807,0.700,-0.7807
 mamba-2.8b,EleutherAI,2.8,Pure SSM,1.7-3.8B,stp_cc,Spatial,0.1113,0.000,0.1113
-mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,ctr_cc,Causal,0.1100,0.160,-0.0500
-mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,str_cc,Strategic,0.4248,0.220,0.2048
-mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,tom_cc,ToM,0.0816,0.140,-0.0584
-mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,mor_cc,Moral,-0.0020,0.000,-0.0020
-mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,stp_cc,Spatial,0.2791,0.000,0.2791
-mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,null_cc,Null,0.2588,0.700,-0.4412
-mistral-7b,Mistral,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2538,0.000,0.2538
+mamba-2.8b,EleutherAI,2.8,Pure SSM,1.7-3.8B,str_cc,Strategic,0.3038,0.220,0.0838
+mamba-2.8b,EleutherAI,2.8,Pure SSM,1.7-3.8B,tom_cc,ToM,0.0541,0.140,-0.0859
 mistral-7b,Mistral,7.0,Dense Transformer,7-9B,ctr_cc,Causal,0.2269,0.160,0.0669
 mistral-7b,Mistral,7.0,Dense Transformer,7-9B,mor_cc,Moral,0.1205,0.000,0.1205
 mistral-7b,Mistral,7.0,Dense Transformer,7-9B,null_cc,Null,0.0118,0.700,-0.6882
-mistral-7b,Mistral,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.2602,0.140,0.1202
+mistral-7b,Mistral,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2538,0.000,0.2538
 mistral-7b,Mistral,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.4827,0.220,0.2627
-mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,stp_cc,Spatial,0.1384,0.000,0.1384
+mistral-7b,Mistral,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.2602,0.140,0.1202
+mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,ctr_cc,Causal,0.1100,0.160,-0.0500
+mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,mor_cc,Moral,-0.0020,0.000,-0.0020
+mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,null_cc,Null,0.2588,0.700,-0.4412
+mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,stp_cc,Spatial,0.2791,0.000,0.2791
+mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,str_cc,Strategic,0.4248,0.220,0.2048
+mistral-7b-instruct-v0.2,Mistral,7.0,Dense Transformer (Instruct),7-9B,tom_cc,ToM,0.0816,0.140,-0.0584
 mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,ctr_cc,Causal,0.1427,0.160,-0.0173
-mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,tom_cc,ToM,0.2582,0.140,0.1182
-mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,null_cc,Null,-0.0521,0.700,-0.7521
-mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,str_cc,Strategic,0.4750,0.220,0.2550
 mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,mor_cc,Moral,0.1041,0.000,0.1041
+mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,null_cc,Null,-0.0521,0.700,-0.7521
+mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,stp_cc,Spatial,0.1384,0.000,0.1384
+mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,str_cc,Strategic,0.4750,0.220,0.2550
+mistral-nemo-12b-base,Mistral,12.0,Dense Transformer,12-14B,tom_cc,ToM,0.2582,0.140,0.1182
 olmo-2-13b,AI2,13.0,Dense Transformer,12-14B,ctr_cc,Causal,0.3778,0.160,0.2178
+olmo-2-13b,AI2,13.0,Dense Transformer,12-14B,mor_cc,Moral,0.1396,0.000,0.1396
+olmo-2-13b,AI2,13.0,Dense Transformer,12-14B,null_cc,Null,-0.0163,0.700,-0.7163
+olmo-2-13b,AI2,13.0,Dense Transformer,12-14B,stp_cc,Spatial,0.1761,0.000,0.1761
 olmo-2-13b,AI2,13.0,Dense Transformer,12-14B,str_cc,Strategic,0.3538,0.220,0.1338
 olmo-2-13b,AI2,13.0,Dense Transformer,12-14B,tom_cc,ToM,0.0881,0.140,-0.0519
-olmo-2-13b,AI2,13.0,Dense Transformer,12-14B,stp_cc,Spatial,0.1761,0.000,0.1761
-olmo-2-13b,AI2,13.0,Dense Transformer,12-14B,null_cc,Null,-0.0163,0.700,-0.7163
-olmo-2-13b,AI2,13.0,Dense Transformer,12-14B,mor_cc,Moral,0.1396,0.000,0.1396
 olmo-2-7b,AI2,7.0,Dense Transformer,7-9B,ctr_cc,Causal,0.3060,0.160,0.1460
+olmo-2-7b,AI2,7.0,Dense Transformer,7-9B,mor_cc,Moral,0.2141,0.000,0.2141
+olmo-2-7b,AI2,7.0,Dense Transformer,7-9B,null_cc,Null,0.2535,0.700,-0.4465
+olmo-2-7b,AI2,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.1690,0.000,0.1690
 olmo-2-7b,AI2,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.3686,0.220,0.1486
 olmo-2-7b,AI2,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.0790,0.140,-0.0610
-olmo-2-7b,AI2,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.1690,0.000,0.1690
-olmo-2-7b,AI2,7.0,Dense Transformer,7-9B,null_cc,Null,0.2535,0.700,-0.4465
-olmo-2-7b,AI2,7.0,Dense Transformer,7-9B,mor_cc,Moral,0.2141,0.000,0.2141
-olmo-7b,AI2,7.0,Dense Transformer,7-9B,mor_cc,Moral,0.1415,0.000,0.1415
 olmo-7b,AI2,7.0,Dense Transformer,7-9B,ctr_cc,Causal,0.2857,0.160,0.1257
-olmo-7b,AI2,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.4296,0.220,0.2096
-olmo-7b,AI2,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.0692,0.140,-0.0708
+olmo-7b,AI2,7.0,Dense Transformer,7-9B,mor_cc,Moral,0.1415,0.000,0.1415
 olmo-7b,AI2,7.0,Dense Transformer,7-9B,null_cc,Null,0.4066,0.700,-0.2934
 olmo-7b,AI2,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.1616,0.000,0.1616
-phi-3-medium,Microsoft,14.0,Dense Transformer,12-14B,stp_cc,Spatial,0.2038,0.000,0.2038
+olmo-7b,AI2,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.4296,0.220,0.2096
+olmo-7b,AI2,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.0692,0.140,-0.0708
 phi-3-medium,Microsoft,14.0,Dense Transformer,12-14B,ctr_cc,Causal,0.0857,0.160,-0.0743
 phi-3-medium,Microsoft,14.0,Dense Transformer,12-14B,mor_cc,Moral,-0.0134,0.000,-0.0134
-phi-3-medium,Microsoft,14.0,Dense Transformer,12-14B,str_cc,Strategic,0.2786,0.220,0.0586
 phi-3-medium,Microsoft,14.0,Dense Transformer,12-14B,null_cc,Null,0.0615,0.700,-0.6385
+phi-3-medium,Microsoft,14.0,Dense Transformer,12-14B,stp_cc,Spatial,0.2038,0.000,0.2038
+phi-3-medium,Microsoft,14.0,Dense Transformer,12-14B,str_cc,Strategic,0.2786,0.220,0.0586
 phi-3-medium,Microsoft,14.0,Dense Transformer,12-14B,tom_cc,ToM,0.1247,0.140,-0.0153
+phi-3-mini,Microsoft,3.8,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.0798,0.160,-0.0802
 phi-3-mini,Microsoft,3.8,Dense Transformer,1.7-3.8B,mor_cc,Moral,0.1244,0.000,0.1244
 phi-3-mini,Microsoft,3.8,Dense Transformer,1.7-3.8B,null_cc,Null,0.4767,0.700,-0.2233
+phi-3-mini,Microsoft,3.8,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.1428,0.000,0.1428
 phi-3-mini,Microsoft,3.8,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.3308,0.220,0.1108
 phi-3-mini,Microsoft,3.8,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.1308,0.140,-0.0092
-phi-3-mini,Microsoft,3.8,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.0798,0.160,-0.0802
-phi-3-mini,Microsoft,3.8,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.1428,0.000,0.1428
 phi-3.5-mini,Microsoft,3.8,Dense Transformer (Instruct),1.7-3.8B,ctr_cc,Causal,0.0627,0.160,-0.0973
-phi-3.5-mini,Microsoft,3.8,Dense Transformer (Instruct),1.7-3.8B,null_cc,Null,0.5465,0.700,-0.1535
-phi-3.5-mini,Microsoft,3.8,Dense Transformer (Instruct),1.7-3.8B,str_cc,Strategic,0.3829,0.220,0.1629
 phi-3.5-mini,Microsoft,3.8,Dense Transformer (Instruct),1.7-3.8B,mor_cc,Moral,-0.0350,0.000,-0.0350
-phi-3.5-mini,Microsoft,3.8,Dense Transformer (Instruct),1.7-3.8B,tom_cc,ToM,0.0977,0.140,-0.0423
+phi-3.5-mini,Microsoft,3.8,Dense Transformer (Instruct),1.7-3.8B,null_cc,Null,0.5465,0.700,-0.1535
 phi-3.5-mini,Microsoft,3.8,Dense Transformer (Instruct),1.7-3.8B,stp_cc,Spatial,0.1573,0.000,0.1573
+phi-3.5-mini,Microsoft,3.8,Dense Transformer (Instruct),1.7-3.8B,str_cc,Strategic,0.3829,0.220,0.1629
+phi-3.5-mini,Microsoft,3.8,Dense Transformer (Instruct),1.7-3.8B,tom_cc,ToM,0.0977,0.140,-0.0423
+pythia-6.9b,EleutherAI,6.9,Dense Transformer,7-9B,ctr_cc,Causal,0.2279,0.160,0.0679
 pythia-6.9b,EleutherAI,6.9,Dense Transformer,7-9B,mor_cc,Moral,-0.0015,0.000,-0.0015
+pythia-6.9b,EleutherAI,6.9,Dense Transformer,7-9B,null_cc,Null,0.0475,0.700,-0.6525
+pythia-6.9b,EleutherAI,6.9,Dense Transformer,7-9B,stp_cc,Spatial,0.1723,0.000,0.1723
 pythia-6.9b,EleutherAI,6.9,Dense Transformer,7-9B,str_cc,Strategic,0.2057,0.220,-0.0143
 pythia-6.9b,EleutherAI,6.9,Dense Transformer,7-9B,tom_cc,ToM,0.0709,0.140,-0.0691
-pythia-6.9b,EleutherAI,6.9,Dense Transformer,7-9B,null_cc,Null,0.0475,0.700,-0.6525
-pythia-6.9b,EleutherAI,6.9,Dense Transformer,7-9B,ctr_cc,Causal,0.2279,0.160,0.0679
-pythia-6.9b,EleutherAI,6.9,Dense Transformer,7-9B,stp_cc,Spatial,0.1723,0.000,0.1723
-qwen-2-7b,Alibaba,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2271,0.000,0.2271
 qwen-2-7b,Alibaba,7.0,Dense Transformer,7-9B,ctr_cc,Causal,0.1523,0.160,-0.0077
 qwen-2-7b,Alibaba,7.0,Dense Transformer,7-9B,mor_cc,Moral,-0.0784,0.000,-0.0784
 qwen-2-7b,Alibaba,7.0,Dense Transformer,7-9B,null_cc,Null,-0.0293,0.700,-0.7293
+qwen-2-7b,Alibaba,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2271,0.000,0.2271
 qwen-2-7b,Alibaba,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.5626,0.220,0.3426
 qwen-2-7b,Alibaba,7.0,Dense Transformer,7-9B,tom_cc,ToM,-0.0184,0.140,-0.1584
 qwen-2.5-1.5b,Alibaba,1.5,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.4203,0.160,0.2603
 qwen-2.5-1.5b,Alibaba,1.5,Dense Transformer,1.7-3.8B,mor_cc,Moral,0.0003,0.000,0.0003
 qwen-2.5-1.5b,Alibaba,1.5,Dense Transformer,1.7-3.8B,null_cc,Null,0.2777,0.700,-0.4223
+qwen-2.5-1.5b,Alibaba,1.5,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.0905,0.000,0.0905
 qwen-2.5-1.5b,Alibaba,1.5,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.4212,0.220,0.2012
 qwen-2.5-1.5b,Alibaba,1.5,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.0538,0.140,-0.0862
-qwen-2.5-1.5b,Alibaba,1.5,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.0905,0.000,0.0905
-qwen-2.5-14b-instruct,Alibaba,14.0,Dense Transformer (Instruct),12-14B,stp_cc,Spatial,0.3032,0.000,0.3032
+qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,ctr_cc,Causal,0.1019,0.160,-0.0581
+qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,mor_cc,Moral,0.1955,0.000,0.1955
+qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,null_cc,Null,-0.0061,0.700,-0.7061
+qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,stp_cc,Spatial,0.1794,0.000,0.1794
+qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,str_cc,Strategic,0.3777,0.220,0.1577
+qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,tom_cc,ToM,0.0629,0.140,-0.0771
 qwen-2.5-14b-instruct,Alibaba,14.0,Dense Transformer (Instruct),12-14B,ctr_cc,Causal,0.0429,0.160,-0.1171
 qwen-2.5-14b-instruct,Alibaba,14.0,Dense Transformer (Instruct),12-14B,mor_cc,Moral,0.0934,0.000,0.0934
-qwen-2.5-14b-instruct,Alibaba,14.0,Dense Transformer (Instruct),12-14B,str_cc,Strategic,0.1981,0.220,-0.0219
 qwen-2.5-14b-instruct,Alibaba,14.0,Dense Transformer (Instruct),12-14B,null_cc,Null,0.4526,0.700,-0.2474
+qwen-2.5-14b-instruct,Alibaba,14.0,Dense Transformer (Instruct),12-14B,stp_cc,Spatial,0.3032,0.000,0.3032
+qwen-2.5-14b-instruct,Alibaba,14.0,Dense Transformer (Instruct),12-14B,str_cc,Strategic,0.1981,0.220,-0.0219
 qwen-2.5-14b-instruct,Alibaba,14.0,Dense Transformer (Instruct),12-14B,tom_cc,ToM,0.0127,0.140,-0.1273
-qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,stp_cc,Spatial,0.1794,0.000,0.1794
-qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,ctr_cc,Causal,0.1019,0.160,-0.0581
-qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,tom_cc,ToM,0.0629,0.140,-0.0771
-qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,null_cc,Null,-0.0061,0.700,-0.7061
-qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,str_cc,Strategic,0.3777,0.220,0.1577
-qwen-2.5-14b,Alibaba,14.0,Dense Transformer,12-14B,mor_cc,Moral,0.1955,0.000,0.1955
-qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,mor_cc,Moral,0.1532,0.000,0.1532
-qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.5150,0.220,0.2950
-qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,null_cc,Null,0.1245,0.700,-0.5755
-qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.0851,0.140,-0.0549
+qwen-2.5-32b-instruct-awq,Alibaba,32.0,"Dense Transformer (Instruct, AWQ Int4)",27-72B,ctr_cc,Causal,0.0444,0.160,-0.1156
+qwen-2.5-32b-instruct-awq,Alibaba,32.0,"Dense Transformer (Instruct, AWQ Int4)",27-72B,mor_cc,Moral,0.0486,0.000,0.0486
+qwen-2.5-32b-instruct-awq,Alibaba,32.0,"Dense Transformer (Instruct, AWQ Int4)",27-72B,null_cc,Null,0.2207,0.700,-0.4793
+qwen-2.5-32b-instruct-awq,Alibaba,32.0,"Dense Transformer (Instruct, AWQ Int4)",27-72B,stp_cc,Spatial,0.2468,0.000,0.2468
+qwen-2.5-32b-instruct-awq,Alibaba,32.0,"Dense Transformer (Instruct, AWQ Int4)",27-72B,str_cc,Strategic,0.2834,0.220,0.0634
+qwen-2.5-32b-instruct-awq,Alibaba,32.0,"Dense Transformer (Instruct, AWQ Int4)",27-72B,tom_cc,ToM,0.0660,0.140,-0.0740
 qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.2114,0.160,0.0514
+qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,mor_cc,Moral,0.1532,0.000,0.1532
+qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,null_cc,Null,0.1245,0.700,-0.5755
 qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.1523,0.000,0.1523
+qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.5150,0.220,0.2950
+qwen-2.5-3b,Alibaba,3.0,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.0851,0.140,-0.0549
 qwen-2.5-7b,Alibaba,7.0,Dense Transformer,7-9B,ctr_cc,Causal,0.1531,0.160,-0.0069
-qwen-2.5-7b,Alibaba,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.4189,0.220,0.1989
-qwen-2.5-7b,Alibaba,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.1417,0.140,0.0017
-qwen-2.5-7b,Alibaba,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.1745,0.000,0.1745
 qwen-2.5-7b,Alibaba,7.0,Dense Transformer,7-9B,mor_cc,Moral,0.1325,0.000,0.1325
 qwen-2.5-7b,Alibaba,7.0,Dense Transformer,7-9B,null_cc,Null,0.4501,0.700,-0.2499
+qwen-2.5-7b,Alibaba,7.0,Dense Transformer,7-9B,stp_cc,Spatial,0.1745,0.000,0.1745
+qwen-2.5-7b,Alibaba,7.0,Dense Transformer,7-9B,str_cc,Strategic,0.4189,0.220,0.1989
+qwen-2.5-7b,Alibaba,7.0,Dense Transformer,7-9B,tom_cc,ToM,0.1417,0.140,0.0017
+smollm-1.7b,HuggingFace,1.7,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.3595,0.160,0.1995
 smollm-1.7b,HuggingFace,1.7,Dense Transformer,1.7-3.8B,mor_cc,Moral,0.0592,0.000,0.0592
 smollm-1.7b,HuggingFace,1.7,Dense Transformer,1.7-3.8B,null_cc,Null,0.2319,0.700,-0.4681
+smollm-1.7b,HuggingFace,1.7,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.1998,0.000,0.1998
 smollm-1.7b,HuggingFace,1.7,Dense Transformer,1.7-3.8B,str_cc,Strategic,0.3561,0.220,0.1361
 smollm-1.7b,HuggingFace,1.7,Dense Transformer,1.7-3.8B,tom_cc,ToM,0.0711,0.140,-0.0689
-smollm-1.7b,HuggingFace,1.7,Dense Transformer,1.7-3.8B,stp_cc,Spatial,0.1998,0.000,0.1998
-smollm-1.7b,HuggingFace,1.7,Dense Transformer,1.7-3.8B,ctr_cc,Causal,0.3595,0.160,0.1995
-yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,stp_cc,Spatial,0.2239,0.000,0.2239
-yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,ctr_cc,Causal,0.0612,0.160,-0.0988
-yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,mor_cc,Moral,0.0528,0.000,0.0528
-yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,tom_cc,ToM,0.1702,0.140,0.0302
-yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,null_cc,Null,-0.0280,0.700,-0.7280
-yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,str_cc,Strategic,0.3255,0.220,0.1055
-yi-1.5-34b,01.AI,34.0,Dense Transformer,27-72B,stp_cc,Spatial,0.1941,0.000,0.1941
+smollm-360m,HuggingFace,0.36,Dense Transformer,<1B,ctr_cc,Causal,0.2938,0.160,0.1338
+smollm-360m,HuggingFace,0.36,Dense Transformer,<1B,mor_cc,Moral,0.0741,0.000,0.0741
+smollm-360m,HuggingFace,0.36,Dense Transformer,<1B,null_cc,Null,0.3063,0.700,-0.3937
+smollm-360m,HuggingFace,0.36,Dense Transformer,<1B,stp_cc,Spatial,0.0889,0.000,0.0889
+smollm-360m,HuggingFace,0.36,Dense Transformer,<1B,str_cc,Strategic,0.3704,0.220,0.1504
+smollm-360m,HuggingFace,0.36,Dense Transformer,<1B,tom_cc,ToM,0.0574,0.140,-0.0826
 yi-1.5-34b,01.AI,34.0,Dense Transformer,27-72B,ctr_cc,Causal,0.1659,0.160,0.0059
-yi-1.5-34b,01.AI,34.0,Dense Transformer,27-72B,tom_cc,ToM,0.1874,0.140,0.0474
-yi-1.5-34b,01.AI,34.0,Dense Transformer,27-72B,str_cc,Strategic,0.3504,0.220,0.1304
 yi-1.5-34b,01.AI,34.0,Dense Transformer,27-72B,mor_cc,Moral,0.1322,0.000,0.1322
 yi-1.5-34b,01.AI,34.0,Dense Transformer,27-72B,null_cc,Null,0.0318,0.700,-0.6682
+yi-1.5-34b,01.AI,34.0,Dense Transformer,27-72B,stp_cc,Spatial,0.1941,0.000,0.1941
+yi-1.5-34b,01.AI,34.0,Dense Transformer,27-72B,str_cc,Strategic,0.3504,0.220,0.1304
+yi-1.5-34b,01.AI,34.0,Dense Transformer,27-72B,tom_cc,ToM,0.1874,0.140,0.0474
+yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,ctr_cc,Causal,0.0612,0.160,-0.0988
+yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,mor_cc,Moral,0.0528,0.000,0.0528
+yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,null_cc,Null,-0.0280,0.700,-0.7280
+yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,stp_cc,Spatial,0.2239,0.000,0.2239
+yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,str_cc,Strategic,0.3255,0.220,0.1055
+yi-1.5-34b-chat,01.AI,34.0,Dense Transformer (Instruct),27-72B,tom_cc,ToM,0.1702,0.140,0.0302
+yi-1.5-9b,01.AI,9.0,Dense Transformer,7-9B,ctr_cc,Causal,0.1804,0.160,0.0204
+yi-1.5-9b,01.AI,9.0,Dense Transformer,7-9B,mor_cc,Moral,0.2051,0.000,0.2051
+yi-1.5-9b,01.AI,9.0,Dense Transformer,7-9B,null_cc,Null,-0.2047,0.700,-0.9047
 yi-1.5-9b,01.AI,9.0,Dense Transformer,7-9B,stp_cc,Spatial,0.2507,0.000,0.2507
 yi-1.5-9b,01.AI,9.0,Dense Transformer,7-9B,str_cc,Strategic,0.4148,0.220,0.1948
 yi-1.5-9b,01.AI,9.0,Dense Transformer,7-9B,tom_cc,ToM,0.1841,0.140,0.0441
-yi-1.5-9b,01.AI,9.0,Dense Transformer,7-9B,null_cc,Null,-0.2047,0.700,-0.9047
-yi-1.5-9b,01.AI,9.0,Dense Transformer,7-9B,mor_cc,Moral,0.2051,0.000,0.2051
-yi-1.5-9b,01.AI,9.0,Dense Transformer,7-9B,ctr_cc,Causal,0.1804,0.160,0.0204

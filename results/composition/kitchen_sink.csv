@@ -1,7 +1,7 @@
 domain,n,kitchen_sink_features,kitchen_sink_r2_cv,cognitive_r2_cv,delta_cog_minus_ks
-Cybersecurity,31,10,+0.677,+0.321,-0.356
-Medical,32,10,+0.425,+0.592,+0.167
-Legal,33,10,-0.096,-0.129,-0.033
-Safety,33,10,+0.477,+0.611,+0.134
-Financial,32,10,+0.108,+0.148,+0.040
-Scientific,32,10,+0.548,+0.284,-0.264
+Cybersecurity,34,10,+0.716,+0.404,-0.312
+Medical,35,10,+0.523,+0.617,+0.094
+Legal,36,10,-0.082,-0.111,-0.028
+Safety,36,10,+0.570,+0.633,+0.062
+Financial,35,10,+0.151,+0.167,+0.017
+Scientific,35,10,+0.628,+0.351,-0.277

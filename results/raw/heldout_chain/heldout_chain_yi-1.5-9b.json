@@ -1,0 +1,312 @@
+{
+  "model_key": "yi-1.5-9b",
+  "set_a": {
+    "bigtom": {
+      "model": "yi-1.5-9b",
+      "adapter": null,
+      "overall_accuracy": 0.86125,
+      "total": 800,
+      "correct": 689,
+      "by_type": {
+        "forward": {
+          "correct": 380,
+          "total": 402,
+          "accuracy": 0.945273631840796
+        },
+        "backward": {
+          "correct": 309,
+          "total": 398,
+          "accuracy": 0.7763819095477387
+        }
+      },
+      "_primitive_or_domain": "ToM"
+    },
+    "balanced_copa": {
+      "model": "yi-1.5-9b",
+      "adapter": null,
+      "overall_accuracy": 0.74,
+      "total": 500,
+      "original_accuracy": 0.74,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "stepgame": {
+      "model": "yi-1.5-9b",
+      "adapter": null,
+      "accuracy": 0.202,
+      "correct": 101,
+      "total": 500,
+      "by_steps": {
+        "?": {
+          "correct": 101,
+          "total": 500,
+          "accuracy": 0.202
+        }
+      },
+      "_primitive_or_domain": "Spatial"
+    },
+    "bigbench_strategy": {
+      "task": "bigbench_strategyqa_multiple_choice",
+      "accuracy": 0.6352118829183049,
+      "full_metrics": {
+        "acc,none": 0.6352118829183049,
+        "acc_stderr,none": 0.010063559954113468
+      },
+      "_primitive_or_domain": "Strategic"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.5526206322795341,
+      "full_metrics": {
+        "acc,none": 0.5526206322795341,
+        "acc_stderr,none": 0.007171573641512272
+      },
+      "_primitive_or_domain": "Moral"
+    },
+    "hendrycks_math": {
+      "error": "`sympy`, `math_verify` and `antlr4-python3-runtime==4.11` are required for generating translation task prompt templates. Please install the required packages via pip install lm-eval[math] or pip install -e .[math]",
+      "traceback": "Traceback (most recent call last):\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/tasks/minerva_math/utils.py\", line 14, in <module>\n    import antlr4\nModuleNotFoundError: No module named 'antlr4'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/cogbench_chain.py\", line 153, in _try\n    result = fn(*args)\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/cogbench_chain.py\", line 118, in _run_lm_eval_inprocess\n    result = lm_eval.simple_evaluate(\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/utils.py\", line 498, in _wrapper\n    return fn(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/evaluator.py\", line 292, in simple_evaluate\n    task_dict = get_task_dict(\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 646, in get_task_dict\n    task_name_from_string_dict = task_manager.load_task_or_group(\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 428, in load_task_or_group\n    collections.ChainMap(\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 430, in <lambda>\n    lambda task: self._load_individual_task_or_group(task),\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 412, in _load_individual_task_or_group\n    group_name: dict(collections.ChainMap(*map(fn, reversed(subtask_list))))\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 327, in _load_individual_task_or_group\n    task_config = self._get_config(name_or_config)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 235, in _get_config\n    return utils.load_yaml_config(yaml_path, mode=\"full\")\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/utils.py\", line 572, in load_yaml_config\n    raise ex\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/utils.py\", line 568, in load_yaml_config\n    included_yaml_config = load_yaml_config(yaml_path=path, mode=mode)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/utils.py\", line 543, in load_yaml_config\n    yaml_config = yaml.load(file, Loader=loader)\n  File \"/path/to/vllm_site/yaml/__init__.py\", line 81, in load\n    return loader.get_single_data()\n  File \"/path/to/vllm_site/yaml/constructor.py\", line 51, in get_single_data\n    return self.construct_document(node)\n  File \"/path/to/vllm_site/yaml/constructor.py\", line 60, in construct_document\n    for dummy in generator:\n  File \"/path/to/vllm_site/yaml/constructor.py\", line 413, in construct_yaml_map\n    value = self.construct_mapping(node)\n  File \"/path/to/vllm_site/yaml/constructor.py\", line 218, in construct_mapping\n    return super().construct_mapping(node, deep=deep)\n  File \"/path/to/vllm_site/yaml/constructor.py\", line 143, in construct_mapping\n    value = self.construct_object(value_node, deep=deep)\n  File \"/path/to/vllm_site/yaml/constructor.py\", line 100, in construct_object\n    data = constructor(self, node)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/utils.py\", line 523, in import_function\n    spec.loader.exec_module(module)\n  File \"<frozen importlib._bootstrap_external>\", line 883, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 241, in _call_with_frames_removed\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/tasks/minerva_math/utils.py\", line 21, in <module>\n    raise type(e)(\nModuleNotFoundError: `sympy`, `math_verify` and `antlr4-python3-runtime==4.11` are required for generating translation task prompt templates. Please install the required packages via pip install lm-eval[math] or pip install -e .[math]\n",
+      "_primitive_or_domain": "Proof"
+    }
+  },
+  "set_b": {
+    "cybermetric": {
+      "model": "yi-1.5-9b",
+      "adapter": null,
+      "accuracy": 0.4494212380473075,
+      "correct": 893,
+      "total": 1987,
+      "model_metadata": {
+        "size_b": 9,
+        "family": "01.AI",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Strategic",
+        "Causal",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 1",
+      "_primitive_or_domain": "Cybersecurity"
+    },
+    "legalbench": {
+      "model": "yi-1.5-9b",
+      "adapter": null,
+      "accuracy": 0.6014614952220348,
+      "correct": 1070,
+      "total": 1779,
+      "n_tasks_evaluated": 19,
+      "per_task": {
+        "contract_nli_confidentiality_of_agreement": {
+          "correct": 45,
+          "total": 82,
+          "accuracy": 0.5488
+        },
+        "contract_nli_explicit_identification": {
+          "correct": 27,
+          "total": 100,
+          "accuracy": 0.27
+        },
+        "contract_nli_inclusion_of_verbally_conveyed_information": {
+          "correct": 70,
+          "total": 100,
+          "accuracy": 0.7
+        },
+        "contract_nli_limited_use": {
+          "correct": 91,
+          "total": 100,
+          "accuracy": 0.91
+        },
+        "contract_nli_no_licensing": {
+          "correct": 57,
+          "total": 100,
+          "accuracy": 0.57
+        },
+        "contract_nli_notice_on_compelled_disclosure": {
+          "correct": 71,
+          "total": 100,
+          "accuracy": 0.71
+        },
+        "contract_nli_permissible_acquirement_of_similar_information": {
+          "correct": 61,
+          "total": 100,
+          "accuracy": 0.61
+        },
+        "contract_nli_permissible_copy": {
+          "correct": 25,
+          "total": 87,
+          "accuracy": 0.2874
+        },
+        "contract_nli_permissible_development_of_similar_information": {
+          "correct": 53,
+          "total": 100,
+          "accuracy": 0.53
+        },
+        "contract_nli_return_of_confidential_information": {
+          "correct": 33,
+          "total": 66,
+          "accuracy": 0.5
+        },
+        "contract_nli_sharing_with_employees": {
+          "correct": 82,
+          "total": 100,
+          "accuracy": 0.82
+        },
+        "contract_nli_sharing_with_third-parties": {
+          "correct": 66,
+          "total": 100,
+          "accuracy": 0.66
+        },
+        "contract_nli_survival_of_obligations": {
+          "correct": 72,
+          "total": 100,
+          "accuracy": 0.72
+        },
+        "unfair_tos": {
+          "correct": 87,
+          "total": 100,
+          "accuracy": 0.87
+        },
+        "consumer_contracts_qa": {
+          "correct": 100,
+          "total": 100,
+          "accuracy": 1.0
+        },
+        "abercrombie": {
+          "correct": 19,
+          "total": 95,
+          "accuracy": 0.2
+        },
+        "legal_reasoning_causality": {
+          "correct": 31,
+          "total": 55,
+          "accuracy": 0.5636
+        },
+        "hearsay": {
+          "correct": 39,
+          "total": 94,
+          "accuracy": 0.4149
+        },
+        "nys_judicial_ethics": {
+          "correct": 41,
+          "total": 100,
+          "accuracy": 0.41
+        }
+      },
+      "model_metadata": {
+        "size_b": 9,
+        "family": "01.AI",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Moral",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 3",
+      "_primitive_or_domain": "Legal"
+    },
+    "finqa": {
+      "model": "yi-1.5-9b",
+      "adapter": null,
+      "accuracy": 0.095,
+      "correct": 19,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 9,
+        "family": "01.AI",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "bigbench_diplomacy": {
+      "model": "yi-1.5-9b",
+      "adapter": null,
+      "overall_accuracy": 0.502,
+      "total": 500,
+      "correct": 251,
+      "by_label": {
+        "truthful": {
+          "correct": 4,
+          "total": 250,
+          "accuracy": 0.016
+        },
+        "deceptive": {
+          "correct": 247,
+          "total": 250,
+          "accuracy": 0.988
+        }
+      },
+      "_primitive_or_domain": "Diplomacy"
+    },
+    "scienceqa": {
+      "model": "yi-1.5-9b",
+      "adapter": null,
+      "accuracy": 0.828,
+      "correct": 414,
+      "total": 500,
+      "text_only": true,
+      "by_subject": {
+        "language science": {
+          "correct": 193,
+          "total": 247,
+          "accuracy": 0.7813765182186235
+        },
+        "natural science": {
+          "correct": 190,
+          "total": 219,
+          "accuracy": 0.867579908675799
+        },
+        "social science": {
+          "correct": 31,
+          "total": 34,
+          "accuracy": 0.9117647058823529
+        }
+      },
+      "model_metadata": {
+        "size_b": 9,
+        "family": "01.AI",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Spatial",
+        "Math"
+      ],
+      "paper_table": "Table 10 Row 7",
+      "_primitive_or_domain": "Scientific"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.5530243519245875,
+      "full_metrics": {
+        "acc,none": 0.5530243519245875,
+        "acc_stderr,none": 0.01394024811029394,
+        "acc_norm,none": 0.5530243519245875,
+        "acc_norm_stderr,none": 0.01394024811029394
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.46439266399328366,
+      "full_metrics": {
+        "acc,none": 0.46439266399328366,
+        "acc_stderr,none": 0.014916312118537537
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

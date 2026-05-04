@@ -1,0 +1,307 @@
+{
+  "model_key": "falcon3-7b-base",
+  "set_a": {
+    "bigtom": {
+      "model": "falcon3-7b-base",
+      "adapter": null,
+      "overall_accuracy": 0.905,
+      "total": 800,
+      "correct": 724,
+      "by_type": {
+        "forward": {
+          "correct": 382,
+          "total": 402,
+          "accuracy": 0.9502487562189055
+        },
+        "backward": {
+          "correct": 342,
+          "total": 398,
+          "accuracy": 0.8592964824120602
+        }
+      },
+      "_primitive_or_domain": "ToM"
+    },
+    "balanced_copa": {
+      "model": "falcon3-7b-base",
+      "adapter": null,
+      "overall_accuracy": 0.722,
+      "total": 500,
+      "original_accuracy": 0.722,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "stepgame": {
+      "model": "falcon3-7b-base",
+      "adapter": null,
+      "accuracy": 0.15,
+      "correct": 75,
+      "total": 500,
+      "by_steps": {
+        "?": {
+          "correct": 75,
+          "total": 500,
+          "accuracy": 0.15
+        }
+      },
+      "_primitive_or_domain": "Spatial"
+    },
+    "bigbench_strategy": {
+      "task": "bigbench_strategyqa_multiple_choice",
+      "accuracy": 0.6273481869812145,
+      "full_metrics": {
+        "acc,none": 0.6273481869812145,
+        "acc_stderr,none": 0.01010829558047334
+      },
+      "_primitive_or_domain": "Strategic"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.5811148086522463,
+      "full_metrics": {
+        "acc,none": 0.5811148086522463,
+        "acc_stderr,none": 0.007116089701760434
+      },
+      "_primitive_or_domain": "Moral"
+    }
+  },
+  "set_b": {
+    "cybermetric": {
+      "model": "falcon3-7b-base",
+      "adapter": null,
+      "accuracy": 0.4378459989934575,
+      "correct": 870,
+      "total": 1987,
+      "model_metadata": {
+        "size_b": 7,
+        "family": "TII",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Strategic",
+        "Causal",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 1",
+      "_primitive_or_domain": "Cybersecurity"
+    },
+    "legalbench": {
+      "model": "falcon3-7b-base",
+      "adapter": null,
+      "accuracy": 0.6020236087689713,
+      "correct": 1071,
+      "total": 1779,
+      "n_tasks_evaluated": 19,
+      "per_task": {
+        "contract_nli_confidentiality_of_agreement": {
+          "correct": 36,
+          "total": 82,
+          "accuracy": 0.439
+        },
+        "contract_nli_explicit_identification": {
+          "correct": 34,
+          "total": 100,
+          "accuracy": 0.34
+        },
+        "contract_nli_inclusion_of_verbally_conveyed_information": {
+          "correct": 70,
+          "total": 100,
+          "accuracy": 0.7
+        },
+        "contract_nli_limited_use": {
+          "correct": 85,
+          "total": 100,
+          "accuracy": 0.85
+        },
+        "contract_nli_no_licensing": {
+          "correct": 47,
+          "total": 100,
+          "accuracy": 0.47
+        },
+        "contract_nli_notice_on_compelled_disclosure": {
+          "correct": 71,
+          "total": 100,
+          "accuracy": 0.71
+        },
+        "contract_nli_permissible_acquirement_of_similar_information": {
+          "correct": 69,
+          "total": 100,
+          "accuracy": 0.69
+        },
+        "contract_nli_permissible_copy": {
+          "correct": 33,
+          "total": 87,
+          "accuracy": 0.3793
+        },
+        "contract_nli_permissible_development_of_similar_information": {
+          "correct": 56,
+          "total": 100,
+          "accuracy": 0.56
+        },
+        "contract_nli_return_of_confidential_information": {
+          "correct": 36,
+          "total": 66,
+          "accuracy": 0.5455
+        },
+        "contract_nli_sharing_with_employees": {
+          "correct": 87,
+          "total": 100,
+          "accuracy": 0.87
+        },
+        "contract_nli_sharing_with_third-parties": {
+          "correct": 72,
+          "total": 100,
+          "accuracy": 0.72
+        },
+        "contract_nli_survival_of_obligations": {
+          "correct": 72,
+          "total": 100,
+          "accuracy": 0.72
+        },
+        "unfair_tos": {
+          "correct": 46,
+          "total": 100,
+          "accuracy": 0.46
+        },
+        "consumer_contracts_qa": {
+          "correct": 100,
+          "total": 100,
+          "accuracy": 1.0
+        },
+        "abercrombie": {
+          "correct": 19,
+          "total": 95,
+          "accuracy": 0.2
+        },
+        "legal_reasoning_causality": {
+          "correct": 36,
+          "total": 55,
+          "accuracy": 0.6545
+        },
+        "hearsay": {
+          "correct": 43,
+          "total": 94,
+          "accuracy": 0.4574
+        },
+        "nys_judicial_ethics": {
+          "correct": 59,
+          "total": 100,
+          "accuracy": 0.59
+        }
+      },
+      "model_metadata": {
+        "size_b": 7,
+        "family": "TII",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Moral",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 3",
+      "_primitive_or_domain": "Legal"
+    },
+    "finqa": {
+      "model": "falcon3-7b-base",
+      "adapter": null,
+      "accuracy": 0.04,
+      "correct": 8,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 7,
+        "family": "TII",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "bigbench_diplomacy": {
+      "model": "falcon3-7b-base",
+      "adapter": null,
+      "overall_accuracy": 0.522,
+      "total": 500,
+      "correct": 261,
+      "by_label": {
+        "truthful": {
+          "correct": 83,
+          "total": 250,
+          "accuracy": 0.332
+        },
+        "deceptive": {
+          "correct": 178,
+          "total": 250,
+          "accuracy": 0.712
+        }
+      },
+      "_primitive_or_domain": "Diplomacy"
+    },
+    "scienceqa": {
+      "model": "falcon3-7b-base",
+      "adapter": null,
+      "accuracy": 0.778,
+      "correct": 389,
+      "total": 500,
+      "text_only": true,
+      "by_subject": {
+        "language science": {
+          "correct": 172,
+          "total": 247,
+          "accuracy": 0.6963562753036437
+        },
+        "natural science": {
+          "correct": 188,
+          "total": 219,
+          "accuracy": 0.8584474885844748
+        },
+        "social science": {
+          "correct": 29,
+          "total": 34,
+          "accuracy": 0.8529411764705882
+        }
+      },
+      "model_metadata": {
+        "size_b": 7,
+        "family": "TII",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Spatial",
+        "Math"
+      ],
+      "paper_table": "Table 10 Row 7",
+      "_primitive_or_domain": "Scientific"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.579732914375491,
+      "full_metrics": {
+        "acc,none": 0.579732914375491,
+        "acc_stderr,none": 0.013839905113747747,
+        "acc_norm,none": 0.579732914375491,
+        "acc_norm_stderr,none": 0.013839905113747747
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.5342600123054473,
+      "full_metrics": {
+        "acc,none": 0.5342600123054473,
+        "acc_stderr,none": 0.015159045550441919
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

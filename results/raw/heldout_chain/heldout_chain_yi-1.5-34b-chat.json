@@ -1,0 +1,217 @@
+{
+  "model_key": "yi-1.5-34b-chat",
+  "set_a": {
+    "bigtom": {
+      "model": "yi-1.5-34b-chat",
+      "adapter": null,
+      "overall_accuracy": 0.5,
+      "total": 800,
+      "correct": 400,
+      "by_type": {
+        "forward": {
+          "correct": 201,
+          "total": 402,
+          "accuracy": 0.5
+        },
+        "backward": {
+          "correct": 199,
+          "total": 398,
+          "accuracy": 0.5
+        }
+      },
+      "_primitive_or_domain": "ToM"
+    },
+    "balanced_copa": {
+      "model": "yi-1.5-34b-chat",
+      "adapter": null,
+      "overall_accuracy": 0.798,
+      "total": 500,
+      "original_accuracy": 0.798,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "stepgame": {
+      "model": "yi-1.5-34b-chat",
+      "adapter": null,
+      "accuracy": 0.262,
+      "correct": 131,
+      "total": 500,
+      "by_steps": {
+        "?": {
+          "correct": 131,
+          "total": 500,
+          "accuracy": 0.262
+        }
+      },
+      "_primitive_or_domain": "Spatial"
+    },
+    "bigbench_strategy": {
+      "task": "bigbench_strategyqa_multiple_choice",
+      "accuracy": 0.7527304499781564,
+      "full_metrics": {
+        "acc,none": 0.7527304499781564,
+        "acc_stderr,none": 0.009019387617546773
+      },
+      "_primitive_or_domain": "Strategic"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.783485856905158,
+      "full_metrics": {
+        "acc,none": 0.783485856905158,
+        "acc_stderr,none": 0.005940481596700469
+      },
+      "_primitive_or_domain": "Moral"
+    }
+  },
+  "set_b": {
+    "cybermetric": {
+      "model": "yi-1.5-34b-chat",
+      "adapter": null,
+      "accuracy": 0.4791142425767489,
+      "correct": 952,
+      "total": 1987,
+      "model_metadata": {
+        "size_b": 34,
+        "family": "01.AI",
+        "arch": "Dense Transformer (Instruct)",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Strategic",
+        "Causal",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 1",
+      "_primitive_or_domain": "Cybersecurity"
+    },
+    "legalbench": {
+      "model": "yi-1.5-34b-chat",
+      "adapter": null,
+      "accuracy": 0.45121951219512196,
+      "correct": 37,
+      "total": 82,
+      "n_tasks_evaluated": 1,
+      "per_task": {
+        "contract_nli_confidentiality_of_agreement": {
+          "correct": 37,
+          "total": 82,
+          "accuracy": 0.4512
+        }
+      },
+      "model_metadata": {
+        "size_b": 34,
+        "family": "01.AI",
+        "arch": "Dense Transformer (Instruct)",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Moral",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 3",
+      "_primitive_or_domain": "Legal"
+    },
+    "finqa": {
+      "model": "yi-1.5-34b-chat",
+      "adapter": null,
+      "accuracy": 0.065,
+      "correct": 13,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 34,
+        "family": "01.AI",
+        "arch": "Dense Transformer (Instruct)",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "bigbench_diplomacy": {
+      "model": "yi-1.5-34b-chat",
+      "adapter": null,
+      "overall_accuracy": 0.476,
+      "total": 500,
+      "correct": 238,
+      "by_label": {
+        "truthful": {
+          "correct": 84,
+          "total": 250,
+          "accuracy": 0.336
+        },
+        "deceptive": {
+          "correct": 154,
+          "total": 250,
+          "accuracy": 0.616
+        }
+      },
+      "_primitive_or_domain": "Diplomacy"
+    },
+    "scienceqa": {
+      "model": "yi-1.5-34b-chat",
+      "adapter": null,
+      "accuracy": 0.906,
+      "correct": 453,
+      "total": 500,
+      "text_only": true,
+      "by_subject": {
+        "language science": {
+          "correct": 214,
+          "total": 247,
+          "accuracy": 0.8663967611336032
+        },
+        "natural science": {
+          "correct": 207,
+          "total": 219,
+          "accuracy": 0.9452054794520548
+        },
+        "social science": {
+          "correct": 32,
+          "total": 34,
+          "accuracy": 0.9411764705882353
+        }
+      },
+      "model_metadata": {
+        "size_b": 34,
+        "family": "01.AI",
+        "arch": "Dense Transformer (Instruct)",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Spatial",
+        "Math"
+      ],
+      "paper_table": "Table 10 Row 7",
+      "_primitive_or_domain": "Scientific"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.6142969363707776,
+      "full_metrics": {
+        "acc,none": 0.6142969363707776,
+        "acc_stderr,none": 0.013648098974225574,
+        "acc_norm,none": 0.6142969363707776,
+        "acc_norm_stderr,none": 0.013648098974225574
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.6230638325676813,
+      "full_metrics": {
+        "acc,none": 0.6230638325676813,
+        "acc_stderr,none": 0.015399803968424398
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

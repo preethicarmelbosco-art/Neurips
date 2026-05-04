@@ -1,0 +1,217 @@
+{
+  "model_key": "qwen-2.5-14b",
+  "set_a": {
+    "bigtom": {
+      "model": "qwen-2.5-14b",
+      "adapter": null,
+      "overall_accuracy": 0.91125,
+      "total": 800,
+      "correct": 729,
+      "by_type": {
+        "forward": {
+          "correct": 379,
+          "total": 402,
+          "accuracy": 0.9427860696517413
+        },
+        "backward": {
+          "correct": 350,
+          "total": 398,
+          "accuracy": 0.8793969849246231
+        }
+      },
+      "_primitive_or_domain": "ToM"
+    },
+    "balanced_copa": {
+      "model": "qwen-2.5-14b",
+      "adapter": null,
+      "overall_accuracy": 0.8,
+      "total": 500,
+      "original_accuracy": 0.8,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "stepgame": {
+      "model": "qwen-2.5-14b",
+      "adapter": null,
+      "accuracy": 0.184,
+      "correct": 92,
+      "total": 500,
+      "by_steps": {
+        "?": {
+          "correct": 92,
+          "total": 500,
+          "accuracy": 0.184
+        }
+      },
+      "_primitive_or_domain": "Spatial"
+    },
+    "bigbench_strategy": {
+      "task": "bigbench_strategyqa_multiple_choice",
+      "accuracy": 0.6972477064220184,
+      "full_metrics": {
+        "acc,none": 0.6972477064220184,
+        "acc_stderr,none": 0.009605262942001385
+      },
+      "_primitive_or_domain": "Strategic"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.6898918469217971,
+      "full_metrics": {
+        "acc,none": 0.6898918469217971,
+        "acc_stderr,none": 0.00667129334331914
+      },
+      "_primitive_or_domain": "Moral"
+    }
+  },
+  "set_b": {
+    "cybermetric": {
+      "model": "qwen-2.5-14b",
+      "adapter": null,
+      "accuracy": 0.4172118772018118,
+      "correct": 829,
+      "total": 1987,
+      "model_metadata": {
+        "size_b": 14,
+        "family": "Alibaba",
+        "arch": "Dense Transformer",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Strategic",
+        "Causal",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 1",
+      "_primitive_or_domain": "Cybersecurity"
+    },
+    "legalbench": {
+      "model": "qwen-2.5-14b",
+      "adapter": null,
+      "accuracy": 0.5,
+      "correct": 41,
+      "total": 82,
+      "n_tasks_evaluated": 1,
+      "per_task": {
+        "contract_nli_confidentiality_of_agreement": {
+          "correct": 41,
+          "total": 82,
+          "accuracy": 0.5
+        }
+      },
+      "model_metadata": {
+        "size_b": 14,
+        "family": "Alibaba",
+        "arch": "Dense Transformer",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Moral",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 3",
+      "_primitive_or_domain": "Legal"
+    },
+    "finqa": {
+      "model": "qwen-2.5-14b",
+      "adapter": null,
+      "accuracy": 0.275,
+      "correct": 55,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 14,
+        "family": "Alibaba",
+        "arch": "Dense Transformer",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "bigbench_diplomacy": {
+      "model": "qwen-2.5-14b",
+      "adapter": null,
+      "overall_accuracy": 0.492,
+      "total": 500,
+      "correct": 246,
+      "by_label": {
+        "truthful": {
+          "correct": 46,
+          "total": 250,
+          "accuracy": 0.184
+        },
+        "deceptive": {
+          "correct": 200,
+          "total": 250,
+          "accuracy": 0.8
+        }
+      },
+      "_primitive_or_domain": "Diplomacy"
+    },
+    "scienceqa": {
+      "model": "qwen-2.5-14b",
+      "adapter": null,
+      "accuracy": 0.666,
+      "correct": 333,
+      "total": 500,
+      "text_only": true,
+      "by_subject": {
+        "language science": {
+          "correct": 134,
+          "total": 247,
+          "accuracy": 0.5425101214574899
+        },
+        "natural science": {
+          "correct": 173,
+          "total": 219,
+          "accuracy": 0.7899543378995434
+        },
+        "social science": {
+          "correct": 26,
+          "total": 34,
+          "accuracy": 0.7647058823529411
+        }
+      },
+      "model_metadata": {
+        "size_b": 14,
+        "family": "Alibaba",
+        "arch": "Dense Transformer",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Spatial",
+        "Math"
+      ],
+      "paper_table": "Table 10 Row 7",
+      "_primitive_or_domain": "Scientific"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.6904948939512962,
+      "full_metrics": {
+        "acc,none": 0.6904948939512962,
+        "acc_stderr,none": 0.012961957380504985,
+        "acc_norm,none": 0.6904948939512962,
+        "acc_norm_stderr,none": 0.012961957380504985
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.5845242768619644,
+      "full_metrics": {
+        "acc,none": 0.5845242768619644,
+        "acc_stderr,none": 0.01483978916205166
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

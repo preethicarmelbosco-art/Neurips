@@ -1,0 +1,196 @@
+{
+  "model_key": "falcon-40b",
+  "set_a": {
+    "bigtom": {
+      "model": "falcon-40b",
+      "adapter": null,
+      "overall_accuracy": 0.5,
+      "total": 800,
+      "correct": 400,
+      "by_type": {
+        "forward": {
+          "correct": 201,
+          "total": 402,
+          "accuracy": 0.5
+        },
+        "backward": {
+          "correct": 199,
+          "total": 398,
+          "accuracy": 0.5
+        }
+      },
+      "_primitive_or_domain": "ToM"
+    },
+    "balanced_copa": {
+      "model": "falcon-40b",
+      "adapter": null,
+      "overall_accuracy": 0.812,
+      "total": 500,
+      "original_accuracy": 0.812,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "stepgame": {
+      "model": "falcon-40b",
+      "adapter": null,
+      "accuracy": 0.104,
+      "correct": 52,
+      "total": 500,
+      "by_steps": {
+        "?": {
+          "correct": 52,
+          "total": 500,
+          "accuracy": 0.104
+        }
+      },
+      "_primitive_or_domain": "Spatial"
+    },
+    "bigbench_strategy": {
+      "task": "bigbench_strategyqa_multiple_choice",
+      "accuracy": 0.6203582350371342,
+      "full_metrics": {
+        "acc,none": 0.6203582350371342,
+        "acc_stderr,none": 0.010145658913097709
+      },
+      "_primitive_or_domain": "Strategic"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.6485024958402662,
+      "full_metrics": {
+        "acc,none": 0.6485024958402662,
+        "acc_stderr,none": 0.006886204053597373
+      },
+      "_primitive_or_domain": "Moral"
+    }
+  },
+  "set_b": {
+    "legalbench": {
+      "model": "falcon-40b",
+      "adapter": null,
+      "accuracy": 0.7926829268292683,
+      "correct": 65,
+      "total": 82,
+      "n_tasks_evaluated": 1,
+      "per_task": {
+        "contract_nli_confidentiality_of_agreement": {
+          "correct": 65,
+          "total": 82,
+          "accuracy": 0.7927
+        }
+      },
+      "model_metadata": {
+        "size_b": 40,
+        "family": "TII",
+        "arch": "Dense Transformer",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Moral",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 3",
+      "_primitive_or_domain": "Legal"
+    },
+    "finqa": {
+      "model": "falcon-40b",
+      "adapter": null,
+      "accuracy": 0.07,
+      "correct": 14,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 40,
+        "family": "TII",
+        "arch": "Dense Transformer",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "bigbench_diplomacy": {
+      "model": "falcon-40b",
+      "adapter": null,
+      "overall_accuracy": 0.5,
+      "total": 500,
+      "correct": 250,
+      "by_label": {
+        "truthful": {
+          "correct": 250,
+          "total": 250,
+          "accuracy": 1.0
+        },
+        "deceptive": {
+          "correct": 0,
+          "total": 250,
+          "accuracy": 0.0
+        }
+      },
+      "_primitive_or_domain": "Diplomacy"
+    },
+    "scienceqa": {
+      "model": "falcon-40b",
+      "adapter": null,
+      "accuracy": 0.444,
+      "correct": 222,
+      "total": 500,
+      "text_only": true,
+      "by_subject": {
+        "language science": {
+          "correct": 115,
+          "total": 247,
+          "accuracy": 0.46558704453441296
+        },
+        "natural science": {
+          "correct": 95,
+          "total": 219,
+          "accuracy": 0.4337899543378995
+        },
+        "social science": {
+          "correct": 12,
+          "total": 34,
+          "accuracy": 0.35294117647058826
+        }
+      },
+      "model_metadata": {
+        "size_b": 40,
+        "family": "TII",
+        "arch": "Dense Transformer",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Spatial",
+        "Math"
+      ],
+      "paper_table": "Table 10 Row 7",
+      "_primitive_or_domain": "Scientific"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.4169123028896254,
+      "full_metrics": {
+        "acc,none": 0.4169123028896254,
+        "acc_stderr,none": 0.013792027027189464
+      },
+      "_primitive_or_domain": "Safety"
+    },
+    "cybermetric": {
+      "error": "CUDA out of memory. Tried to allocate 116.00 MiB. GPU 0 has a total capacity of 39.38 GiB of which 89.38 MiB is free. Including non-PyTorch memory, this process has 39.27 GiB memory in use. Of the allocated memory 37.06 GiB is allocated by PyTorch, and 373.94 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+      "traceback": "Traceback (most recent call last):\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/cogbench_chain.py\", line 188, in _try\n    result = fn(*args)\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/cogbench_chain.py\", line 106, in _run_custom\n    return mod.run_heldout(model, tokenizer, model_key, **kwargs)\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/eval_cybermetric.py\", line 102, in run_heldout\n    score = compute_choice_log_prob(model, tokenizer, prompt, letter, device)\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/eval_cybermetric.py\", line 64, in compute_choice_log_prob\n    return choice_logprob(model, tokenizer, prompt, choice_text, device, reduce=\"byte_mean\")\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/_logprob_helpers.py\", line 123, in choice_logprob\n    logits = model(full_ids).logits\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 1048, in forward\n    transformer_outputs = self.transformer(\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 812, in forward\n    outputs = block(\n  File \"/path/to/vllm_site/transformers/modeling_layers.py\", line 94, in __call__\n    return super().__call__(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 629, in forward\n    mlp_output = self.mlp(mlp_layernorm_out)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 538, in forward\n    x = self.act(self.dense_h_to_4h(x))\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 60, in forward\n    hidden_states = input @ self.weight.T\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 116.00 MiB. GPU 0 has a total capacity of 39.38 GiB of which 89.38 MiB is free. Including non-PyTorch memory, this process has 39.27 GiB memory in use. Of the allocated memory 37.06 GiB is allocated by PyTorch, and 373.94 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n",
+      "_primitive_or_domain": "Cybersecurity"
+    },
+    "medqa": {
+      "error": "CUDA out of memory. Tried to allocate 232.00 MiB. GPU 0 has a total capacity of 39.38 GiB of which 229.38 MiB is free. Including non-PyTorch memory, this process has 39.13 GiB memory in use. Of the allocated memory 37.13 GiB is allocated by PyTorch, and 161.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+      "traceback": "Traceback (most recent call last):\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/cogbench_chain.py\", line 188, in _try\n    result = fn(*args)\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/cogbench_chain.py\", line 130, in _run_lm_eval_inprocess\n    result = lm_eval.simple_evaluate(\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/utils.py\", line 498, in _wrapper\n    return fn(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/evaluator.py\", line 366, in simple_evaluate\n    results = evaluate(\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/utils.py\", line 498, in _wrapper\n    return fn(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/evaluator.py\", line 595, in evaluate\n    resps = getattr(lm, reqtype)(cloned_reqs)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/api/model.py\", line 452, in loglikelihood\n    return self._loglikelihood_tokens(new_reqs, disable_tqdm=disable_tqdm)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/models/huggingface.py\", line 1302, in _loglikelihood_tokens\n    self._model_call(batched_inps, **call_kwargs),\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/models/huggingface.py\", line 969, in _model_call\n    return self.model(inps).logits\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 1048, in forward\n    transformer_outputs = self.transformer(\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 812, in forward\n    outputs = block(\n  File \"/path/to/vllm_site/transformers/modeling_layers.py\", line 94, in __call__\n    return super().__call__(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 629, in forward\n    mlp_output = self.mlp(mlp_layernorm_out)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 538, in forward\n    x = self.act(self.dense_h_to_4h(x))\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/falcon/modeling_falcon.py\", line 60, in forward\n    hidden_states = input @ self.weight.T\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 232.00 MiB. GPU 0 has a total capacity of 39.38 GiB of which 229.38 MiB is free. Including non-PyTorch memory, this process has 39.13 GiB memory in use. Of the allocated memory 37.13 GiB is allocated by PyTorch, and 161.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n",
+      "_primitive_or_domain": "Medical"
+    }
+  }
+}

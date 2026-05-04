@@ -1,0 +1,78 @@
+{
+  "model_key": "mamba-2.8b",
+  "set_a": {
+    "balanced_copa": {
+      "model": "mamba-2.8b",
+      "adapter": null,
+      "overall_accuracy": 0.692,
+      "total": 500,
+      "original_accuracy": 0.692,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.5027038269550749,
+      "full_metrics": {
+        "acc,none": 0.5027038269550749,
+        "acc_stderr,none": 0.007211516361899425
+      },
+      "_primitive_or_domain": "Moral"
+    },
+    "hendrycks_math": {
+      "task": "minerva_math",
+      "accuracy": 0.0144,
+      "full_metrics": {
+        "exact_match,none": 0.0144,
+        "exact_match_stderr,none": 0.0016854244110004345,
+        "math_verify,none": 0.0318,
+        "math_verify_stderr,none": 0.0024801511801832423
+      },
+      "_primitive_or_domain": "Proof"
+    }
+  },
+  "set_b": {
+    "finqa": {
+      "model": "mamba-2.8b",
+      "adapter": null,
+      "accuracy": 0.02,
+      "correct": 4,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 2.8,
+        "family": "EleutherAI",
+        "arch": "Pure SSM",
+        "tier": "1.7-3.8B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.2631578947368421,
+      "full_metrics": {
+        "acc,none": 0.2631578947368421,
+        "acc_stderr,none": 0.0123467275084796,
+        "acc_norm,none": 0.2631578947368421,
+        "acc_norm_stderr,none": 0.0123467275084796
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.35994788237383524,
+      "full_metrics": {
+        "acc,none": 0.35994788237383524,
+        "acc_stderr,none": 0.013467574553095423
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

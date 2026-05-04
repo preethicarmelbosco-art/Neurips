@@ -1,0 +1,211 @@
+{
+  "results": {
+    "cybermetric": {
+      "label": "Cybersecurity",
+      "cognitive_prereg": {
+        "loo_r2": 0.2565,
+        "n": 18,
+        "n_features": 6,
+        "alpha": 0.3162
+      },
+      "cognitive_saturated": {
+        "loo_r2": null,
+        "n": 10,
+        "n_features": 10,
+        "alpha": null
+      },
+      "kitchen_sink_strict": {
+        "loo_r2": 0.8534,
+        "n": 29,
+        "n_features": 11,
+        "alpha": 0.1
+      },
+      "kitchen_sink_relaxed": {
+        "loo_r2": 0.799,
+        "n": 31,
+        "n_features": 11,
+        "alpha": 0.1
+      },
+      "delta_prereg_vs_kitchen": -0.5969,
+      "delta_saturated_vs_kitchen": null
+    },
+    "medqa": {
+      "label": "Medical",
+      "cognitive_prereg": {
+        "loo_r2": 0.2766,
+        "n": 15,
+        "n_features": 6,
+        "alpha": 0.1
+      },
+      "cognitive_saturated": {
+        "loo_r2": null,
+        "n": 11,
+        "n_features": 10,
+        "alpha": null
+      },
+      "kitchen_sink_strict": {
+        "loo_r2": 0.746,
+        "n": 29,
+        "n_features": 11,
+        "alpha": 0.01
+      },
+      "kitchen_sink_relaxed": {
+        "loo_r2": 0.741,
+        "n": 32,
+        "n_features": 11,
+        "alpha": 0.0316
+      },
+      "delta_prereg_vs_kitchen": -0.4694,
+      "delta_saturated_vs_kitchen": null
+    },
+    "legalbench": {
+      "label": "Legal",
+      "cognitive_prereg": {
+        "loo_r2": -0.0478,
+        "n": 23,
+        "n_features": 2,
+        "alpha": 0.0316
+      },
+      "cognitive_saturated": {
+        "loo_r2": -0.1905,
+        "n": 12,
+        "n_features": 10,
+        "alpha": 1000.0
+      },
+      "kitchen_sink_strict": {
+        "loo_r2": -0.0814,
+        "n": 29,
+        "n_features": 11,
+        "alpha": 10.0
+      },
+      "kitchen_sink_relaxed": {
+        "loo_r2": -0.0636,
+        "n": 33,
+        "n_features": 11,
+        "alpha": 1000.0
+      },
+      "delta_prereg_vs_kitchen": 0.0336,
+      "delta_saturated_vs_kitchen": -0.1091
+    },
+    "truthfulqa": {
+      "label": "Safety",
+      "cognitive_prereg": {
+        "loo_r2": 0.7148,
+        "n": 18,
+        "n_features": 6,
+        "alpha": 0.3162
+      },
+      "cognitive_saturated": {
+        "loo_r2": 0.6293,
+        "n": 12,
+        "n_features": 10,
+        "alpha": 0.1778
+      },
+      "kitchen_sink_strict": {
+        "loo_r2": 0.5193,
+        "n": 29,
+        "n_features": 11,
+        "alpha": 0.1778
+      },
+      "kitchen_sink_relaxed": {
+        "loo_r2": 0.5323,
+        "n": 33,
+        "n_features": 11,
+        "alpha": 0.3162
+      },
+      "delta_prereg_vs_kitchen": 0.1954,
+      "delta_saturated_vs_kitchen": 0.1099
+    },
+    "finqa": {
+      "label": "Financial",
+      "cognitive_prereg": {
+        "loo_r2": 0.1815,
+        "n": 20,
+        "n_features": 6,
+        "alpha": 0.0178
+      },
+      "cognitive_saturated": {
+        "loo_r2": 0.0908,
+        "n": 12,
+        "n_features": 10,
+        "alpha": 0.5623
+      },
+      "kitchen_sink_strict": {
+        "loo_r2": 0.1489,
+        "n": 29,
+        "n_features": 11,
+        "alpha": 0.3162
+      },
+      "kitchen_sink_relaxed": {
+        "loo_r2": 0.1318,
+        "n": 32,
+        "n_features": 11,
+        "alpha": 0.5623
+      },
+      "delta_prereg_vs_kitchen": 0.0325,
+      "delta_saturated_vs_kitchen": -0.0581
+    },
+    "bb_diplomacy": {
+      "label": "Diplomacy",
+      "cognitive_prereg": {
+        "loo_r2": null,
+        "n": 0,
+        "n_features": 0,
+        "alpha": null
+      },
+      "cognitive_saturated": {
+        "loo_r2": -0.1897,
+        "n": 12,
+        "n_features": 10,
+        "alpha": 1000.0
+      },
+      "kitchen_sink_strict": {
+        "loo_r2": 0.9333,
+        "n": 29,
+        "n_features": 12,
+        "alpha": 0.001
+      },
+      "kitchen_sink_relaxed": {
+        "loo_r2": 0.9739,
+        "n": 33,
+        "n_features": 12,
+        "alpha": 0.001
+      },
+      "delta_prereg_vs_kitchen": null,
+      "delta_saturated_vs_kitchen": -1.123
+    },
+    "scienceqa": {
+      "label": "Scientific",
+      "cognitive_prereg": {
+        "loo_r2": 0.1082,
+        "n": 18,
+        "n_features": 6,
+        "alpha": 0.1778
+      },
+      "cognitive_saturated": {
+        "loo_r2": 0.2483,
+        "n": 12,
+        "n_features": 10,
+        "alpha": 0.5623
+      },
+      "kitchen_sink_strict": {
+        "loo_r2": 0.7946,
+        "n": 29,
+        "n_features": 11,
+        "alpha": 0.0032
+      },
+      "kitchen_sink_relaxed": {
+        "loo_r2": 0.7143,
+        "n": 32,
+        "n_features": 11,
+        "alpha": 0.1
+      },
+      "delta_prereg_vs_kitchen": -0.6865,
+      "delta_saturated_vs_kitchen": -0.5464
+    }
+  },
+  "mean_delta_prereg_vs_kitchen": -0.2485,
+  "mean_delta_saturated_vs_kitchen": -0.3453,
+  "n_domains_prereg": 6,
+  "n_domains_saturated": 5
+}

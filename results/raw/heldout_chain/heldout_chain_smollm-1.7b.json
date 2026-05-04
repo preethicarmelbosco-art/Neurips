@@ -1,0 +1,78 @@
+{
+  "model_key": "smollm-1.7b",
+  "set_a": {
+    "balanced_copa": {
+      "model": "smollm-1.7b",
+      "adapter": null,
+      "overall_accuracy": 0.722,
+      "total": 500,
+      "original_accuracy": 0.722,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.4995840266222962,
+      "full_metrics": {
+        "acc,none": 0.4995840266222962,
+        "acc_stderr,none": 0.007211619310682045
+      },
+      "_primitive_or_domain": "Moral"
+    },
+    "hendrycks_math": {
+      "task": "minerva_math",
+      "accuracy": 0.03,
+      "full_metrics": {
+        "math_verify,none": 0.0462,
+        "math_verify_stderr,none": 0.002955587370024376,
+        "exact_match,none": 0.03,
+        "exact_match_stderr,none": 0.0024019066925143944
+      },
+      "_primitive_or_domain": "Proof"
+    }
+  },
+  "set_b": {
+    "finqa": {
+      "model": "smollm-1.7b",
+      "adapter": null,
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 1.7,
+        "family": "HuggingFace",
+        "arch": "Dense Transformer",
+        "tier": "1.7-3.8B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.24509033778476041,
+      "full_metrics": {
+        "acc,none": 0.24509033778476041,
+        "acc_stderr,none": 0.012060547724158087,
+        "acc_norm,none": 0.24509033778476041,
+        "acc_norm_stderr,none": 0.012060547724158087
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.38436246440672367,
+      "full_metrics": {
+        "acc,none": 0.38436246440672367,
+        "acc_stderr,none": 0.014127796800257289
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

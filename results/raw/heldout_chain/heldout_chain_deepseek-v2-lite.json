@@ -1,0 +1,229 @@
+{
+  "model_key": "deepseek-v2-lite",
+  "set_a": {
+    "bigtom": {
+      "model": "deepseek-v2-lite",
+      "adapter": null,
+      "overall_accuracy": 0.5,
+      "total": 800,
+      "correct": 400,
+      "by_type": {
+        "forward": {
+          "correct": 201,
+          "total": 402,
+          "accuracy": 0.5
+        },
+        "backward": {
+          "correct": 199,
+          "total": 398,
+          "accuracy": 0.5
+        }
+      },
+      "_primitive_or_domain": "ToM"
+    },
+    "balanced_copa": {
+      "model": "deepseek-v2-lite",
+      "adapter": null,
+      "overall_accuracy": 0.742,
+      "total": 500,
+      "correct": 371,
+      "original_accuracy": 0.742,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal",
+      "_source": "recovered from cogbench_dsv2lite_heldout_v3_426161.log stdout (job timed out before per-bench JSON write); 371/500 = 0.7420"
+    },
+    "stepgame": {
+      "model": "deepseek-v2-lite",
+      "adapter": null,
+      "accuracy": 0.068,
+      "correct": 34,
+      "total": 500,
+      "by_steps": {
+        "?": {
+          "correct": 34,
+          "total": 500,
+          "accuracy": 0.068
+        }
+      },
+      "_primitive_or_domain": "Spatial"
+    },
+    "bigbench_strategy": {
+      "task": "bigbench_strategyqa_multiple_choice",
+      "accuracy": 0.5508955875928353,
+      "full_metrics": {
+        "acc,none": 0.5508955875928353,
+        "acc_stderr,none": 0.010398729900834625
+      },
+      "_primitive_or_domain": "Strategic"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.5,
+      "full_metrics": {
+        "acc,none": 0.5,
+        "acc_stderr,none": 0.007211621806391909
+      },
+      "_primitive_or_domain": "Moral"
+    }
+  },
+  "set_b": {
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.40769835035349566,
+      "full_metrics": {
+        "acc,none": 0.40769835035349566,
+        "acc_stderr,none": 0.013778355709710536,
+        "acc_norm,none": 0.40769835035349566,
+        "acc_norm_stderr,none": 0.013778355709710536
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.3197635864350104,
+      "full_metrics": {
+        "acc,none": 0.3197635864350104,
+        "acc_stderr,none": 0.012895822543541375
+      },
+      "_primitive_or_domain": "Safety"
+    },
+    "cybermetric": {
+      "model": "deepseek-v2-lite",
+      "adapter": null,
+      "accuracy": 0.2571716155007549,
+      "correct": 511,
+      "total": 1987,
+      "model_metadata": {
+        "size_b": 16,
+        "family": "DeepSeek",
+        "arch": "Mixture of Experts",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Strategic",
+        "Causal",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 1",
+      "_primitive_or_domain": "Cybersecurity"
+    },
+    "legalbench": {
+      "model": "deepseek-v2-lite",
+      "adapter": null,
+      "accuracy": 0.14982578397212543,
+      "correct": 43,
+      "total": 287,
+      "n_tasks_evaluated": 3,
+      "per_task": {
+        "contract_nli_explicit_identification": {
+          "correct": 21,
+          "total": 100,
+          "accuracy": 0.21
+        },
+        "contract_nli_permissible_copy": {
+          "correct": 20,
+          "total": 87,
+          "accuracy": 0.2299
+        },
+        "unfair_tos": {
+          "correct": 2,
+          "total": 100,
+          "accuracy": 0.02
+        }
+      },
+      "model_metadata": {
+        "size_b": 16,
+        "family": "DeepSeek",
+        "arch": "Mixture of Experts",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Moral",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 3",
+      "_primitive_or_domain": "Legal"
+    },
+    "bigbench_diplomacy": {
+      "model": "deepseek-v2-lite",
+      "adapter": null,
+      "overall_accuracy": 0.504,
+      "total": 500,
+      "correct": 252,
+      "by_label": {
+        "truthful": {
+          "correct": 250,
+          "total": 250,
+          "accuracy": 1.0
+        },
+        "deceptive": {
+          "correct": 2,
+          "total": 250,
+          "accuracy": 0.008
+        }
+      },
+      "_primitive_or_domain": "Diplomacy"
+    },
+    "scienceqa": {
+      "model": "deepseek-v2-lite",
+      "adapter": null,
+      "accuracy": 0.45,
+      "correct": 225,
+      "total": 500,
+      "text_only": true,
+      "by_subject": {
+        "language science": {
+          "correct": 115,
+          "total": 247,
+          "accuracy": 0.46558704453441296
+        },
+        "natural science": {
+          "correct": 98,
+          "total": 219,
+          "accuracy": 0.4474885844748858
+        },
+        "social science": {
+          "correct": 12,
+          "total": 34,
+          "accuracy": 0.35294117647058826
+        }
+      },
+      "model_metadata": {
+        "size_b": 16,
+        "family": "DeepSeek",
+        "arch": "Mixture of Experts",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Spatial",
+        "Math"
+      ],
+      "paper_table": "Table 10 Row 7",
+      "_primitive_or_domain": "Scientific"
+    },
+    "finqa": {
+      "model": "deepseek-v2-lite",
+      "adapter": null,
+      "accuracy": 0.03,
+      "correct": 3,
+      "total": 100,
+      "model_metadata": {
+        "size_b": 16,
+        "family": "DeepSeek",
+        "arch": "Mixture of Experts",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    }
+  }
+}

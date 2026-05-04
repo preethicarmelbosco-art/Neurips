@@ -1,0 +1,78 @@
+{
+  "model_key": "phi-3-mini",
+  "set_a": {
+    "balanced_copa": {
+      "model": "phi-3-mini",
+      "adapter": null,
+      "overall_accuracy": 0.78,
+      "total": 500,
+      "original_accuracy": 0.78,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.6532861896838602,
+      "full_metrics": {
+        "acc,none": 0.6532861896838602,
+        "acc_stderr,none": 0.0068643630999599406
+      },
+      "_primitive_or_domain": "Moral"
+    },
+    "hendrycks_math": {
+      "task": "minerva_math",
+      "accuracy": 0.3406,
+      "full_metrics": {
+        "exact_match,none": 0.3406,
+        "exact_match_stderr,none": 0.0062102216920634,
+        "math_verify,none": 0.3804,
+        "math_verify_stderr,none": 0.0063513844756464405
+      },
+      "_primitive_or_domain": "Proof"
+    }
+  },
+  "set_b": {
+    "finqa": {
+      "model": "phi-3-mini",
+      "adapter": null,
+      "accuracy": 0.05,
+      "correct": 10,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 3.8,
+        "family": "Microsoft",
+        "arch": "Dense Transformer",
+        "tier": "1.7-3.8B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.5365278868813825,
+      "full_metrics": {
+        "acc,none": 0.5365278868813825,
+        "acc_stderr,none": 0.013981842264637062,
+        "acc_norm,none": 0.5365278868813825,
+        "acc_norm_stderr,none": 0.013981842264637062
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.5448381634051487,
+      "full_metrics": {
+        "acc,none": 0.5448381634051487,
+        "acc_stderr,none": 0.01512091049328514
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

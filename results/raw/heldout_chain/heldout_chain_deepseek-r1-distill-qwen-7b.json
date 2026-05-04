@@ -1,0 +1,74 @@
+{
+  "model_key": "deepseek-r1-distill-qwen-7b",
+  "set_a": {
+    "balanced_copa": {
+      "model": "deepseek-r1-distill-qwen-7b",
+      "adapter": null,
+      "overall_accuracy": 0.638,
+      "total": 500,
+      "original_accuracy": 0.638,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "ethics": {
+      "error": "The repository for EleutherAI/hendrycks_ethics contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/EleutherAI/hendrycks_ethics.\nPlease pass the argument `trust_remote_code=True` to allow custom code to be run.",
+      "traceback": "Traceback (most recent call last):\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/cogbench_chain.py\", line 130, in _try\n    \"mc2,none\", \"mc1,none\"):\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/cogbench_chain.py\", line 95, in _run_lm_eval_inprocess\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/lm_eval/utils.py\", line 498, in _wrapper\n    return fn(*args, **kwargs)\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/lm_eval/evaluator.py\", line 292, in simple_evaluate\n    task_dict = get_task_dict(\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 646, in get_task_dict\n    task_name_from_string_dict = task_manager.load_task_or_group(\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 428, in load_task_or_group\n    collections.ChainMap(\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 430, in <lambda>\n    lambda task: self._load_individual_task_or_group(task),\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 328, in _load_individual_task_or_group\n    return _load_task(task_config, task=name_or_config)\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/lm_eval/tasks/__init__.py\", line 288, in _load_task\n    task_object = ConfigurableTask(config=config)\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/lm_eval/api/task.py\", line 748, in __init__\n    self.download(self.config.dataset_kwargs)\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/lm_eval/api/task.py\", line 864, in download\n    self.dataset = datasets.load_dataset(\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/datasets/load.py\", line 2606, in load_dataset\n    builder_instance = load_dataset_builder(\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/datasets/load.py\", line 2277, in load_dataset_builder\n    dataset_module = dataset_module_factory(\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/datasets/load.py\", line 1923, in dataset_module_factory\n    raise e1 from None\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/datasets/load.py\", line 1896, in dataset_module_factory\n    ).get_module()\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/datasets/load.py\", line 1532, in get_module\n    trust_remote_code = resolve_trust_remote_code(self.trust_remote_code, self.name)\n  File \"/path/to/repo/venv/lib/python3.10/site-packages/datasets/load.py\", line 134, in resolve_trust_remote_code\n    raise ValueError(\nValueError: The repository for EleutherAI/hendrycks_ethics contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/EleutherAI/hendrycks_ethics.\nPlease pass the argument `trust_remote_code=True` to allow custom code to be run.\n",
+      "_primitive_or_domain": "Moral"
+    },
+    "hendrycks_math": {
+      "task": "minerva_math",
+      "accuracy": 0.3716,
+      "full_metrics": {
+        "math_verify,none": 0.5272,
+        "math_verify_stderr,none": 0.006425324668903587,
+        "exact_match,none": 0.3716,
+        "exact_match_stderr,none": 0.006432121856058201
+      },
+      "_primitive_or_domain": "Proof"
+    }
+  },
+  "set_b": {
+    "finqa": {
+      "model": "deepseek-r1-distill-qwen-7b",
+      "adapter": null,
+      "accuracy": 0.11,
+      "correct": 22,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 7,
+        "family": "DeepSeek",
+        "arch": "Dense Transformer (Distilled)",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.3330714846818539,
+      "full_metrics": {
+        "acc,none": 0.3330714846818539,
+        "acc_stderr,none": 0.013214928390621038,
+        "acc_norm,none": 0.3330714846818539,
+        "acc_norm_stderr,none": 0.013214928390621038
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.4555665476048973,
+      "full_metrics": {
+        "acc,none": 0.4555665476048973,
+        "acc_stderr,none": 0.015422370819346264
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

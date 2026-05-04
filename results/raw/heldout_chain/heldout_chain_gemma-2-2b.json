@@ -1,0 +1,78 @@
+{
+  "model_key": "gemma-2-2b",
+  "set_a": {
+    "balanced_copa": {
+      "model": "gemma-2-2b",
+      "adapter": null,
+      "overall_accuracy": 0.726,
+      "total": 500,
+      "original_accuracy": 0.726,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.5339018302828619,
+      "full_metrics": {
+        "acc,none": 0.5339018302828619,
+        "acc_stderr,none": 0.007195025584147464
+      },
+      "_primitive_or_domain": "Moral"
+    },
+    "hendrycks_math": {
+      "task": "minerva_math",
+      "accuracy": 0.1584,
+      "full_metrics": {
+        "math_verify,none": 0.1686,
+        "math_verify_stderr,none": 0.005160887362130195,
+        "exact_match,none": 0.1584,
+        "exact_match_stderr,none": 0.005030118542825364
+      },
+      "_primitive_or_domain": "Proof"
+    }
+  },
+  "set_b": {
+    "finqa": {
+      "model": "gemma-2-2b",
+      "adapter": null,
+      "accuracy": 0.04,
+      "correct": 8,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 2,
+        "family": "Google",
+        "arch": "Dense Transformer",
+        "tier": "1.7-3.8B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.3534956794972506,
+      "full_metrics": {
+        "acc,none": 0.3534956794972506,
+        "acc_stderr,none": 0.013403993704415458,
+        "acc_norm,none": 0.3534956794972506,
+        "acc_norm_stderr,none": 0.013403993704415458
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.36262287656992165,
+      "full_metrics": {
+        "acc,none": 0.36262287656992165,
+        "acc_stderr,none": 0.013763817474639901
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

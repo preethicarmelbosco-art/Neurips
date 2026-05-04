@@ -1,0 +1,307 @@
+{
+  "model_key": "mistral-7b-instruct-v0.2",
+  "set_a": {
+    "bigtom": {
+      "model": "mistral-7b-instruct-v0.2",
+      "adapter": null,
+      "overall_accuracy": 0.88,
+      "total": 800,
+      "correct": 704,
+      "by_type": {
+        "forward": {
+          "correct": 374,
+          "total": 402,
+          "accuracy": 0.9303482587064676
+        },
+        "backward": {
+          "correct": 330,
+          "total": 398,
+          "accuracy": 0.8291457286432161
+        }
+      },
+      "_primitive_or_domain": "ToM"
+    },
+    "balanced_copa": {
+      "model": "mistral-7b-instruct-v0.2",
+      "adapter": null,
+      "overall_accuracy": 0.78,
+      "total": 500,
+      "original_accuracy": 0.78,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "stepgame": {
+      "model": "mistral-7b-instruct-v0.2",
+      "adapter": null,
+      "accuracy": 0.162,
+      "correct": 81,
+      "total": 500,
+      "by_steps": {
+        "?": {
+          "correct": 81,
+          "total": 500,
+          "accuracy": 0.162
+        }
+      },
+      "_primitive_or_domain": "Spatial"
+    },
+    "bigbench_strategy": {
+      "task": "bigbench_strategyqa_multiple_choice",
+      "accuracy": 0.6570554827435562,
+      "full_metrics": {
+        "acc,none": 0.6570554827435562,
+        "acc_stderr,none": 0.009923958598113814
+      },
+      "_primitive_or_domain": "Strategic"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.6329034941763727,
+      "full_metrics": {
+        "acc,none": 0.6329034941763727,
+        "acc_stderr,none": 0.006952192854556055
+      },
+      "_primitive_or_domain": "Moral"
+    }
+  },
+  "set_b": {
+    "cybermetric": {
+      "model": "mistral-7b-instruct-v0.2",
+      "adapter": null,
+      "accuracy": 0.44338198288877706,
+      "correct": 881,
+      "total": 1987,
+      "model_metadata": {
+        "size_b": 7,
+        "family": "Mistral",
+        "arch": "Dense Transformer (Instruct)",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Strategic",
+        "Causal",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 1",
+      "_primitive_or_domain": "Cybersecurity"
+    },
+    "legalbench": {
+      "model": "mistral-7b-instruct-v0.2",
+      "adapter": null,
+      "accuracy": 0.36930860033726814,
+      "correct": 657,
+      "total": 1779,
+      "n_tasks_evaluated": 19,
+      "per_task": {
+        "contract_nli_confidentiality_of_agreement": {
+          "correct": 42,
+          "total": 82,
+          "accuracy": 0.5122
+        },
+        "contract_nli_explicit_identification": {
+          "correct": 80,
+          "total": 100,
+          "accuracy": 0.8
+        },
+        "contract_nli_inclusion_of_verbally_conveyed_information": {
+          "correct": 32,
+          "total": 100,
+          "accuracy": 0.32
+        },
+        "contract_nli_limited_use": {
+          "correct": 3,
+          "total": 100,
+          "accuracy": 0.03
+        },
+        "contract_nli_no_licensing": {
+          "correct": 20,
+          "total": 100,
+          "accuracy": 0.2
+        },
+        "contract_nli_notice_on_compelled_disclosure": {
+          "correct": 29,
+          "total": 100,
+          "accuracy": 0.29
+        },
+        "contract_nli_permissible_acquirement_of_similar_information": {
+          "correct": 11,
+          "total": 100,
+          "accuracy": 0.11
+        },
+        "contract_nli_permissible_copy": {
+          "correct": 69,
+          "total": 87,
+          "accuracy": 0.7931
+        },
+        "contract_nli_permissible_development_of_similar_information": {
+          "correct": 32,
+          "total": 100,
+          "accuracy": 0.32
+        },
+        "contract_nli_return_of_confidential_information": {
+          "correct": 34,
+          "total": 66,
+          "accuracy": 0.5152
+        },
+        "contract_nli_sharing_with_employees": {
+          "correct": 12,
+          "total": 100,
+          "accuracy": 0.12
+        },
+        "contract_nli_sharing_with_third-parties": {
+          "correct": 29,
+          "total": 100,
+          "accuracy": 0.29
+        },
+        "contract_nli_survival_of_obligations": {
+          "correct": 26,
+          "total": 100,
+          "accuracy": 0.26
+        },
+        "unfair_tos": {
+          "correct": 1,
+          "total": 100,
+          "accuracy": 0.01
+        },
+        "consumer_contracts_qa": {
+          "correct": 100,
+          "total": 100,
+          "accuracy": 1.0
+        },
+        "abercrombie": {
+          "correct": 19,
+          "total": 95,
+          "accuracy": 0.2
+        },
+        "legal_reasoning_causality": {
+          "correct": 24,
+          "total": 55,
+          "accuracy": 0.4364
+        },
+        "hearsay": {
+          "correct": 53,
+          "total": 94,
+          "accuracy": 0.5638
+        },
+        "nys_judicial_ethics": {
+          "correct": 41,
+          "total": 100,
+          "accuracy": 0.41
+        }
+      },
+      "model_metadata": {
+        "size_b": 7,
+        "family": "Mistral",
+        "arch": "Dense Transformer (Instruct)",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Moral",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 3",
+      "_primitive_or_domain": "Legal"
+    },
+    "finqa": {
+      "model": "mistral-7b-instruct-v0.2",
+      "adapter": null,
+      "accuracy": 0.07,
+      "correct": 14,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 7,
+        "family": "Mistral",
+        "arch": "Dense Transformer (Instruct)",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "bigbench_diplomacy": {
+      "model": "mistral-7b-instruct-v0.2",
+      "adapter": null,
+      "overall_accuracy": 0.456,
+      "total": 500,
+      "correct": 228,
+      "by_label": {
+        "truthful": {
+          "correct": 123,
+          "total": 250,
+          "accuracy": 0.492
+        },
+        "deceptive": {
+          "correct": 105,
+          "total": 250,
+          "accuracy": 0.42
+        }
+      },
+      "_primitive_or_domain": "Diplomacy"
+    },
+    "scienceqa": {
+      "model": "mistral-7b-instruct-v0.2",
+      "adapter": null,
+      "accuracy": 0.756,
+      "correct": 378,
+      "total": 500,
+      "text_only": true,
+      "by_subject": {
+        "language science": {
+          "correct": 186,
+          "total": 247,
+          "accuracy": 0.7530364372469636
+        },
+        "natural science": {
+          "correct": 163,
+          "total": 219,
+          "accuracy": 0.7442922374429224
+        },
+        "social science": {
+          "correct": 29,
+          "total": 34,
+          "accuracy": 0.8529411764705882
+        }
+      },
+      "model_metadata": {
+        "size_b": 7,
+        "family": "Mistral",
+        "arch": "Dense Transformer (Instruct)",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Spatial",
+        "Math"
+      ],
+      "paper_table": "Table 10 Row 7",
+      "_primitive_or_domain": "Scientific"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.5066771406127258,
+      "full_metrics": {
+        "acc,none": 0.5066771406127258,
+        "acc_stderr,none": 0.014018053717479126,
+        "acc_norm,none": 0.5066771406127258,
+        "acc_norm_stderr,none": 0.014018053717479126
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.6817426950145352,
+      "full_metrics": {
+        "acc,none": 0.6817426950145352,
+        "acc_stderr,none": 0.015189537758040215
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "model_key": "gemma-2-27b",
+  "set_a": {
+    "bigtom": {
+      "model": "gemma-2-27b",
+      "adapter": null,
+      "overall_accuracy": 0.5,
+      "total": 800,
+      "correct": 400,
+      "by_type": {
+        "forward": {
+          "correct": 201,
+          "total": 402,
+          "accuracy": 0.5
+        },
+        "backward": {
+          "correct": 199,
+          "total": 398,
+          "accuracy": 0.5
+        }
+      },
+      "_primitive_or_domain": "ToM"
+    },
+    "balanced_copa": {
+      "model": "gemma-2-27b",
+      "adapter": null,
+      "overall_accuracy": 0.804,
+      "total": 500,
+      "original_accuracy": 0.804,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "stepgame": {
+      "model": "gemma-2-27b",
+      "adapter": null,
+      "accuracy": 0.118,
+      "correct": 59,
+      "total": 500,
+      "by_steps": {
+        "?": {
+          "correct": 59,
+          "total": 500,
+          "accuracy": 0.118
+        }
+      },
+      "_primitive_or_domain": "Spatial"
+    },
+    "bigbench_strategy": {
+      "task": "bigbench_strategyqa_multiple_choice",
+      "accuracy": 0.7186544342507645,
+      "full_metrics": {
+        "acc,none": 0.7186544342507645,
+        "acc_stderr,none": 0.00940052442329174
+      },
+      "_primitive_or_domain": "Strategic"
+    },
+    "ethics": {
+      "error": "CUDA out of memory. Tried to allocate 590.00 MiB. GPU 0 has a total capacity of 39.38 GiB of which 523.38 MiB is free. Including non-PyTorch memory, this process has 38.85 GiB memory in use. Of the allocated memory 36.97 GiB is allocated by PyTorch, and 90.86 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+      "traceback": "Traceback (most recent call last):\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/cogbench_chain.py\", line 188, in _try\n    result = fn(*args)\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/cogbench_chain.py\", line 130, in _run_lm_eval_inprocess\n    result = lm_eval.simple_evaluate(\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/utils.py\", line 498, in _wrapper\n    return fn(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/evaluator.py\", line 366, in simple_evaluate\n    results = evaluate(\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/utils.py\", line 498, in _wrapper\n    return fn(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/evaluator.py\", line 595, in evaluate\n    resps = getattr(lm, reqtype)(cloned_reqs)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/api/model.py\", line 452, in loglikelihood\n    return self._loglikelihood_tokens(new_reqs, disable_tqdm=disable_tqdm)\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/models/huggingface.py\", line 1302, in _loglikelihood_tokens\n    self._model_call(batched_inps, **call_kwargs),\n  File \"/path/to/.local/lib/python3.10/site-packages/lm_eval/models/huggingface.py\", line 969, in _model_call\n    return self.model(inps).logits\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/utils/generic.py\", line 940, in wrapper\n    output = func(self, *args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/gemma2/modeling_gemma2.py\", line 565, in forward\n    logits = logits / self.config.final_logit_softcapping\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 590.00 MiB. GPU 0 has a total capacity of 39.38 GiB of which 523.38 MiB is free. Including non-PyTorch memory, this process has 38.85 GiB memory in use. Of the allocated memory 36.97 GiB is allocated by PyTorch, and 90.86 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n",
+      "_primitive_or_domain": "Moral"
+    }
+  },
+  "set_b": {
+    "legalbench": {
+      "model": "gemma-2-27b",
+      "adapter": null,
+      "accuracy": 0.5487804878048781,
+      "correct": 45,
+      "total": 82,
+      "n_tasks_evaluated": 1,
+      "per_task": {
+        "contract_nli_confidentiality_of_agreement": {
+          "correct": 45,
+          "total": 82,
+          "accuracy": 0.5488
+        }
+      },
+      "model_metadata": {
+        "size_b": 27,
+        "family": "Google",
+        "arch": "Dense Transformer",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Moral",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 3",
+      "_primitive_or_domain": "Legal"
+    },
+    "finqa": {
+      "model": "gemma-2-27b",
+      "adapter": null,
+      "accuracy": 0.08,
+      "correct": 16,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 27,
+        "family": "Google",
+        "arch": "Dense Transformer",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "bigbench_diplomacy": {
+      "model": "gemma-2-27b",
+      "adapter": null,
+      "overall_accuracy": 0.542,
+      "total": 500,
+      "correct": 271,
+      "by_label": {
+        "truthful": {
+          "correct": 235,
+          "total": 250,
+          "accuracy": 0.94
+        },
+        "deceptive": {
+          "correct": 36,
+          "total": 250,
+          "accuracy": 0.144
+        }
+      },
+      "_primitive_or_domain": "Diplomacy"
+    },
+    "scienceqa": {
+      "model": "gemma-2-27b",
+      "adapter": null,
+      "accuracy": 0.526,
+      "correct": 263,
+      "total": 500,
+      "text_only": true,
+      "by_subject": {
+        "language science": {
+          "correct": 121,
+          "total": 247,
+          "accuracy": 0.4898785425101215
+        },
+        "natural science": {
+          "correct": 126,
+          "total": 219,
+          "accuracy": 0.5753424657534246
+        },
+        "social science": {
+          "correct": 16,
+          "total": 34,
+          "accuracy": 0.47058823529411764
+        }
+      },
+      "model_metadata": {
+        "size_b": 27,
+        "family": "Google",
+        "arch": "Dense Transformer",
+        "tier": "27-72B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Spatial",
+        "Math"
+      ],
+      "paper_table": "Table 10 Row 7",
+      "_primitive_or_domain": "Scientific"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.4774521627948839,
+      "full_metrics": {
+        "acc,none": 0.4774521627948839,
+        "acc_stderr,none": 0.014336242824277144
+      },
+      "_primitive_or_domain": "Safety"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.6543597800471328,
+      "full_metrics": {
+        "acc,none": 0.6543597800471328,
+        "acc_stderr,none": 0.013334504419005308,
+        "acc_norm,none": 0.6543597800471328,
+        "acc_norm_stderr,none": 0.013334504419005308
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "cybermetric": {
+      "error": "CUDA out of memory. Tried to allocate 652.00 MiB. GPU 0 has a total capacity of 39.38 GiB of which 423.38 MiB is free. Including non-PyTorch memory, this process has 38.95 GiB memory in use. Of the allocated memory 37.06 GiB is allocated by PyTorch, and 89.66 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+      "traceback": "Traceback (most recent call last):\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/cogbench_chain.py\", line 188, in _try\n    result = fn(*args)\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/cogbench_chain.py\", line 106, in _run_custom\n    return mod.run_heldout(model, tokenizer, model_key, **kwargs)\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/eval_cybermetric.py\", line 102, in run_heldout\n    score = compute_choice_log_prob(model, tokenizer, prompt, letter, device)\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/../../evaluation/scripts/eval_cybermetric.py\", line 64, in compute_choice_log_prob\n    return choice_logprob(model, tokenizer, prompt, choice_text, device, reduce=\"byte_mean\")\n  File \"/path/to/repo/qdora-compiler/evaluation/scripts/_logprob_helpers.py\", line 123, in choice_logprob\n    logits = model(full_ids).logits\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/path/to/vllm_site/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/path/to/.local/lib/python3.10/site-packages/accelerate/hooks.py\", line 192, in new_forward\n    output = module._old_forward(*args, **kwargs)\n  File \"/path/to/vllm_site/transformers/utils/generic.py\", line 940, in wrapper\n    output = func(self, *args, **kwargs)\n  File \"/path/to/vllm_site/transformers/models/gemma2/modeling_gemma2.py\", line 565, in forward\n    logits = logits / self.config.final_logit_softcapping\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 652.00 MiB. GPU 0 has a total capacity of 39.38 GiB of which 423.38 MiB is free. Including non-PyTorch memory, this process has 38.95 GiB memory in use. Of the allocated memory 37.06 GiB is allocated by PyTorch, and 89.66 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n",
+      "_primitive_or_domain": "Cybersecurity"
+    }
+  }
+}

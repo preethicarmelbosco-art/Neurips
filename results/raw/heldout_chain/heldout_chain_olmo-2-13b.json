@@ -1,0 +1,217 @@
+{
+  "model_key": "olmo-2-13b",
+  "set_a": {
+    "bigtom": {
+      "model": "olmo-2-13b",
+      "adapter": null,
+      "overall_accuracy": 0.85875,
+      "total": 800,
+      "correct": 687,
+      "by_type": {
+        "forward": {
+          "correct": 363,
+          "total": 402,
+          "accuracy": 0.9029850746268657
+        },
+        "backward": {
+          "correct": 324,
+          "total": 398,
+          "accuracy": 0.8140703517587939
+        }
+      },
+      "_primitive_or_domain": "ToM"
+    },
+    "balanced_copa": {
+      "model": "olmo-2-13b",
+      "adapter": null,
+      "overall_accuracy": 0.786,
+      "total": 500,
+      "original_accuracy": 0.786,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "stepgame": {
+      "model": "olmo-2-13b",
+      "adapter": null,
+      "accuracy": 0.16,
+      "correct": 80,
+      "total": 500,
+      "by_steps": {
+        "?": {
+          "correct": 80,
+          "total": 500,
+          "accuracy": 0.16
+        }
+      },
+      "_primitive_or_domain": "Spatial"
+    },
+    "bigbench_strategy": {
+      "task": "bigbench_strategyqa_multiple_choice",
+      "accuracy": 0.6474442988204456,
+      "full_metrics": {
+        "acc,none": 0.6474442988204456,
+        "acc_stderr,none": 0.009988196240410455
+      },
+      "_primitive_or_domain": "Strategic"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.7603993344425957,
+      "full_metrics": {
+        "acc,none": 0.7603993344425957,
+        "acc_stderr,none": 0.006156413941869623
+      },
+      "_primitive_or_domain": "Moral"
+    }
+  },
+  "set_b": {
+    "cybermetric": {
+      "model": "olmo-2-13b",
+      "adapter": null,
+      "accuracy": 0.3719174635128334,
+      "correct": 739,
+      "total": 1987,
+      "model_metadata": {
+        "size_b": 13,
+        "family": "AI2",
+        "arch": "Dense Transformer",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Strategic",
+        "Causal",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 1",
+      "_primitive_or_domain": "Cybersecurity"
+    },
+    "legalbench": {
+      "model": "olmo-2-13b",
+      "adapter": null,
+      "accuracy": 0.524390243902439,
+      "correct": 43,
+      "total": 82,
+      "n_tasks_evaluated": 1,
+      "per_task": {
+        "contract_nli_confidentiality_of_agreement": {
+          "correct": 43,
+          "total": 82,
+          "accuracy": 0.5244
+        }
+      },
+      "model_metadata": {
+        "size_b": 13,
+        "family": "AI2",
+        "arch": "Dense Transformer",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Moral",
+        "ToM"
+      ],
+      "paper_table": "Table 10 Row 3",
+      "_primitive_or_domain": "Legal"
+    },
+    "finqa": {
+      "model": "olmo-2-13b",
+      "adapter": null,
+      "accuracy": 0.11,
+      "correct": 22,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 13,
+        "family": "AI2",
+        "arch": "Dense Transformer",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "bigbench_diplomacy": {
+      "model": "olmo-2-13b",
+      "adapter": null,
+      "overall_accuracy": 0.486,
+      "total": 500,
+      "correct": 243,
+      "by_label": {
+        "truthful": {
+          "correct": 5,
+          "total": 250,
+          "accuracy": 0.02
+        },
+        "deceptive": {
+          "correct": 238,
+          "total": 250,
+          "accuracy": 0.952
+        }
+      },
+      "_primitive_or_domain": "Diplomacy"
+    },
+    "scienceqa": {
+      "model": "olmo-2-13b",
+      "adapter": null,
+      "accuracy": 0.738,
+      "correct": 369,
+      "total": 500,
+      "text_only": true,
+      "by_subject": {
+        "language science": {
+          "correct": 160,
+          "total": 247,
+          "accuracy": 0.6477732793522267
+        },
+        "natural science": {
+          "correct": 178,
+          "total": 219,
+          "accuracy": 0.8127853881278538
+        },
+        "social science": {
+          "correct": 31,
+          "total": 34,
+          "accuracy": 0.9117647058823529
+        }
+      },
+      "model_metadata": {
+        "size_b": 13,
+        "family": "AI2",
+        "arch": "Dense Transformer",
+        "tier": "12-14B"
+      },
+      "hypothesis": [
+        "Causal",
+        "Spatial",
+        "Math"
+      ],
+      "paper_table": "Table 10 Row 7",
+      "_primitive_or_domain": "Scientific"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.5017707552399432,
+      "full_metrics": {
+        "acc,none": 0.5017707552399432,
+        "acc_stderr,none": 0.014376503697339501
+      },
+      "_primitive_or_domain": "Safety"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.5223880597014925,
+      "full_metrics": {
+        "acc,none": 0.5223880597014925,
+        "acc_stderr,none": 0.014005243143946815,
+        "acc_norm,none": 0.5223880597014925,
+        "acc_norm_stderr,none": 0.014005243143946815
+      },
+      "_primitive_or_domain": "Medical"
+    }
+  }
+}

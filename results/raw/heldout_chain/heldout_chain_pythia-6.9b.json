@@ -1,0 +1,78 @@
+{
+  "model_key": "pythia-6.9b",
+  "set_a": {
+    "balanced_copa": {
+      "model": "pythia-6.9b",
+      "adapter": null,
+      "overall_accuracy": 0.7,
+      "total": 500,
+      "original_accuracy": 0.7,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.5116472545757071,
+      "full_metrics": {
+        "acc,none": 0.5116472545757071,
+        "acc_stderr,none": 0.007209664904726918
+      },
+      "_primitive_or_domain": "Moral"
+    },
+    "hendrycks_math": {
+      "task": "minerva_math",
+      "accuracy": 0.0154,
+      "full_metrics": {
+        "exact_match,none": 0.0154,
+        "exact_match_stderr,none": 0.0017408298612997808,
+        "math_verify,none": 0.0286,
+        "math_verify_stderr,none": 0.002353716388376315
+      },
+      "_primitive_or_domain": "Proof"
+    }
+  },
+  "set_b": {
+    "finqa": {
+      "model": "pythia-6.9b",
+      "adapter": null,
+      "accuracy": 0.015,
+      "correct": 3,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 6.9,
+        "family": "EleutherAI",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.23016496465043204,
+      "full_metrics": {
+        "acc,none": 0.23016496465043204,
+        "acc_stderr,none": 0.011802523904539066,
+        "acc_norm,none": 0.23016496465043204,
+        "acc_norm_stderr,none": 0.011802523904539066
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.36287465710905425,
+      "full_metrics": {
+        "acc,none": 0.36287465710905425,
+        "acc_stderr,none": 0.01366154106264446
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

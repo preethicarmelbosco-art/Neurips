@@ -1,0 +1,78 @@
+{
+  "model_key": "granite-3.1-8b",
+  "set_a": {
+    "balanced_copa": {
+      "model": "granite-3.1-8b",
+      "adapter": null,
+      "overall_accuracy": 0.742,
+      "total": 500,
+      "original_accuracy": 0.742,
+      "mirrored_accuracy": 0,
+      "original_total": 500,
+      "mirrored_total": 0,
+      "_primitive_or_domain": "Causal"
+    },
+    "ethics": {
+      "task": "ethics_utilitarianism",
+      "accuracy": 0.5388935108153078,
+      "full_metrics": {
+        "acc,none": 0.5388935108153078,
+        "acc_stderr,none": 0.007189770586408234
+      },
+      "_primitive_or_domain": "Moral"
+    },
+    "hendrycks_math": {
+      "task": "minerva_math",
+      "accuracy": 0.2854,
+      "full_metrics": {
+        "math_verify,none": 0.3032,
+        "math_verify_stderr,none": 0.006231503292486368,
+        "exact_match,none": 0.2854,
+        "exact_match_stderr,none": 0.006107779911105667
+      },
+      "_primitive_or_domain": "Proof"
+    }
+  },
+  "set_b": {
+    "finqa": {
+      "model": "granite-3.1-8b",
+      "adapter": null,
+      "accuracy": 0.065,
+      "correct": 13,
+      "total": 200,
+      "model_metadata": {
+        "size_b": 8,
+        "family": "IBM",
+        "arch": "Dense Transformer",
+        "tier": "7-9B"
+      },
+      "hypothesis": [
+        "Math",
+        "Strategic",
+        "Causal"
+      ],
+      "paper_table": "Table 10 Row 5",
+      "_primitive_or_domain": "Financial"
+    },
+    "medqa": {
+      "task": "medqa_4options",
+      "accuracy": 0.4996072270227808,
+      "full_metrics": {
+        "acc,none": 0.4996072270227808,
+        "acc_stderr,none": 0.014019299526767452,
+        "acc_norm,none": 0.4996072270227808,
+        "acc_norm_stderr,none": 0.014019299526767452
+      },
+      "_primitive_or_domain": "Medical"
+    },
+    "truthfulqa": {
+      "task": "truthfulqa_mc2",
+      "accuracy": 0.513714578632158,
+      "full_metrics": {
+        "acc,none": 0.513714578632158,
+        "acc_stderr,none": 0.01490914314498032
+      },
+      "_primitive_or_domain": "Safety"
+    }
+  }
+}

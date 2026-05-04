@@ -1,133 +1,205 @@
 {
-  "Cybersecurity": {
-    "n": 34,
-    "r2_cv": 0.40404330223875795,
-    "r2_baseline": 0.3730164833152545,
-    "delta_r2_cv": 0.031026818923503452,
-    "betas": {
-      "ToM_CA": -0.017718938149191465,
-      "Causal_CA": -0.05601784027751257,
-      "Strategic_CA": -0.041753875572356644,
-      "ToM_target": 0.0903653828312814,
-      "Causal_target": 0.07225211394256424,
-      "Strategic_target": 0.06327061023046816,
-      "Null_CA": 0.029869810210521517,
-      "Null_target": 0.010642712110629499
+  "n_models": 42,
+  "models": [
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-v2-lite",
+    "falcon-40b",
+    "falcon-7b",
+    "falcon-mamba-7b",
+    "falcon3-7b-base",
+    "gemma-2-27b-it",
+    "gemma-2-27b",
+    "gemma-2-2b",
+    "gemma-2-9b-it",
+    "gemma-2-9b",
+    "granite-3.0-8b",
+    "granite-3.1-2b",
+    "granite-3.1-8b",
+    "llama-3-70b",
+    "llama-3-8b",
+    "llama-3.1-8b-instruct",
+    "llama-3.2-1b",
+    "llama-3.2-3b",
+    "mamba-2.8b",
+    "mistral-7b-instruct-v0.2",
+    "mistral-7b",
+    "mistral-nemo-12b-base",
+    "olmo-2-13b",
+    "olmo-2-7b",
+    "olmo-7b",
+    "phi-3-medium",
+    "phi-3-mini",
+    "phi-3.5-mini",
+    "pythia-6.9b",
+    "qwen-2-7b",
+    "qwen-2.5-1.5b",
+    "qwen-2.5-14b-instruct",
+    "qwen-2.5-14b",
+    "qwen-2.5-32b-instruct-awq",
+    "qwen-2.5-3b",
+    "qwen-2.5-7b",
+    "smollm-1.7b",
+    "smollm-360m",
+    "yi-1.5-34b-chat",
+    "yi-1.5-34b",
+    "yi-1.5-9b"
+  ],
+  "results": {
+    "cybermetric": {
+      "X0_baseline": {
+        "r2": 0.2715397151640465,
+        "n": 27
+      },
+      "X1_CA_only": {
+        "r2": 0.030989769117122923,
+        "n": 27
+      },
+      "X2_CA_plus_target": {
+        "r2": 0.4480970392158913,
+        "n": 27
+      },
+      "X3_CA_plus_retain_cov": {
+        "r2": 0.2540663828329073,
+        "n": 27
+      },
+      "X4_normalized_CA": {
+        "r2": 0.207798270021897,
+        "n": 27
+      },
+      "X5_logit_CA": {
+        "r2": 0.08453700545296039,
+        "n": 27
+      }
     },
-    "primitives": [
-      "ToM_CA",
-      "Causal_CA",
-      "Strategic_CA"
-    ]
-  },
-  "Medical": {
-    "n": 35,
-    "r2_cv": 0.6165005404625274,
-    "r2_baseline": 0.12929624134207718,
-    "delta_r2_cv": 0.48720429912045027,
-    "betas": {
-      "Causal_CA": -0.0647012195733217,
-      "Moral_CA": 0.02177855699006902,
-      "Spatial_CA": 0.02373840884988692,
-      "Causal_target": 0.1825898071120561,
-      "Moral_target": 0.12885807168649027,
-      "Spatial_target": 0.0581991934346285,
-      "Null_CA": -0.056866333826693455,
-      "Null_target": 0.10527580469943591
+    "legalbench": {
+      "X0_baseline": {
+        "r2": -0.08846948212407635,
+        "n": 29
+      },
+      "X1_CA_only": {
+        "r2": -0.05285180936345335,
+        "n": 29
+      },
+      "X2_CA_plus_target": {
+        "r2": -0.13081794929649138,
+        "n": 29
+      },
+      "X3_CA_plus_retain_cov": {
+        "r2": -0.06234166423000409,
+        "n": 29
+      },
+      "X4_normalized_CA": {
+        "r2": -0.16772431145885625,
+        "n": 29
+      },
+      "X5_logit_CA": {
+        "r2": -0.2655769725248214,
+        "n": 29
+      }
     },
-    "primitives": [
-      "Causal_CA",
-      "Moral_CA",
-      "Spatial_CA"
-    ]
-  },
-  "Legal": {
-    "n": 36,
-    "r2_cv": -0.11051916116275673,
-    "r2_baseline": -0.06337706291060252,
-    "delta_r2_cv": -0.04714209825215421,
-    "betas": {
-      "Moral_CA": 0.08640260616660324,
-      "Moral_target": 0.017701576827947648,
-      "Null_CA": -0.029215905882421,
-      "Null_target": 0.006012683429278779
+    "finqa": {
+      "X0_baseline": {
+        "r2": -0.021635316881470024,
+        "n": 41
+      },
+      "X1_CA_only": {
+        "r2": 0.06740535936481351,
+        "n": 41
+      },
+      "X2_CA_plus_target": {
+        "r2": 0.1826708259460723,
+        "n": 41
+      },
+      "X3_CA_plus_retain_cov": {
+        "r2": 0.1367579620510918,
+        "n": 41
+      },
+      "X4_normalized_CA": {
+        "r2": 0.11777957603009614,
+        "n": 41
+      },
+      "X5_logit_CA": {
+        "r2": 0.03588624077642333,
+        "n": 41
+      }
     },
-    "primitives": [
-      "Moral_CA"
-    ]
-  },
-  "Safety": {
-    "n": 36,
-    "r2_cv": 0.6325491564165452,
-    "r2_baseline": 0.4005869878388876,
-    "delta_r2_cv": 0.2319621685776576,
-    "betas": {
-      "ToM_CA": -0.02523908623551176,
-      "Moral_CA": -0.013544579494356952,
-      "Strategic_CA": -0.002020561042852609,
-      "ToM_target": 0.09780263364199221,
-      "Moral_target": 0.12552522079948938,
-      "Strategic_target": 0.09377887209486763,
-      "Null_CA": 0.011767379530057631,
-      "Null_target": -0.020530097980631774
+    "scienceqa": {
+      "X0_baseline": {
+        "r2": 0.2544764752879617,
+        "n": 28
+      },
+      "X1_CA_only": {
+        "r2": -0.003909296366592763,
+        "n": 28
+      },
+      "X2_CA_plus_target": {
+        "r2": 0.3856366544749267,
+        "n": 28
+      },
+      "X3_CA_plus_retain_cov": {
+        "r2": 0.20759720937384685,
+        "n": 28
+      },
+      "X4_normalized_CA": {
+        "r2": 0.39650237223661533,
+        "n": 28
+      },
+      "X5_logit_CA": {
+        "r2": 0.2630867980625802,
+        "n": 28
+      }
     },
-    "primitives": [
-      "ToM_CA",
-      "Moral_CA",
-      "Strategic_CA"
-    ]
-  },
-  "Financial": {
-    "n": 35,
-    "r2_cv": 0.1673412028915462,
-    "r2_baseline": -0.013296066976731247,
-    "delta_r2_cv": 0.18063726986827744,
-    "betas": {
-      "ToM_CA": -0.0017339895690313765,
-      "Causal_CA": -0.005463691179699914,
-      "Strategic_CA": 0.021527704283076408,
-      "ToM_target": 0.02749796746610798,
-      "Causal_target": 0.03899025054420153,
-      "Strategic_target": 0.011727993147062634,
-      "Null_CA": -0.04937873830037305,
-      "Null_target": 0.05180517969273132
+    "medqa": {
+      "X0_baseline": {
+        "r2": 0.17194266913937584,
+        "n": 40
+      },
+      "X1_CA_only": {
+        "r2": 0.17815215341711843,
+        "n": 40
+      },
+      "X2_CA_plus_target": {
+        "r2": 0.6487140853708351,
+        "n": 40
+      },
+      "X3_CA_plus_retain_cov": {
+        "r2": 0.5086876290775142,
+        "n": 40
+      },
+      "X4_normalized_CA": {
+        "r2": 0.5361236194308108,
+        "n": 40
+      },
+      "X5_logit_CA": {
+        "r2": 0.05884207077124204,
+        "n": 40
+      }
     },
-    "primitives": [
-      "ToM_CA",
-      "Causal_CA",
-      "Strategic_CA"
-    ]
-  },
-  "Diplomacy": {
-    "n": 36,
-    "r2_cv": 0.010671541634985293,
-    "r2_baseline": NaN,
-    "delta_r2_cv": null,
-    "betas": {
-      "Null_CA": -0.024460009420090825,
-      "Null_target": 0.015864532844225267
-    },
-    "primitives": []
-  },
-  "Scientific": {
-    "n": 35,
-    "r2_cv": 0.3508948228571016,
-    "r2_baseline": 0.36676552419508535,
-    "delta_r2_cv": -0.01587070133798374,
-    "betas": {
-      "ToM_CA": -0.00035107500222416964,
-      "Causal_CA": -0.1272100901581503,
-      "Spatial_CA": 0.06903236961389787,
-      "ToM_target": 0.1897939049723108,
-      "Causal_target": 0.1670284176463102,
-      "Spatial_target": 0.04284392618674923,
-      "Null_CA": 0.021978793168744286,
-      "Null_target": 0.044727902592076214
-    },
-    "primitives": [
-      "ToM_CA",
-      "Causal_CA",
-      "Spatial_CA"
-    ]
+    "truthfulqa": {
+      "X0_baseline": {
+        "r2": 0.3000504223273964,
+        "n": 41
+      },
+      "X1_CA_only": {
+        "r2": 0.17908883968599376,
+        "n": 41
+      },
+      "X2_CA_plus_target": {
+        "r2": 0.7074516200056962,
+        "n": 41
+      },
+      "X3_CA_plus_retain_cov": {
+        "r2": 0.4696116649793911,
+        "n": 41
+      },
+      "X4_normalized_CA": {
+        "r2": 0.6406998092592061,
+        "n": 41
+      },
+      "X5_logit_CA": {
+        "r2": 0.2864379225471968,
+        "n": 41
+      }
+    }
   }
 }

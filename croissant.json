@@ -52,13 +52,13 @@
   },
   "@type": "sc:Dataset",
   "conformsTo": "http://mlcommons.org/croissant/1.1",
-  "name": "CogBench",
-  "description": "CogBench: a contrastive corpus suite for cognitive-circuit analysis in language models. Eight primary synthetic contrastive corpora spanning applied scientific reasoning (SPL-CC), theory of mind (ToM-CC), causal-temporal reasoning (CTR-CC), moral reasoning (MOR-CC), strategic reasoning (STR-CC), stepwise planning (STP-CC), core mathematics (CoreMath), and a negative-control null corpus (NULL-CC); plus a COIN (Contrast) family with five theme-matched partner sub-corpora (CAU_COIN, MOR_COIN, STP_COIN, STR_COIN, TOM_COIN) whose target/retain pairs are complete opposites — like sides of a coin. Each record is a matched target/retain text pair: the target exercises a specific cognitive skill and the retain is a content-matched control lacking that skill. The suite supports mechanistic interpretability via Sparse Autoencoder (SAE) analysis and quantitative Cognitive Absorption (CA) measurement of scaffolding dependence. Data files are licensed under CC BY 4.0; accompanying generation, evaluation, and training code (shipped alongside in the same bundle) is separately licensed under the Apache License 2.0.",
+  "name": "CogniPrimitiveBench",
+  "description": "CogniPrimitiveBench: a contrastive corpus suite for cognitive-circuit analysis in language models. Eight primary synthetic contrastive corpora spanning applied scientific reasoning (SPL-CC), theory of mind (ToM-CC), causal-temporal reasoning (CTR-CC), moral reasoning (MOR-CC), strategic reasoning (STR-CC), stepwise planning (STP-CC), core mathematics (CoreMath), and a negative-control null corpus (NULL-CC); plus a COIN (Contrast) family with five theme-matched partner sub-corpora (CAU_COIN, MOR_COIN, STP_COIN, STR_COIN, TOM_COIN) whose target/retain pairs are complete opposites — like sides of a coin. Each record is a matched target/retain text pair: the target exercises a specific cognitive skill and the retain is a content-matched control lacking that skill. The suite supports mechanistic interpretability via Sparse Autoencoder (SAE) analysis and quantitative Cognitive Absorption (CA) measurement of scaffolding dependence. Data files are licensed under CC BY 4.0; accompanying generation, evaluation, and training code (shipped alongside in the same bundle) is separately licensed under the Apache License 2.0.",
   "url": "https://anonymous.4open.science/r/12321_cogbench_primitive",
   "sameAs": "https://anonymous.4open.science/r/12321_cogbench_primitive",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "sdLicense": "https://creativecommons.org/licenses/by/4.0/",
-  "citeAs": "@inproceedings{anonymous2026cogbench,\n  title={CogBench: Contrastive Corpora for Cognitive-Circuit Analysis in Language Models},\n  author={Anonymous Authors},\n  booktitle={Submitted to the NeurIPS 2026 Track on Datasets and Benchmarks},\n  year={2026},\n  note={Under double-blind review}\n}",
+  "citeAs": "@inproceedings{anonymous2026cogniprimitivebench,\n  title={CogniPrimitiveBench: Contrastive Corpora for Cognitive-Circuit Analysis in Language Models},\n  author={Anonymous Authors},\n  booktitle={Submitted to the NeurIPS 2026 Track on Datasets and Benchmarks},\n  year={2026},\n  note={Under double-blind review}\n}",
   "creator": {
     "@type": "sc:Person",
     "name": "Anonymous"
@@ -142,7 +142,7 @@
   "prov:wasGeneratedBy": {
     "@type": "prov:Activity",
     "name": "Synthetic generation by an open-weights teacher LLM with multi-judge LLM panel validation",
-    "description": "Every record in CogBench was produced by a single open-weights teacher language model served via a local inference stack with schema-validating structured output. Each generated pair then passed a deterministic regex gate followed by an unanimous-vote panel of two open-weights judge LLMs (Qwen-2.5-14B-Instruct and Mistral-Nemo-12B-Instruct). Pairs failing either stage were discarded. No human-written content is included. See rai:dataCollection, rai:dataPreprocessingProtocol, and rai:machineAnnotationTools for the full pipeline."
+    "description": "Every record in CogniPrimitiveBench was produced by a single open-weights teacher language model served via a local inference stack with schema-validating structured output. Each generated pair then passed a deterministic regex gate followed by an unanimous-vote panel of two open-weights judge LLMs (Qwen-2.5-14B-Instruct and Mistral-Nemo-12B-Instruct). Pairs failing either stage were discarded. No human-written content is included. See rai:dataCollection, rai:dataPreprocessingProtocol, and rai:machineAnnotationTools for the full pipeline."
   },
   "distribution": [
     {

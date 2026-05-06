@@ -1,4 +1,4 @@
-# Datasheet for CogBench v1.1.0
+# Datasheet for CogniPrimitiveBench v1.1.0
 
 Following the "Datasheets for Datasets" template of Gebru et al. (2018,
 *Commun. ACM*, 2021). All author-identifying information has been redacted
@@ -10,11 +10,11 @@ for double-blind review.
 
 ### For what purpose was the dataset created?
 
-CogBench was created to support **mechanistic interpretability** and
+CogniPrimitiveBench was created to support **mechanistic interpretability** and
 **contrastive fine-tuning** research on language models. Existing capability
 benchmarks conflate raw task accuracy with the strength of the scaffolding
 (context, chain-of-thought, instruction templates) that surrounds the task.
-CogBench introduces matched **target / retain** pairs that let researchers
+CogniPrimitiveBench introduces matched **target / retain** pairs that let researchers
 quantify how much of a model's competence is internalized vs. scaffolding-
 dependent — operationalized as **Cognitive Absorption (CA)**.
 
@@ -244,7 +244,7 @@ Will be maintained at the camera-ready hosting URL.
 ### Is there anything about the composition of the dataset or the way it was collected that might impact future uses?
 
 The single-generator bias means downstream work should **not** claim
-capability measurement on CogBench alone; pair with human-authored
+capability measurement on CogniPrimitiveBench alone; pair with human-authored
 capability benchmarks. The diagnostic contract assumes paired use of
 `target` and `retain` splits — using `target` as a stand-alone training
 corpus is out of scope.

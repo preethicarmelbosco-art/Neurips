@@ -1,4 +1,4 @@
-# Recipes — using the CogBench bundle
+# Recipes — using the CogniPrimitiveBench bundle
 
 Worked recipes that mirror Appendix A of the paper. Each recipe lists the
 artefacts used, the commands to run, and what to expect as output.
@@ -228,7 +228,7 @@ python code/Lora/evaluate.py \
 ```
 
 If accuracy *rises* on BigToM after target-only LoRA, your corpus is a
-stylistic shortcut. CogBench's three architectures all *degrade*
+stylistic shortcut. CogniPrimitiveBench's three architectures all *degrade*
 ($-12$ to $-50$ pp) — signal lives in the contrastive structure.
 
 ---
@@ -284,7 +284,7 @@ If you use any of these recipes, cite:
 
 ```bibtex
 @inproceedings{cogbench2026,
-  title={CogBench: A Decompositional Benchmark for Cognitive Reasoning in Large Language Models},
+  title={CogniPrimitiveBench: A Decompositional Benchmark for Cognitive Reasoning in Large Language Models},
   author={Anonymous},
   booktitle={Conference on Neural Information Processing Systems (NeurIPS) -- Track on Evaluations and Datasets},
   year={2026},

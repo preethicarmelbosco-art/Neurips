@@ -1,4 +1,4 @@
-# CogBench v1.1.0 — anonymous NeurIPS 2026 Datasets & Benchmarks submission
+# CogniPrimitiveBench v1.1.0 — anonymous NeurIPS 2026 Datasets & Benchmarks submission
 
 Contrastive corpus suite for cognitive-circuit analysis in language
 models. This directory is the **reviewer-accessible bundle** pointed at
@@ -156,7 +156,7 @@ The 8 analysis scripts under `code/analysis/` are runnable independently
 and read only from `results/`. They reproduce numbers within bootstrap
 variance of the values reported in the paper.
 
-### 1. Score my model on CogBench (quickstart — no judge panel)
+### 1. Score my model on CogniPrimitiveBench (quickstart — no judge panel)
 
 ```bash
 # Laptop, no GPU, ~2 minutes — produces a real CA number.
@@ -180,7 +180,7 @@ python load_cogbench.py --corpus tom_cc --split bench --limit 3
 
 As a library: `from load_cogbench import load_split, list_corpora`.
 
-### 3. Full CogBench evaluation (judge-graded, all 9 corpora)
+### 3. Full CogniPrimitiveBench evaluation (judge-graded, all 9 corpora)
 
 ```bash
 cd code/cogbench
@@ -200,7 +200,7 @@ python judge_calibration.py --generate-gold --calibrate --all-corpora \
 All gold-answer generation and judging is done with local open-weights
 LLMs — no commercial APIs anywhere in the pipeline.
 
-### 5. LoRA fine-tune on CogBench target text
+### 5. LoRA fine-tune on CogniPrimitiveBench target text
 
 ```bash
 cd code/Lora
@@ -254,7 +254,7 @@ measurement, contrastive fine-tuning research, negative-control
 experiments.
 
 **Do not use for**: ranking "model intelligence" on a public leaderboard
-(CogBench is diagnostic, not a capability ranking), evaluating frontier
+(CogniPrimitiveBench is diagnostic, not a capability ranking), evaluating frontier
 research mathematics (CoreMath is textbook/competition-grade), or any
 use that treats retain accuracy as a failure signal (it is a control).
 

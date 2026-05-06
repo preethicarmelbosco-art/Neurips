@@ -104,7 +104,7 @@ def _ols(y: np.ndarray, x: np.ndarray) -> tuple[float, float, float]:
     return float(slope), float(intercept), float(r2)
 
 
-def _bootstrap_slope_ci(y: np.ndarray, x: np.ndarray, n_boot: int = 1000,
+def _bootstrap_slope_ci(y: np.ndarray, x: np.ndarray, n_boot: int = 10000,
                        seed: int = 0) -> tuple[float, float]:
     rng = np.random.default_rng(seed)
     n = len(y)
@@ -118,6 +118,47 @@ def _bootstrap_slope_ci(y: np.ndarray, x: np.ndarray, n_boot: int = 1000,
             slopes[i] = np.nan
             continue
         slopes[i] = np.polyfit(xb, yb, 1)[0]
+    slopes = slopes[~np.isnan(slopes)]
+    if len(slopes) < 10:
+        return float("nan"), float("nan")
+    lo, hi = np.percentile(slopes, [2.5, 97.5])
+    return float(lo), float(hi)
+
+
+def _bootstrap_family_fe_slope_ci(df_p: pd.DataFrame, n_boot: int = 10000,
+                                  seed: int = 0) -> tuple[float, float]:
+    """Bootstrap 95% CI on the family-FE slope.
+
+    Resamples rows with replacement, refits CA ~ log_params + family_dummies,
+    extracts the slope on log_params, takes 2.5/97.5 percentiles.
+    """
+    rng = np.random.default_rng(seed)
+    counts = df_p.groupby("family")["size_b"].nunique()
+    keep = counts[counts >= 2].index
+    d = df_p[df_p["family"].isin(keep)].reset_index(drop=True)
+    n = len(d)
+    if n < 6 or d["family"].nunique() < 2:
+        return float("nan"), float("nan")
+    slopes = np.empty(n_boot)
+    for i in range(n_boot):
+        idx = rng.integers(0, n, n)
+        db = d.iloc[idx]
+        # Need >=2 distinct log_params in resample
+        if db["log_params"].nunique() < 2 or db["family"].nunique() < 2:
+            slopes[i] = np.nan
+            continue
+        try:
+            fam_dummies = pd.get_dummies(db["family"], drop_first=True).astype(float)
+            X = np.column_stack([
+                np.ones(len(db)),
+                db["log_params"].to_numpy(dtype=float),
+                fam_dummies.to_numpy(),
+            ])
+            y = db["ca"].to_numpy(dtype=float)
+            beta, *_ = np.linalg.lstsq(X, y, rcond=None)
+            slopes[i] = float(beta[1])
+        except (np.linalg.LinAlgError, ValueError):
+            slopes[i] = np.nan
     slopes = slopes[~np.isnan(slopes)]
     if len(slopes) < 10:
         return float("nan"), float("nan")
@@ -185,6 +226,7 @@ def analyze(df: pd.DataFrame) -> pd.DataFrame:
         slope, intercept, r2 = _ols(y, x)
         ci_lo, ci_hi = _bootstrap_slope_ci(y, x)
         fe_slope, fe_r2 = _family_fe_slope(d)
+        fe_ci_lo, fe_ci_hi = _bootstrap_family_fe_slope_ci(d)
         mm_slope, mm_se, n_fam = _mixed_model_slope(d)
         # families with ≥2 scale points
         counts = d.groupby("family")["size_b"].nunique()
@@ -202,6 +244,8 @@ def analyze(df: pd.DataFrame) -> pd.DataFrame:
             "pooled_slope_ci_hi": ci_hi,
             "family_fe_slope": fe_slope,
             "family_fe_r2": fe_r2,
+            "family_fe_slope_ci_lo": fe_ci_lo,
+            "family_fe_slope_ci_hi": fe_ci_hi,
             "mixed_slope": mm_slope,
             "mixed_slope_se": mm_se,
             "mixed_n_families": n_fam,
